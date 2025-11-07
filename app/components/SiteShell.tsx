@@ -34,9 +34,50 @@ const sidebarSpotlight = [
   }
 ];
 const sidebarWidgets = [
-  "Widget Slot: Galactic Job Board",
-  "Widget Slot: Live Hackathons",
-  "Widget Slot: Loot Drops & Swag",
+  {
+    title: "TechCrunch",
+    link: "https://techcrunch.com"
+  },
+  {
+    title: "The Verge",
+    link: "https://www.theverge.com"
+  },
+  {
+    title: "Wired",
+    link: "https://www.wired.com"
+  },
+  {
+    title: "Engadget",
+    link: "https://www.engadget.com"
+  },
+  {
+    title: "CNET",
+    link: "https://www.cnet.com"
+  }
+]
+
+const podcastWidgets = [
+  {
+    title: "The Vergecast",
+    link: "https://www.theverge.com/podcasts/the-vergecast"
+  },
+  {
+    title: "Hard Fork",
+    link: "https://www.nytimes.com/column/hard-fork-podcast" 
+      // Note: Hard Fork is a NYT tech podcast. Source list. :contentReference[oaicite:0]{index=0}
+  },
+  {
+    title: "This Week in Tech (TWiT)",
+    link: "https://twit.tv/shows/this-week-in-tech"
+  },
+  {
+    title: "Accidental Tech Podcast",
+    link: "https://atp.fm"
+  },
+  {
+    title: "Daily Tech News Show",
+    link: "https://dailytechnewsshow.com"
+  }
 ];
 
 const footerPrimary = [
@@ -199,10 +240,17 @@ export function SiteShell({ children }: SiteShellProps) {
               <div className="space-y-3">
                 {sidebarWidgets.map((widget) => (
                   <div
-                    key={widget}
+                    key={widget.title}
                     className="rounded-xl border border-purple-500/20 bg-gradient-to-br from-purple-200/30 via-white/60 to-white/90 p-3 text-xs text-slate-600 dark:from-purple-900/20 dark:via-slate-900/70 dark:to-slate-950/70 dark:text-slate-300"
                   >
-                    {widget}
+                    <a
+                      href={widget.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-cyan-700 underline-offset-4 hover:underline dark:text-cyan-200"
+                    >
+                      {widget.title}
+                    </a>
                   </div>
                 ))}
               </div>
@@ -215,12 +263,19 @@ export function SiteShell({ children }: SiteShellProps) {
                 <span className="h-px flex-1 bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent" />
               </div>
               <div className="space-y-3">
-                {sidebarWidgets.map((widget) => (
+                {podcastWidgets.map((widget) => (
                   <div
-                    key={`pod-${widget}`}
+                    key={widget.title}
                     className="rounded-xl border border-purple-500/20 bg-gradient-to-br from-purple-200/30 via-white/60 to-white/90 p-3 text-xs text-slate-600 dark:from-purple-900/20 dark:via-slate-900/70 dark:to-slate-950/70 dark:text-slate-300"
                   >
-                    {widget}
+                    <a
+                      href={widget.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-cyan-700 underline-offset-4 hover:underline dark:text-cyan-200"
+                    >
+                      {widget.title}
+                    </a>
                   </div>
                 ))}
               </div>
