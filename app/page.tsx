@@ -52,39 +52,6 @@ const accentPalette = [
 
 const defaultFeatureImage = "/featured_post.gif";
 
-const fallbackSlides: FeaturedSlide[] = [
-  {
-    id: "fallback-1",
-    title: "Quantum Sandboxing 2.0",
-    excerpt:
-      "Live-coded hardening rituals for devs who prefer their zero-days toasted and annotated.",
-    tag: "DevSecOps",
-    statLine: "8 min read - 204 comments - 14k views",
-    accent: accentPalette[0],
-    image: defaultFeatureImage,
-  },
-  {
-    id: "fallback-2",
-    title: "AI Wars: Rise of the Agents",
-    excerpt:
-      "A bootcamp recap on agents chaining with emotion stacks and how to stop them from staging a coup.",
-    tag: "AI Systems",
-    statLine: "12 min read - 312 comments - 22k views",
-    accent: accentPalette[1],
-    image: defaultFeatureImage,
-  },
-  {
-    id: "fallback-3",
-    title: "Retro Console BIOS Archaeology",
-    excerpt:
-      "Dumping the vault for cartridge necromancers: brand-new exploits for decade-old kernels.",
-    tag: "Hardware Hacks",
-    statLine: "6 min read - 119 comments - 9k views",
-    accent: accentPalette[2],
-    image: defaultFeatureImage,
-  },
-];
-
 const limitWords = (text: string | undefined, maxWords = 50) => {
   if (!text) return "";
   const words = text.trim().split(/\s+/);
@@ -133,7 +100,7 @@ const subjectFromItem = (item: GeekFeedItem) => {
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [featuredSlides, setFeaturedSlides] = useState<FeaturedSlide[]>(fallbackSlides);
+  const [featuredSlides, setFeaturedSlides] = useState<FeaturedSlide[]>([]);
   const [gridPosts, setGridPosts] = useState<GeekFeedItem[]>([]);
   const [feedState, setFeedState] = useState<"idle" | "loading" | "ready" | "error">("idle");
   const [feedError, setFeedError] = useState<string | null>(null);
@@ -165,20 +132,18 @@ export default function Home() {
         const nonFeatured = items.filter((item) => item.source?.id !== "geekageddon-featured");
 
         setFeaturedSlides(
-          featuredFromApi.length
-            ? featuredFromApi.map((item, index) => ({
-                id: item.id ?? item.url ?? `feature-${index}`,
-                title: item.title ?? "Geekageddon dispatch",
-                excerpt:
-                  limitWords(item.summary ?? item.description ?? "", 40) ||
-                  "Fresh drop from the Geekageddon newsroom.",
-                tag: item.source?.name ?? "Geekageddon",
-                statLine: subjectFromItem(item),
-                accent: accentPalette[index % accentPalette.length],
-                url: item.url,
-                image: deriveImage(item),
-              }))
-            : fallbackSlides
+          featuredFromApi.map((item, index) => ({
+            id: item.id ?? item.url ?? `feature-${index}`,
+            title: item.title ?? "Geekageddon dispatch",
+            excerpt:
+              limitWords(item.summary ?? item.description ?? "", 40) ||
+              "Fresh drop from the Geekageddon newsroom.",
+            tag: item.source?.name ?? "Geekageddon",
+            statLine: subjectFromItem(item),
+            accent: accentPalette[index % accentPalette.length],
+            url: item.url,
+            image: deriveImage(item),
+          }))
         );
         setGridPosts(nonFeatured);
         setFeedState("ready");
@@ -186,7 +151,7 @@ export default function Home() {
         if (controller.signal.aborted) return;
         setFeedState("error");
         setFeedError(error instanceof Error ? error.message : "Failed to load feed");
-        setFeaturedSlides((prev) => (prev.length ? prev : fallbackSlides));
+        setFeaturedSlides([]);
         setGridPosts([]);
       }
     };
@@ -200,7 +165,7 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    if (currentSlide >= featuredSlides.length) {
+    if (featuredSlides.length && currentSlide >= featuredSlides.length) {
       setCurrentSlide(0);
     }
   }, [featuredSlides.length, currentSlide]);
