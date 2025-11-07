@@ -206,7 +206,7 @@ export default function Home() {
               Featured News
             </p>
             <p className="text-slate-500 dark:text-slate-400">
-            Geek-peek to what’s new in the fast-moving world of tech.
+            Geek-peek to what’s new in the tech world.
             </p>
           </div>
           <div className="flex items-center gap-2 text-sm text-slate-400">
