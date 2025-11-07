@@ -197,6 +197,16 @@ export default function Home() {
         Math.max(featuredSlides.length, 1)
     );
 
+  useEffect(() => {
+    if (featuredSlides.length <= 1) return undefined;
+    const timer = setTimeout(() => {
+      setCurrentSlide(
+        (prev) => (prev + 1) % Math.max(featuredSlides.length, 1)
+      );
+    }, 10000);
+    return () => clearTimeout(timer);
+  }, [currentSlide, featuredSlides.length]);
+
   return (
     <SiteShell>
       <section className="relative overflow-hidden rounded-[2.5rem] border border-slate-200/80 bg-white/90 px-6 py-10 text-slate-700 shadow-[0_0_50px_rgba(15,23,42,0.12)] dark:border-slate-800/70 dark:bg-slate-950/80 dark:text-slate-200">
@@ -206,20 +216,8 @@ export default function Home() {
               Featured News
             </p>
             <p className="text-slate-500 dark:text-slate-400">
-            Geek-peek to what’s new in the tech world.
+              Geek-peek to what's new in the tech world.
             </p>
-          </div>
-          <div className="flex items-center gap-2 text-sm text-slate-400">
-            {featuredSlides.map((slide) => (
-              <span
-                key={slide.id}
-                className={`h-2 w-10 rounded-full transition ${
-                  slide.id === activeSlide?.id
-                    ? "bg-cyan-500"
-                    : "bg-slate-200 dark:bg-slate-700/60"
-                }`}
-              />
-            ))}
           </div>
         </div>
         {activeSlide && (
@@ -276,6 +274,23 @@ export default function Home() {
             >
               ›
             </button>
+          </div>
+        )}
+        {featuredSlides.length > 0 && (
+          <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 items-center gap-2 text-sm text-slate-400">
+            {featuredSlides.map((slide, index) => (
+              <button
+                key={slide.id}
+                type="button"
+                onClick={() => setCurrentSlide(index)}
+                className={`h-2 w-10 rounded-full cursor-pointer transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 ${
+                  slide.id === activeSlide?.id
+                    ? "bg-cyan-500"
+                    : "bg-slate-200 dark:bg-slate-700/60"
+                }`}
+                aria-label={`Go to featured post ${index + 1}`}
+              />
+            ))}
           </div>
         )}
       </section>
