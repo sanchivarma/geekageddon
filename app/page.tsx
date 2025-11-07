@@ -1,6 +1,7 @@
 'use client';
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 
 type GeekFeedItem = {
@@ -98,7 +99,13 @@ const blogWidgets = [
   "Widget Slot: Loot Drops & Swag",
 ];
 
-const navLinks = ["Headlines", "Field Notes", "Build Logs", "Glitch Arcade"];
+const navLinks = [
+  { label: "Headlines", href: "#" },
+  { label: "Field Notes", href: "#" },
+  { label: "Build Logs", href: "#" },
+  { label: "Glitch Arcade", href: "#" },
+  { label: "Contact", href: "/contact" },
+];
 
 const footerPrimary = [
   { label: "About", href: "#" },
@@ -299,12 +306,13 @@ export default function Home() {
           </div>
           <div className="flex flex-wrap items-center gap-2 text-sm">
             {navLinks.map((link) => (
-              <button
-                key={link}
+              <Link
+                key={link.label}
+                href={link.href}
                 className="rounded-full border border-transparent px-3 py-1 text-slate-700 transition hover:border-cyan-400 hover:text-cyan-600 dark:text-slate-200 dark:hover:text-white"
               >
-                {link}
-              </button>
+                {link.label}
+              </Link>
             ))}
           </div>
           <div className="flex items-center gap-2">
