@@ -1,0 +1,287 @@
+'use client';
+
+import Link from "next/link";
+import { ReactNode, useEffect, useState } from "react";
+
+const navLinks = [
+  { label: "Geek Feed", href: "#" },
+  { label: "Geek Seek", href: "#" },
+  { label: "Geek Ventures", href: "#" },
+  { label: "Geekverse", href: "#" },
+  { label: "Contact", href: "/contact" },
+];
+
+const sidebarSpotlight = [
+  { 
+    title: "AI firms may get reprieve as EU mulls easing AI rules", 
+    link: "https://www.reuters.com/technology/big-tech-may-win-reprieve-as-eu-mulls-easing-ai-rules-document-shows-2025-11-07/" 
+  },
+  { 
+    title: "IFA 2025: the biggest tech and gadget announcements", 
+    link: "https://www.theverge.com/news/767912/ifa-2025-news-tech-gadgets-products-updates-highlights" 
+  },
+  { 
+    title: "100 things we announced at Google I/O 2025", 
+    link: "https://blog.google/technology/ai/google-io-2025-all-our-announcements/" 
+  },
+  { 
+    title: "Tech Weekly: Cloud providers, tech stocks outperform", 
+    link: "https://investingnews.com/top-tech-news/" 
+  },
+  { 
+    title: "Governor Newsom partners with world’s leading tech companies to prepare Californians for AI future", 
+    link: "https://www.gov.ca.gov/2025/08/07/governor-newsom-partners-with-worlds-leading-tech-companies-to-prepare-californians-for-ai-future/" 
+  }
+];
+const sidebarWidgets = [
+  "Widget Slot: Galactic Job Board",
+  "Widget Slot: Live Hackathons",
+  "Widget Slot: Loot Drops & Swag",
+];
+
+const footerPrimary = [
+  { label: "About", href: "#" },
+  { label: "Contact", href: "/contact" },
+  { label: "Careers", href: "#" },
+  { label: "Press", href: "#" },
+];
+
+const footerCompliance = [
+  { label: "Privacy Policy (EU)", href: "#" },
+  { label: "Cookie Preferences", href: "#" },
+  { label: "Data Processing Addendum", href: "#" },
+  { label: "Imprint / Impressum", href: "#" },
+];
+
+const extractHost = (url?: string) => {
+  if (!url) return "Open link";
+  try {
+    const host = new URL(url).hostname.replace(/^www\./, "");
+    return host || "Open link";
+  } catch {
+    return "Open link";
+  }
+};
+
+type SiteShellProps = {
+  children: ReactNode;
+};
+
+export function SiteShell({ children }: SiteShellProps) {
+  const [theme, setTheme] = useState<"light" | "dark">("light");
+  const [drawerOpen, setDrawerOpen] = useState(true);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    const syncTheme = () => {
+      const stored = window.localStorage.getItem("geekageddon-theme");
+      if (stored === "light" || stored === "dark") {
+        setTheme(stored);
+        return;
+      }
+      setTheme(mediaQuery.matches ? "dark" : "light");
+    };
+    syncTheme();
+    mediaQuery.addEventListener?.("change", syncTheme);
+    window.addEventListener("storage", syncTheme);
+    return () => {
+      mediaQuery.removeEventListener?.("change", syncTheme);
+      window.removeEventListener("storage", syncTheme);
+    };
+  }, []);
+
+  useEffect(() => {
+    const root = document.documentElement;
+    root.dataset.theme = theme;
+    root.classList.toggle("dark", theme === "dark");
+    document.body.dataset.theme = theme;
+    document.body.classList.toggle("dark", theme === "dark");
+    window.localStorage.setItem("geekageddon-theme", theme);
+  }, [theme]);
+
+  const sidebarTransform = drawerOpen ? "translate-x-0" : "-translate-x-full";
+  const desktopPaddingClass = drawerOpen ? "md:pl-[20rem]" : "md:pl-8";
+
+  return (
+    <div className="relative min-h-screen bg-white text-slate-900 transition-colors duration-500 dark:bg-slate-950 dark:text-slate-100">
+      <div className="noise-layer" aria-hidden />
+
+      <nav className="fixed inset-x-0 top-0 z-40 border-b border-slate-200/70 bg-white/85 text-slate-700 shadow-[0_10px_30px_rgba(15,23,42,0.08)] backdrop-blur dark:border-slate-800/70 dark:bg-slate-950/70 dark:text-slate-200">
+        <div className="flex w-full justify-between gap-4 pl-3 pr-4 py-3 md:pl-6 md:pr-6 lg:pl-8 lg:pr-10">
+          <div className="flex items-center gap-3">
+            <div className="rounded-2xl border border-cyan-500/60 bg-gradient-to-br from-white via-white to-slate-50 px-3 py-2 text-xs uppercase tracking-[0.4em] text-cyan-600 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 dark:text-cyan-200">
+              Geekageddon
+            </div>
+          </div>
+          <div className="flex flex-wrap items-center gap-2 text-sm">
+            {navLinks.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                className="rounded-full border border-transparent px-3 py-1 text-slate-700 transition hover:border-cyan-400 hover:text-cyan-600 dark:text-slate-200 dark:hover:text-white"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-300/80 bg-white/90 text-slate-500 transition hover:scale-105 hover:text-cyan-600 dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-300"
+              aria-label="Search"
+            >
+              <SearchIcon />
+            </button>
+            <button
+              type="button"
+              onClick={() => setTheme((prev) => (prev === "dark" ? "light" : "dark"))}
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-amber-400/60 bg-white/90 text-amber-500 transition hover:scale-105 hover:text-amber-400 dark:border-amber-300/40 dark:bg-slate-950/60 dark:text-amber-200"
+            >
+              {theme === "dark" ? <SunIcon /> : <MoonIcon />}
+              <span className="sr-only">Toggle color theme</span>
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      <button
+        type="button"
+        onClick={() => setDrawerOpen((prev) => !prev)}
+        className="fixed left-2 top-32 z-50 flex h-9 w-9 items-center justify-center rounded-full border border-cyan-500/60 bg-white/90 text-cyan-600 shadow-lg transition hover:scale-105 hover:text-cyan-700 dark:border-cyan-400/60 dark:bg-slate-900/80 dark:text-cyan-100"
+        aria-label="Toggle control drawer"
+      >
+        {drawerOpen ? "«" : "»"}
+      </button>
+
+  <div
+        className={`mx-auto flex w-full max-w-7xl flex-col gap-6 pb-16 pt-36 pl-4 pr-4 md:flex-row md:gap-10 md:pr-6 lg:pr-10 ${desktopPaddingClass}`}>
+        <aside
+          className={`sidebar-tech fixed bottom-0 left-0 top-32 z-30 w-72 overflow-y-auto border border-slate-200/70 bg-white/95 px-6 pb-10 pt-6 font-mono text-sm shadow-2xl backdrop-blur transition-transform duration-500 ease-out dark:border-slate-800/70 dark:bg-slate-950/95 ${sidebarTransform}`}
+        >
+          <div className="space-y-8">
+            <section>
+              <div className="mb-3 flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-cyan-500 dark:text-cyan-300">
+                <span className="h-px flex-1 bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent" />
+                <span>Upcoming Drops</span>
+                <span className="h-px flex-1 bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent" />
+              </div>
+              <ol className="space-y-4">
+                {sidebarSpotlight.map((post, index) => (
+                  <li
+                    key={post.title}
+                    className="group flex items-start gap-3 rounded-xl border border-slate-200/80 bg-white/80 px-4 py-3 transition hover:border-cyan-400/70 hover:bg-white dark:border-slate-800/70 dark:bg-slate-900/50 dark:hover:border-cyan-400/70"
+                  >
+                    <span className="text-cyan-600/80 dark:text-cyan-300/70">0{index + 1}</span>
+                    <div className="space-y-1">
+                      <a
+                        href={post.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[11px] font-semibold uppercase tracking-[0.3em] text-cyan-600 underline-offset-4 hover:underline dark:text-cyan-300"
+                      >
+                        {extractHost(post.link)}
+                      </a>
+                      <p className="font-semibold text-slate-900 transition group-hover:text-slate-900 dark:text-slate-100 dark:group-hover:text-white">
+                        {post.title}
+                      </p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </section>
+
+            <section className="space-y-3">
+              <div className="mb-3 flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-cyan-500 dark:text-cyan-300">
+                <span className="h-px flex-1 bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent" />
+                <span>Blog-tastic</span>
+                <span className="h-px flex-1 bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent" />
+              </div>
+              <div className="space-y-3">
+                {sidebarWidgets.map((widget) => (
+                  <div
+                    key={widget}
+                    className="rounded-xl border border-purple-500/20 bg-gradient-to-br from-purple-200/30 via-white/60 to-white/90 p-3 text-xs text-slate-600 dark:from-purple-900/20 dark:via-slate-900/70 dark:to-slate-950/70 dark:text-slate-300"
+                  >
+                    {widget}
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            <section className="space-y-3">
+              <div className="mb-3 flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-cyan-500 dark:text-cyan-300">
+                <span className="h-px flex-1 bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent" />
+                <span>Podcast Pearls</span>
+                <span className="h-px flex-1 bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent" />
+              </div>
+              <div className="space-y-3">
+                {sidebarWidgets.map((widget) => (
+                  <div
+                    key={`pod-${widget}`}
+                    className="rounded-xl border border-purple-500/20 bg-gradient-to-br from-purple-200/30 via-white/60 to-white/90 p-3 text-xs text-slate-600 dark:from-purple-900/20 dark:via-slate-900/70 dark:to-slate-950/70 dark:text-slate-300"
+                  >
+                    {widget}
+                  </div>
+                ))}
+              </div>
+            </section>
+          </div>
+        </aside>
+
+        <main className="flex flex-1 flex-col gap-10 text-slate-700 dark:text-slate-200">
+          {children}
+
+          <footer className="rounded-3xl border border-slate-200/80 bg-white/95 p-6 text-sm text-slate-500 shadow-[0_10px_30px_rgba(15,23,42,0.1)] dark:border-slate-800/70 dark:bg-slate-950/80 dark:text-slate-400">
+            <div className="flex flex-wrap gap-4 border-b border-slate-200/70 pb-4 dark:border-slate-800/60">
+              {footerPrimary.map((item) => (
+                <Link key={item.label} href={item.href} className="text-slate-600 transition hover:text-cyan-600 dark:text-slate-300 dark:hover:text-cyan-200">
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+            <div className="mt-4 flex flex-wrap gap-4">
+              {footerCompliance.map((item) => (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="text-xs text-slate-500 transition hover:text-cyan-600 dark:text-slate-400 dark:hover:text-cyan-200"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+            <p className="mt-6 text-xs text-slate-400 dark:text-slate-500">
+              © {new Date().getFullYear()} Geekageddon. Crafted in compliance with EU Digital Services, GDPR, and Cookie directives.
+            </p>
+          </footer>
+        </main>
+      </div>
+    </div>
+  );
+}
+
+function SearchIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <circle cx="11" cy="11" r="6" />
+      <path d="m20 20-3.5-3.5" />
+    </svg>
+  );
+}
+
+function SunIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <circle cx="12" cy="12" r="4" />
+      <path d="M12 2v2m0 16v2m10-10h-2M4 12H2m16.95 6.95-1.4-1.4M6.45 6.45l-1.4-1.4m0 14.9 1.4-1.4m12.1-12.1 1.4-1.4" />
+    </svg>
+  );
+}
+
+function MoonIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <path d="M21 14.5A8.5 8.5 0 0 1 9.5 3a8.5 8.5 0 1 0 11.5 11.5Z" />
+    </svg>
+  );
+}

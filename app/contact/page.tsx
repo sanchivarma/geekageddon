@@ -1,7 +1,7 @@
 'use client';
 
-import Link from "next/link";
 import { FormEvent, useMemo, useState } from "react";
+import { SiteShell } from "../components/SiteShell";
 
 type FormState = {
   name: string;
@@ -103,19 +103,17 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white px-4 py-32 text-slate-800 dark:bg-slate-950 dark:text-slate-100">
-      <div className="mx-auto flex w-full max-w-4xl flex-col gap-10 rounded-[2.5rem] border border-slate-200/70 bg-white/95 p-10 shadow-[0_25px_80px_rgba(15,23,42,0.12)] dark:border-slate-800/70 dark:bg-slate-950/80">
+    <SiteShell>
+      <section className="rounded-[2.5rem] border border-slate-200/70 bg-white/95 p-10 shadow-[0_25px_80px_rgba(15,23,42,0.12)] dark:border-slate-800/70 dark:bg-slate-950/80">
         <div className="space-y-3">
-          <Link href="/" className="text-xs uppercase tracking-[0.4em] text-cyan-600 dark:text-cyan-300">
-            Geekageddon
-          </Link>
+          <p className="text-xs uppercase tracking-[0.4em] text-cyan-600 dark:text-cyan-300">Geekageddon</p>
           <h1 className="text-3xl font-bold text-slate-900 dark:text-white">Contact the newsroom</h1>
           <p className="text-sm text-slate-600 dark:text-slate-300">
             Pitch your launches, share news tips, or drop general feedback. We keep turnaround tight—expect a response in 24–48h.
           </p>
         </div>
 
-        <form className="space-y-6" onSubmit={handleSubmit}>
+        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           <div className="grid gap-6 md:grid-cols-2">
             <div>
               <label className="text-xs uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Name</label>
@@ -157,7 +155,6 @@ export default function ContactPage() {
               </select>
               {errors.subjectChoice && <p className="mt-1 text-xs text-rose-500">{errors.subjectChoice}</p>}
             </div>
-            <br/>
             <div>
               <label className="text-xs uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Subject (custom text)</label>
               <input
@@ -198,7 +195,7 @@ export default function ContactPage() {
             {status === "error" && <p className="text-sm text-rose-500">{message}</p>}
           </div>
         </form>
-      </div>
-    </div>
+      </section>
+    </SiteShell>
   );
 }
