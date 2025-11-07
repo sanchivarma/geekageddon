@@ -335,7 +335,7 @@ export default function Home() {
       <button
         type="button"
         onClick={() => setDrawerOpen((prev) => !prev)}
-        className="fixed left-4 top-28 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-cyan-500/60 bg-white/90 text-cyan-600 shadow-xl transition hover:scale-105 hover:text-cyan-700 dark:border-cyan-400/60 dark:bg-slate-900/80 dark:text-cyan-100 md:left-6"
+        className="fixed left-2 top-32 z-50 flex h-9 w-9 items-center justify-center rounded-full border border-cyan-500/60 bg-white/90 text-cyan-600 shadow-lg transition hover:scale-105 hover:text-cyan-700 dark:border-cyan-400/60 dark:bg-slate-900/80 dark:text-cyan-100"
         aria-label="Toggle control drawer"
       >
         {drawerOpen ? "«" : "»"}
@@ -488,14 +488,14 @@ export default function Home() {
 
                 <button
                   onClick={handlePrev}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full border border-slate-200 bg-white/90 p-2 text-slate-700 shadow-lg transition hover:border-cyan-400 hover:text-cyan-600 dark:border-slate-800 dark:bg-slate-900/80 dark:text-slate-200 dark:hover:text-white"
+                  className="absolute left-[-12px] top-1/2 -translate-y-1/2 rounded-full border border-slate-200 bg-white/90 p-2 text-slate-700 shadow-lg transition hover:border-cyan-400 hover:text-cyan-600 dark:border-slate-800 dark:bg-slate-900/80 dark:text-slate-200 dark:hover:text-white"
                   aria-label="Previous featured post"
                 >
                   ‹
                 </button>
                 <button
                   onClick={handleNext}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full border border-slate-200 bg-white/90 p-2 text-slate-700 shadow-lg transition hover:border-cyan-400 hover:text-cyan-600 dark:border-slate-800 dark:bg-slate-900/80 dark:text-slate-200 dark:hover:text-white"
+                  className="absolute right-[-12px] top-1/2 -translate-y-1/2 rounded-full border border-slate-200 bg-white/90 p-2 text-slate-700 shadow-lg transition hover:border-cyan-400 hover:text-cyan-600 dark:border-slate-800 dark:bg-slate-900/80 dark:text-slate-200 dark:hover:text-white"
                   aria-label="Next featured post"
                 >
                   ›
