@@ -207,7 +207,7 @@ export function SiteShell({ children }: SiteShellProps) {
                 <span className="h-px flex-1 bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent" />
               </div>
               <ol className="space-y-4">
-                {sidebarSpotlight.map((post, index) => (
+                {sidebarSpotlight.map((post) => (
                   <li
                     key={post.title}
                     className="group flex items-start gap-3 rounded-xl border border-slate-200/80 bg-white/80 px-4 py-3 transition hover:border-cyan-400/70 hover:bg-white dark:border-slate-800/70 dark:bg-slate-900/50 dark:hover:border-cyan-400/70"

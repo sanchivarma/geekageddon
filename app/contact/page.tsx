@@ -109,7 +109,7 @@ export default function ContactPage() {
           <p className="text-xs uppercase tracking-[0.4em] text-cyan-600 dark:text-cyan-300">Geekageddon</p>
           <h1 className="text-3xl font-bold text-slate-900 dark:text-white">Contact Us</h1>
           <p className="text-sm text-slate-600 dark:text-slate-300">
-            Pitch your launches, share tips, or drop general feedback. Let's connect !
+            Pitch your launches, share tips, or drop general feedback. Let&apos;s connect !
           </p>
         </div>
 
