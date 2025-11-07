@@ -13,8 +13,8 @@ const navLinks = [
 
 const sidebarSpotlight = [
   { 
-    title: "AI firms may get reprieve as EU mulls easing AI rules", 
-    link: "https://www.reuters.com/technology/big-tech-may-win-reprieve-as-eu-mulls-easing-ai-rules-document-shows-2025-11-07/" 
+    title: "Wall St reacts to Musk's $1 trillion pay plan approval by Tesla investors", 
+    link: "https://www.reuters.com/sustainability/boards-policy-regulation/wall-st-reacts-musks-1-trillion-pay-plan-approval-by-tesla-investors-2025-11-07/" 
   },
   { 
     title: "IFA 2025: the biggest tech and gadget announcements", 

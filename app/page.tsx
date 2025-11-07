@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
@@ -78,7 +78,9 @@ const isAllowedRemoteImage = (value: string | undefined) => {
 const sanitizeImagePath = (value?: string) => {
   if (!value) return defaultFeatureImage;
   if (isAllowedRemoteImage(value)) return value;
-  const cleaned = value.replace(/^(\.\.\/)+public\//, "/").replace(/^public\//, "/");
+  const cleaned = value
+    .replace(/^(\.\.\/)+public\//, "/")
+    .replace(/^public\//, "/");
   return cleaned.startsWith("/") ? cleaned : `/${cleaned}`;
 };
 
@@ -102,7 +104,9 @@ export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [featuredSlides, setFeaturedSlides] = useState<FeaturedSlide[]>([]);
   const [gridPosts, setGridPosts] = useState<GeekFeedItem[]>([]);
-  const [feedState, setFeedState] = useState<"idle" | "loading" | "ready" | "error">("idle");
+  const [feedState, setFeedState] = useState<
+    "idle" | "loading" | "ready" | "error"
+  >("idle");
   const [feedError, setFeedError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -114,10 +118,13 @@ export default function Home() {
         setFeedState("loading");
         setFeedError(null);
 
-        const response = await fetch("https://geekageddon-api.vercel.app/api/geekfeed?limit=10", {
-          signal: controller.signal,
-          cache: "no-store",
-        });
+        const response = await fetch(
+          "https://geekageddon-api.vercel.app/api/geekfeed?limit=10",
+          {
+            signal: controller.signal,
+            cache: "no-store",
+          }
+        );
         if (!response.ok) {
           throw new Error(`Feed responded with ${response.status}`);
         }
@@ -125,11 +132,15 @@ export default function Home() {
         if (cancelled) return;
 
         const items = Array.isArray(payload.items) ? payload.items : [];
-        const featuredNews = Array.isArray(payload.featuredNews) ? payload.featuredNews : [];
+        const featuredNews = Array.isArray(payload.featuredNews)
+          ? payload.featuredNews
+          : [];
         const featuredFromApi = featuredNews.length
           ? featuredNews
           : items.filter((item) => item.source?.id === "geekageddon-featured");
-        const nonFeatured = items.filter((item) => item.source?.id !== "geekageddon-featured");
+        const nonFeatured = items.filter(
+          (item) => item.source?.id !== "geekageddon-featured"
+        );
 
         setFeaturedSlides(
           featuredFromApi.map((item, index) => ({
@@ -150,7 +161,9 @@ export default function Home() {
       } catch (error) {
         if (controller.signal.aborted) return;
         setFeedState("error");
-        setFeedError(error instanceof Error ? error.message : "Failed to load feed");
+        setFeedError(
+          error instanceof Error ? error.message : "Failed to load feed"
+        );
         setFeaturedSlides([]);
         setGridPosts([]);
       }
@@ -178,8 +191,10 @@ export default function Home() {
   const handleNext = () =>
     setCurrentSlide((prev) => (prev + 1) % Math.max(featuredSlides.length, 1));
   const handlePrev = () =>
-    setCurrentSlide((prev) =>
-      (prev - 1 + Math.max(featuredSlides.length, 1)) % Math.max(featuredSlides.length, 1)
+    setCurrentSlide(
+      (prev) =>
+        (prev - 1 + Math.max(featuredSlides.length, 1)) %
+        Math.max(featuredSlides.length, 1)
     );
 
   return (
@@ -190,14 +205,18 @@ export default function Home() {
             <p className="text-sm uppercase tracking-[0.4em] text-cyan-600 dark:text-cyan-200">
               Featured News
             </p>
-            <p className="text-slate-500 dark:text-slate-400">Curated briefings from the Tech World</p>
+            <p className="text-slate-500 dark:text-slate-400">
+              Curated briefings from the Tech World
+            </p>
           </div>
           <div className="flex items-center gap-2 text-sm text-slate-400">
             {featuredSlides.map((slide) => (
               <span
                 key={slide.id}
                 className={`h-2 w-10 rounded-full transition ${
-                  slide.id === activeSlide?.id ? "bg-cyan-500" : "bg-slate-200 dark:bg-slate-700/60"
+                  slide.id === activeSlide?.id
+                    ? "bg-cyan-500"
+                    : "bg-slate-200 dark:bg-slate-700/60"
                 }`}
               />
             ))}
@@ -221,8 +240,12 @@ export default function Home() {
                     activeSlide.title
                   )}
                 </h2>
-                <p className="text-base text-slate-600 dark:text-slate-300">{activeSlide.excerpt}</p>
-                <p className="font-mono text-xs text-slate-500 dark:text-slate-400">{activeSlide.statLine}</p>
+                <p className="text-base text-slate-600 dark:text-slate-300">
+                  {activeSlide.excerpt}
+                </p>
+                <p className="font-mono text-xs text-slate-500 dark:text-slate-400">
+                  {activeSlide.statLine}
+                </p>
               </div>
               <div className="relative flex items-center justify-center">
                 <div className="feature-frame relative h-64 w-full overflow-hidden rounded-3xl border border-slate-200/70 bg-slate-100 dark:border-slate-800/70 dark:bg-slate-900/40">
@@ -292,7 +315,9 @@ export default function Home() {
                       rel="noopener noreferrer"
                       className="group flex items-start gap-1 break-words text-lg font-semibold text-[#1c1f23] transition hover:text-slate-700 dark:text-white dark:hover:text-cyan-200"
                     >
-                      <span className="flex-1 leading-tight">{post.title ?? "Untitled dispatch"}</span>
+                      <span className="flex-1 leading-tight">
+                        {post.title ?? "Untitled dispatch"}
+                      </span>
                       <GlobeIcon className="h-4 w-4 shrink-0 text-cyan-600 transition group-hover:text-cyan-400 dark:text-cyan-200" />
                     </a>
                     <p className="mt-1 text-xs uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">
@@ -302,7 +327,8 @@ export default function Home() {
                       Source: {post.source?.name ?? "GeekFeed"}
                     </p>
                     <p className="mt-3 text-sm text-slate-600 break-words hyphens-auto dark:text-slate-300">
-                      {limitWords(post.summary ?? post.description ?? "", 50) || "No description supplied."}
+                      {limitWords(post.summary ?? post.description ?? "", 50) ||
+                        "No description supplied."}
                     </p>
                     {showDetails && (
                       <details className="mt-4 text-xs text-slate-600 dark:text-slate-300">
