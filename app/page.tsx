@@ -206,7 +206,7 @@ export default function Home() {
               Featured News
             </p>
             <p className="text-slate-500 dark:text-slate-400">
-              Curated briefings from the Tech World
+            Geek-peek to what’s new in the fast-moving world of tech.
             </p>
           </div>
           <div className="flex items-center gap-2 text-sm text-slate-400">
@@ -283,8 +283,8 @@ export default function Home() {
       <section className="grid gap-6">
         <div className="panel-tech space-y-6 rounded-3xl border border-slate-200/80 bg-white/90 p-6 text-slate-700 shadow-[0_15px_40px_rgba(15,23,42,0.1)] dark:border-slate-800/70 dark:bg-slate-950/80 dark:text-slate-200">
           <div className="flex flex-wrap items-center justify-between gap-4 text-sm text-slate-500 dark:text-slate-400">
-            <p className="text-base font-semibold uppercase tracking-[0.3em] text-cyan-600 dark:text-cyan-200">
-              Latest in the tech world !
+            <p className="text-base font-semibold tracking-[0.1em] text-cyan-600 dark:text-cyan-200">
+              Tech moves fast. Stay ahead, stay curious, stay informed.
             </p>
             <span>
               {feedState === "loading" && "Syncing feed..."}
