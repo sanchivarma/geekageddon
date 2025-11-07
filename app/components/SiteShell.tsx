@@ -36,48 +36,58 @@ const sidebarSpotlight = [
 const sidebarWidgets = [
   {
     title: "TechCrunch",
-    link: "https://techcrunch.com"
+    link: "https://techcrunch.com",
+    description: "Startup scoops, venture whispers, and big tech deal flow.",
   },
   {
     title: "The Verge",
-    link: "https://www.theverge.com"
+    link: "https://www.theverge.com",
+    description: "Design-forward reporting where gadgets meet culture.",
   },
   {
     title: "Wired",
-    link: "https://www.wired.com"
+    link: "https://www.wired.com",
+    description: "Deep dives on science, security, and frontier tech shifts.",
   },
   {
     title: "Engadget",
-    link: "https://www.engadget.com"
+    link: "https://www.engadget.com",
+    description: "Hands-on gadget coverage for gearheads and tinkerers.",
   },
   {
     title: "CNET",
-    link: "https://www.cnet.com"
-  }
-]
+    link: "https://www.cnet.com",
+    description: "Service journalism to help you choose everyday tech.",
+  },
+];
 
 const podcastWidgets = [
   {
     title: "The Vergecast",
-    link: "https://www.theverge.com/podcasts/the-vergecast"
+    link: "https://www.theverge.com/podcasts/the-vergecast",
+    description: "Nilay & crew unpack gadgets, policy, and future tech.",
   },
   {
     title: "Hard Fork",
-    link: "https://www.nytimes.com/column/hard-fork-podcast" 
-      // Note: Hard Fork is a NYT tech podcast. Source list. :contentReference[oaicite:0]{index=0}
+    link: "https://www.nytimes.com/column/hard-fork-podcast",
+    description: "NYT hosts debate AI, markets, and internet shifts.",
+    // Note: Hard Fork is a NYT tech podcast. Source list. :contentReference[oaicite:0]{index=0}
   },
   {
     title: "This Week in Tech (TWiT)",
-    link: "https://twit.tv/shows/this-week-in-tech"
+    link: "https://twit.tv/shows/this-week-in-tech",
+    description: "Leo Laporte's roundtable on the week's biggest tech news.",
   },
   {
     title: "Accidental Tech Podcast",
-    link: "https://atp.fm"
+    link: "https://atp.fm",
+    description: "Marco, Casey, and John riff on Apple, software, and dev life.",
   },
   {
     title: "Daily Tech News Show",
-    link: "https://dailytechnewsshow.com"
-  }
+    link: "https://dailytechnewsshow.com",
+    description: "Tom Merritt delivers global tech headlines every weekday.",
+  },
 ];
 
 const footerPrimary = [
@@ -251,6 +261,11 @@ export function SiteShell({ children }: SiteShellProps) {
                     >
                       {widget.title}
                     </a>
+                    {widget.description && (
+                      <p className="mt-1 text-[11px] leading-snug text-slate-500 dark:text-slate-400">
+                        {widget.description}
+                      </p>
+                    )}
                   </div>
                 ))}
               </div>
@@ -276,6 +291,11 @@ export function SiteShell({ children }: SiteShellProps) {
                     >
                       {widget.title}
                     </a>
+                    {widget.description && (
+                      <p className="mt-1 text-[11px] leading-snug text-slate-500 dark:text-slate-400">
+                        {widget.description}
+                      </p>
+                    )}
                   </div>
                 ))}
               </div>
