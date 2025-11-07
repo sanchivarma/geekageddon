@@ -64,14 +64,13 @@ const sidebarWidgets = [
 const podcastWidgets = [
   {
     title: "The Vergecast",
-    link: "https://www.theverge.com/podcasts/the-vergecast",
+    link: "https://www.theverge.com/the-vergecast",
     description: "Nilay & crew unpack gadgets, policy, and future tech.",
   },
   {
     title: "Hard Fork",
-    link: "https://www.nytimes.com/column/hard-fork-podcast",
+    link: "https://www.nytimes.com/column/hard-fork",
     description: "NYT hosts debate AI, markets, and internet shifts.",
-    // Note: Hard Fork is a NYT tech podcast. Source list. :contentReference[oaicite:0]{index=0}
   },
   {
     title: "This Week in Tech (TWiT)",
