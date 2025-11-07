@@ -107,9 +107,9 @@ export default function ContactPage() {
       <section className="rounded-[2.5rem] border border-slate-200/70 bg-white/95 p-10 shadow-[0_25px_80px_rgba(15,23,42,0.12)] dark:border-slate-800/70 dark:bg-slate-950/80">
         <div className="space-y-3">
           <p className="text-xs uppercase tracking-[0.4em] text-cyan-600 dark:text-cyan-300">Geekageddon</p>
-          <h1 className="text-3xl font-bold text-slate-900 dark:text-white">Contact the newsroom</h1>
+          <h1 className="text-3xl font-bold text-slate-900 dark:text-white">Contact Us</h1>
           <p className="text-sm text-slate-600 dark:text-slate-300">
-            Pitch your launches, share news tips, or drop general feedback. We keep turnaround tight—expect a response in 24–48h.
+            Pitch your launches, share tips, or drop general feedback. Let's connect !
           </p>
         </div>
 
@@ -156,7 +156,7 @@ export default function ContactPage() {
               {errors.subjectChoice && <p className="mt-1 text-xs text-rose-500">{errors.subjectChoice}</p>}
             </div>
             <div>
-              <label className="text-xs uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Subject (custom text)</label>
+              <label className="text-xs uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">Subject (custom text)</label>
               <input
                 type="text"
                 value={form.subjectText}
