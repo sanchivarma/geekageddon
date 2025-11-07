@@ -211,12 +211,12 @@ export default function Home() {
     <SiteShell>
       <section className="relative overflow-hidden rounded-[2.5rem] border border-slate-200/80 bg-white/90 px-6 py-10 text-slate-700 shadow-[0_0_50px_rgba(15,23,42,0.12)] dark:border-slate-800/70 dark:bg-slate-950/80 dark:text-slate-200">
         <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
-          <div>
+          <div className="w-full text-center">
             <p className="text-sm uppercase tracking-[0.4em] text-cyan-600 dark:text-cyan-200">
               Featured News
             </p>
             <p className="text-slate-500 dark:text-slate-400">
-              Geek-peek to what's new in the tech world.
+              Geek-peek to what&apos;s new in the tech world.
             </p>
           </div>
         </div>
