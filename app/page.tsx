@@ -291,7 +291,7 @@ export default function Home() {
       <div className="noise-layer" aria-hidden />
 
       <nav className="fixed inset-x-0 top-0 z-40 border-b border-slate-200/70 bg-white/85 text-slate-700 shadow-[0_10px_30px_rgba(15,23,42,0.08)] backdrop-blur dark:border-slate-800/70 dark:bg-slate-950/70 dark:text-slate-200">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 md:px-6 lg:px-10">
+        <div className="flex w-full justify-between gap-4 pl-3 pr-4 py-3 md:pl-6 md:pr-6 lg:pl-8 lg:pr-10">
           <div className="flex items-center gap-3">
             <div className="rounded-2xl border border-cyan-500/60 bg-gradient-to-br from-white via-white to-slate-50 px-3 py-2 text-xs uppercase tracking-[0.4em] text-cyan-600 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 dark:text-cyan-200">
               Geekageddon
@@ -445,7 +445,7 @@ export default function Home() {
               </div>
             </div>
             {activeSlide && (
-              <div className="relative">
+              <div className="relative px-6">
                 <article className="grid gap-8 lg:grid-cols-2">
                   <div className="space-y-6">
                     <span className="inline-flex items-center rounded-full border border-cyan-400/50 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-cyan-600 dark:text-cyan-200">
@@ -488,14 +488,14 @@ export default function Home() {
 
                 <button
                   onClick={handlePrev}
-                  className="absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-slate-200 bg-white/90 p-3 text-slate-700 shadow-lg transition hover:border-cyan-400 hover:text-cyan-600 dark:border-slate-800 dark:bg-slate-900/80 dark:text-slate-200 dark:hover:text-white"
+                  className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full border border-slate-200 bg-white/90 p-2 text-slate-700 shadow-lg transition hover:border-cyan-400 hover:text-cyan-600 dark:border-slate-800 dark:bg-slate-900/80 dark:text-slate-200 dark:hover:text-white"
                   aria-label="Previous featured post"
                 >
                   ‹
                 </button>
                 <button
                   onClick={handleNext}
-                  className="absolute right-0 top-1/2 translate-x-1/2 -translate-y-1/2 rounded-full border border-slate-200 bg-white/90 p-3 text-slate-700 shadow-lg transition hover:border-cyan-400 hover:text-cyan-600 dark:border-slate-800 dark:bg-slate-900/80 dark:text-slate-200 dark:hover:text-white"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full border border-slate-200 bg-white/90 p-2 text-slate-700 shadow-lg transition hover:border-cyan-400 hover:text-cyan-600 dark:border-slate-800 dark:bg-slate-900/80 dark:text-slate-200 dark:hover:text-white"
                   aria-label="Next featured post"
                 >
                   ›

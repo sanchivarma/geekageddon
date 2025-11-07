@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Geekageddon",
-  description: "Geek-fueled dispatches, featured posts, and neon-grade design experiments.",
+  description: "Geek-fueled news, featured posts, and neon-grade design experiments.",
 };
 
 export default function RootLayout({
