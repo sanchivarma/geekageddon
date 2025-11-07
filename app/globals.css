@@ -1,8 +1,22 @@
+@config "../tailwind.config.ts";
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fefefe;
+  --foreground: #0f172a;
+  --body-gradient: linear-gradient(180deg, #ffffff 0%, #f5f6f8 50%, #ffffff 100%);
+  --noise-overlay: rgba(148, 163, 184, 0.05);
+  --matrix-primary: rgba(30, 64, 175, 0.22);
+  --matrix-secondary: rgba(21, 233, 14, 0.32);
+}
+
+:root[data-theme="dark"] {
+  --background: #030712;
+  --foreground: #f8fafc;
+  --body-gradient: radial-gradient(circle at top, #0f172a 0%, #030712 55%, #010106 100%);
+  --noise-overlay: rgba(8, 7, 18, 0.85);
+  --matrix-primary: rgba(34, 197, 94, 0.2);
+  --matrix-secondary: rgba(14, 165, 233, 0.7);
 }
 
 @theme inline {
@@ -12,15 +26,187 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+body {
+  min-height: 100vh;
+  background: var(--body-gradient);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.75rem;
+  margin: 0;
+}
+
+.noise-layer {
+  position: fixed;
+  inset: 0;
+  background-image: linear-gradient(var(--noise-overlay), var(--noise-overlay)),
+    repeating-linear-gradient(
+      90deg,
+      rgba(14, 165, 233, 0.05),
+      rgba(14, 165, 233, 0.05) 1px,
+      transparent 1px,
+      transparent 2px
+    );
+  opacity: 0.3;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+.matrix-shell {
+  position: relative;
+  overflow: hidden;
+}
+
+.matrix-shell::before {
+  content: "";
+  position: absolute;
+  inset: -50%;
+  background: repeating-linear-gradient(
+      120deg,
+      var(--matrix-primary) 0px,
+      var(--matrix-primary) 2px,
+      transparent 2px,
+      transparent 6px
+    ),
+    repeating-linear-gradient(
+      60deg,
+      var(--matrix-secondary) 0px,
+      var(--matrix-secondary) 1px,
+      transparent 1px,
+      transparent 5px
+    );
+  animation: matrixFlow 18s linear infinite;
+  opacity: 0.5;
+}
+
+.matrix-shell::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.18), transparent 45%),
+    radial-gradient(circle at 80% 10%, rgba(79, 70, 229, 0.15), transparent 40%);
+  animation: matrixPulse 8s ease-in-out infinite;
+  mix-blend-mode: screen;
+}
+
+.matrix-shell > * {
+  position: relative;
+}
+
+.matrix-title {
+  letter-spacing: 0.08em;
+  text-shadow: 0 5px 25px rgba(15, 23, 42, 0.3);
+}
+
+.panel-tech {
+  background: #0c1220;
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  box-shadow:
+    0 30px 70px rgba(2, 6, 23, 0.45),
+    inset 0 0 0 1px rgba(148, 163, 184, 0.08);
+}
+
+.card-tech {
+  background: #111a2b;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  box-shadow:
+    0 20px 40px rgba(2, 6, 23, 0.4),
+    inset 0 0 0 1px rgba(59, 130, 246, 0.15);
+}
+
+.card-tech:hover {
+  border-color: rgba(14, 165, 233, 0.5);
+  box-shadow:
+    0 25px 55px rgba(2, 6, 23, 0.55),
+    inset 0 0 0 1px rgba(14, 165, 233, 0.3);
+}
+
+.sidebar-tech {
+  background: #0d1424;
+  border-color: rgba(148, 163, 184, 0.15);
+  box-shadow:
+    22px 0 60px rgba(2, 6, 23, 0.6),
+    inset -1px 0 0 rgba(15, 23, 42, 0.4);
+}
+
+:root[data-theme="dark"] .matrix-shell {
+  background: linear-gradient(135deg, #0a101d 0%, #141f33 60%, #0a101d 100%);
+  border-color: rgba(45, 212, 191, 0.5);
+  box-shadow:
+    0 40px 90px rgba(2, 6, 23, 0.6),
+    inset 0 0 0 1px rgba(45, 212, 191, 0.25);
+}
+
+.matrix-shell::before,
+.matrix-shell::after {
+  opacity: 0.4;
+}
+
+.feature-frame {
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-art {
+  background-color: #0f172a;
+  object-fit: cover;
+  filter: saturate(1.05);
+}
+
+:root[data-theme="light"] .panel-tech {
+  background: #fcfcff;
+  border-color: #d4d7e0;
+  box-shadow:
+    0 28px 70px rgba(15, 23, 42, 0.12),
+    inset 0 0 0 1px rgba(15, 23, 42, 0.04);
+}
+
+:root[data-theme="light"] .card-tech {
+  background: #ffffff;
+  border-color: #c0c4cf;
+  box-shadow:
+    0 18px 50px rgba(15, 23, 42, 0.08),
+    inset 0 0 0 1px rgba(148, 163, 184, 0.14);
+}
+
+:root[data-theme="light"] .card-tech:hover {
+  border-color: rgba(15, 23, 42, 0.45);
+  box-shadow:
+    0 22px 58px rgba(15, 23, 42, 0.12),
+    inset 0 0 0 1px rgba(30, 41, 59, 0.2);
+}
+
+:root[data-theme="light"] .sidebar-tech {
+  background: #f4f6fb;
+  border-color: #d3d6e2;
+  box-shadow:
+    18px 0 55px rgba(15, 23, 42, 0.18),
+    inset -1px 0 0 rgba(189, 196, 214, 0.6);
+}
+
+:root[data-theme="light"] .feature-frame {
+  border-color: #d7dbe5;
+  background: #f0f2f8;
+}
+
+:root[data-theme="light"] .feature-art {
+  filter: saturate(1);
+}
+
+@keyframes matrixFlow {
+  0% {
+    transform: translate3d(-20%, -20%, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate3d(20%, 20%, 0) rotate(1turn);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes matrixPulse {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.6;
+  }
 }
