@@ -4,10 +4,10 @@ import Link from "next/link";
 import { ReactNode, useEffect, useState } from "react";
 
 const navLinks = [
-  { label: "Geek Peek", href: "#" },
-  { label: "Geek Seek", href: "#" },
-  { label: "Geek Ventures", href: "#" },
-  { label: "Geekverse", href: "#" },
+  { label: "Geek Peek", href: "/" },
+  { label: "Geek Seek", href: "/geekseek" },
+  { label: "Geek Ventures", href: "/geekventures" },
+  { label: "Geekverse", href: "/geekverse" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -173,9 +173,12 @@ export function SiteShell({ children }: SiteShellProps) {
       <nav className="fixed inset-x-0 top-0 z-40 border-b border-slate-200/70 bg-white/90 text-slate-700 shadow-[0_4px_20px_rgba(15,23,42,0.08)] backdrop-blur dark:border-slate-800/70 dark:bg-slate-950/70 dark:text-slate-200">
         <div className="flex w-full flex-wrap items-center justify-between gap-3 px-4 py-2 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3">
-            <div className="rounded-2xl font-semibold border border-cyan-500/60 bg-gradient-to-br from-white via-white to-slate-50 px-3 py-2 text-xs uppercase tracking-[0.4em] text-cyan-600 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 dark:text-cyan-200">
+            <Link
+              href="/"
+              className="rounded-2xl font-semibold border border-cyan-500/60 bg-gradient-to-br from-white via-white to-slate-50 px-3 py-2 text-xs uppercase tracking-[0.4em] text-cyan-600 transition hover:border-cyan-400 hover:text-cyan-700 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 dark:text-cyan-200 dark:hover:text-cyan-100"
+            >
               Geekageddon
-            </div>
+            </Link>
             <p className="hidden text-[0.65rem] tracking-[0.3em] text-cyan-500 dark:text-cyan-300 sm:block">
               The Armageddon of the Tech World
             </p>
