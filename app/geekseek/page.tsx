@@ -2,6 +2,11 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import { FormEvent, useEffect, useMemo, useState } from "react";
 import { SiteShell } from "../components/SiteShell";
+type OpeningHours = {
+  openNow?: boolean;
+  weekdayDescriptions?: string[];
+};
+
 type GeekSeekPlace = {
   name?: string;
   address?: string;
@@ -9,6 +14,30 @@ type GeekSeekPlace = {
   userRatingCount?: number;
   googleMapsUri?: string;
   websiteUri?: string;
+  businessStatus?: string;
+  openNow?: boolean;
+  isOpenNow?: boolean;
+  currentOpeningHours?: OpeningHours;
+  regularOpeningHours?: OpeningHours;
+  formattedPhoneNumber?: string;
+  nationalPhoneNumber?: string;
+  internationalPhoneNumber?: string;
+  phoneNumber?: string;
+  distanceMeters?: number;
+  reviewsUrl?: string;
+  priceLevel?: number;
+  priceRange?: string;
+  categories?: string[];
+  cuisines?: string[];
+  openingHours?: string;
+  acceptsCards?: boolean;
+  acceptsCash?: boolean;
+  hasDelivery?: boolean;
+  hasDineIn?: boolean;
+  hasFreeParking?: boolean;
+  hasTakeout?: boolean;
+  hasWheelchairAccessibleParking?: boolean;
+  reservable?: boolean;
 };
 type GeekSeekCompare = {
   items?: string[];
@@ -33,10 +62,6 @@ const comparePlaceholders = [
   "AWS vs Azure vs GCP",
   "MacBook Air vs Dell XPS 13"
 ];
-const compareModes = [
-  { value: "compare.tech", label: "Compare Tech" },
-  { value: "compare.product", label: "Compare Product" },
-];
 const currencyHints = [
   { keywords: ["india", "mumbai", "delhi", "bangalore", "₹", "rs", "rupee"], symbol: "₹" },
   { keywords: ["europe", "berlin", "paris", "madrid", "euro", "€"], symbol: "€" },
@@ -59,7 +84,6 @@ export default function GeekSeekPage() {
   const searchParams = useSearchParams();
   const typeFromUrl = searchParams.get("type") === "compare" ? "compare" : "places";
   const [activeTab, setActiveTab] = useState<typeof TAB_KEYS[number]>(typeFromUrl);
-  const [compareMode, setCompareMode] = useState<(typeof compareModes)[number]["value"]>("compare.tech");
   const [query, setQuery] = useState("");
   const [placeholderIndex, setPlaceholderIndex] = useState(0);
   const [loading, setLoading] = useState(false);
@@ -71,15 +95,15 @@ export default function GeekSeekPage() {
   useEffect(() => {
     setActiveTab(typeFromUrl);
   }, [typeFromUrl]);
-  
+ 
   useEffect(() => {
     setPlaceholderIndex(0);
     setQuery("");
     setError(null);
     setPlaces([]);
     setComparison(null);
-  }, [activeTab, compareMode]);
-  
+  }, [activeTab]);
+ 
   useEffect(() => {
     const source = activeTab === "places" ? placePlaceholders : comparePlaceholders;
     const interval = window.setInterval(() => {
@@ -87,7 +111,7 @@ export default function GeekSeekPage() {
     }, 4000);
     return () => window.clearInterval(interval);
   }, [activeTab]);
-  
+ 
   const placeholder = useMemo(() => {
     return activeTab === "places" ? placePlaceholders[placeholderIndex % placePlaceholders.length] : comparePlaceholders[placeholderIndex % comparePlaceholders.length];
   }, [activeTab, placeholderIndex]);
@@ -130,7 +154,7 @@ export default function GeekSeekPage() {
     }
 
     const trimmed = query.trim();
-    const type = activeTab === "places" ? "places" : compareMode;
+    const type = activeTab === "places" ? "places" : "compare";
     const lowerQuery = trimmed.toLowerCase();
     const needsLocation =
       activeTab === "places" &&
@@ -234,40 +258,6 @@ export default function GeekSeekPage() {
               ))}
             </div>
             <form onSubmit={handleSubmit} className="w-full space-y-4">
-              {activeTab === "compare" && (
-                <div className="space-y-2 text-sm">
-                  <p className="text-xs uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Compare mode</p>
-                  <div className="flex flex-wrap gap-2">
-                    {compareModes.map((mode) => (
-                      <label
-                        key={mode.value}
-                        className={`inline-flex cursor-pointer items-center gap-2 rounded-full border px-4 py-2 text-sm font-semibold transition ${
-                          compareMode === mode.value
-                            ? "border-cyan-500 bg-white text-cyan-700 shadow-sm dark:border-cyan-300 dark:bg-slate-900 dark:text-cyan-200"
-                            : "border-slate-200 text-slate-600 hover:border-cyan-200 dark:border-slate-700 dark:text-slate-300"
-                        }`}
-                      >
-                        <span>{mode.label}</span>
-                        <input
-                          type="radio"
-                          value={mode.value}
-                          checked={compareMode === mode.value}
-                          onChange={(event) => setCompareMode(event.target.value as typeof compareMode)}
-                          className="sr-only"
-                        />
-                        <span
-                          className={`relative inline-flex h-3.5 w-3.5 items-center justify-center rounded-full border ${
-                            compareMode === mode.value ? "border-cyan-500 bg-cyan-500/10" : "border-slate-400"
-                          }`}
-                          aria-hidden
-                        >
-                          {compareMode === mode.value && <span className="h-2 w-2 rounded-full bg-cyan-500 dark:bg-cyan-300" />}
-                        </span>
-                      </label>
-                    ))}
-                  </div>
-                </div>
-              )}
               <div className="space-y-4">
                 <div className="flex flex-col gap-3">
                   <textarea
@@ -318,28 +308,24 @@ function PlacesResults({ items, query }: PlacesResultsProps) {
       {items.slice(0, 12).map((place, index) => {
         const href = place.googleMapsUri || place.websiteUri || "#";
         const openNow =
-          typeof (place as any)?.currentOpeningHours?.openNow === "boolean"
-            ? (place as any).currentOpeningHours.openNow
-            : typeof (place as any)?.openNow === "boolean"
-            ? (place as any).openNow
-            : typeof (place as any)?.isOpenNow === "boolean"
-            ? (place as any).isOpenNow
+          typeof place.currentOpeningHours?.openNow === "boolean"
+            ? place.currentOpeningHours.openNow
+            : typeof place.openNow === "boolean"
+            ? place.openNow
+            : typeof place.isOpenNow === "boolean"
+            ? place.isOpenNow
             : Boolean(place.businessStatus?.toLowerCase().includes("open"));
         const phone =
-          (place as any)?.formattedPhoneNumber ||
-          (place as any)?.nationalPhoneNumber ||
-          (place as any)?.internationalPhoneNumber ||
-          (place as any)?.phoneNumber ||
-          null;
-        const distanceMeters = typeof (place as any)?.distanceMeters === "number" ? Math.round((place as any).distanceMeters) : null;
-        const reviewsUrl = (place as any)?.reviewsUrl;
+          place.formattedPhoneNumber ?? place.nationalPhoneNumber ?? place.internationalPhoneNumber ?? place.phoneNumber ?? null;
+        const distanceMeters = typeof place.distanceMeters === "number" ? Math.round(place.distanceMeters) : null;
+        const reviewsUrl = place.reviewsUrl ?? null;
         const openingText =
-          (place as any)?.currentOpeningHours?.weekdayDescriptions?.join(" · ") ||
-          (place as any)?.regularOpeningHours?.weekdayDescriptions?.join(" · ") ||
-          (place as any)?.openingHours ||
+          place.currentOpeningHours?.weekdayDescriptions?.join(" · ") ??
+          place.regularOpeningHours?.weekdayDescriptions?.join(" · ") ??
+          place.openingHours ??
           null;
-        const priceLevel = (place as any)?.priceLevel;
-        const priceRange = (place as any)?.priceRange;
+        const priceLevel = place.priceLevel;
+        const priceRange = place.priceRange;
         let priceDisplay: string | null = null;
         if (typeof priceLevel === "number" && priceLevel > 0) {
           priceDisplay = currencySymbol.repeat(Math.min(4, priceLevel));
@@ -347,23 +333,23 @@ function PlacesResults({ items, query }: PlacesResultsProps) {
           priceDisplay = priceRange.trim();
         }
         const excludedCategories = new Set(["food", "restaurant", "establishment", "point_of_interest"]);
-        const categories = Array.isArray((place as any)?.categories)
-          ? (place as any).categories.filter(
-              (category: string) => category && !excludedCategories.has(category.toLowerCase().trim())
+        const categories = Array.isArray(place.categories)
+          ? place.categories.filter(
+              (category) => category && !excludedCategories.has(category.toLowerCase().trim())
             )
           : [];
-        const cuisines = Array.isArray((place as any)?.cuisines)
-          ? (place as any).cuisines.filter((cuisine: string) => cuisine && cuisine.trim())
+        const cuisines = Array.isArray(place.cuisines)
+          ? place.cuisines.filter((cuisine) => cuisine && cuisine.trim())
           : [];
         const boolBadges: Array<{ label: string; value: boolean }> = [
-          { label: "Accepts Card", value: Boolean((place as any)?.acceptsCards) },
-          { label: "Accepts Cash", value: Boolean((place as any)?.acceptsCash) },
-          { label: "Delivery Available", value: Boolean((place as any)?.hasDelivery) },
-          { label: "Dine In", value: Boolean((place as any)?.hasDineIn) },
-          { label: "Free Parking", value: Boolean((place as any)?.hasFreeParking) },
-          { label: "Offers Takeout", value: Boolean((place as any)?.hasTakeout) },
-          { label: "Wheelchair Accessible Parking", value: Boolean((place as any)?.hasWheelchairAccessibleParking) },
-          { label: "Reservation Possible", value: Boolean((place as any)?.reservable) },
+          { label: "Accepts Card", value: Boolean(place.acceptsCards) },
+          { label: "Accepts Cash", value: Boolean(place.acceptsCash) },
+          { label: "Delivery Available", value: Boolean(place.hasDelivery) },
+          { label: "Dine In", value: Boolean(place.hasDineIn) },
+          { label: "Free Parking", value: Boolean(place.hasFreeParking) },
+          { label: "Offers Takeout", value: Boolean(place.hasTakeout) },
+          { label: "Wheelchair Accessible Parking", value: Boolean(place.hasWheelchairAccessibleParking) },
+          { label: "Reservation Possible", value: Boolean(place.reservable) },
         ];
         return (
           <article key={`${place.name}-${index}`} className="rounded-2xl border border-slate-200/70 bg-white/80 p-5 text-sm dark:border-slate-700 dark:bg-slate-900/70">

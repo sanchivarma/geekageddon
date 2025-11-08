@@ -110,32 +110,48 @@ const extractHost = (url?: string) => {
   }
 };
 
+type ThemeMode = "light" | "dark";
+
+const getStoredTheme = (): ThemeMode | null => {
+  if (typeof window === "undefined") return null;
+  const stored = window.localStorage.getItem("geekageddon-theme");
+  return stored === "light" || stored === "dark" ? stored : null;
+};
+
+const getPreferredTheme = (): ThemeMode => {
+  if (typeof window === "undefined") return "light";
+  const stored = getStoredTheme();
+  if (stored) return stored;
+  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+};
+
 type SiteShellProps = {
   children: ReactNode;
 };
 
 export function SiteShell({ children }: SiteShellProps) {
-  const [theme, setTheme] = useState<"light" | "dark">("light");
+  const [theme, setTheme] = useState<ThemeMode>(() => getPreferredTheme());
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    const syncTheme = () => {
-      const stored = window.localStorage.getItem("geekageddon-theme");
-      if (stored === "light" || stored === "dark") {
-        setTheme(stored);
-        return;
-      }
-      setTheme(mediaQuery.matches ? "dark" : "light");
+    const handleMediaChange = (event: MediaQueryListEvent) => {
+      if (getStoredTheme()) return;
+      setTheme(event.matches ? "dark" : "light");
     };
-    syncTheme();
-    mediaQuery.addEventListener?.("change", syncTheme);
-    window.addEventListener("storage", syncTheme);
+    const handleStorage = (event: StorageEvent) => {
+      if (event.key === "geekageddon-theme" && (event.newValue === "light" || event.newValue === "dark")) {
+        setTheme(event.newValue);
+      }
+    };
+    mediaQuery.addEventListener?.("change", handleMediaChange);
+    window.addEventListener("storage", handleStorage);
     return () => {
-      mediaQuery.removeEventListener?.("change", syncTheme);
-      window.removeEventListener("storage", syncTheme);
+      mediaQuery.removeEventListener?.("change", handleMediaChange);
+      window.removeEventListener("storage", handleStorage);
     };
   }, []);
 
