@@ -271,7 +271,7 @@ export function SiteShell({ children }: SiteShellProps) {
             <section>
               <div className="mb-3 flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-cyan-500 dark:text-cyan-300">
                 <span className="h-px flex-1 bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent" />
-                <span>Upcoming Drops</span>
+                <span>On the Horizon</span>
                 <span className="h-px flex-1 bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent" />
               </div>
               <ol className="space-y-4">
