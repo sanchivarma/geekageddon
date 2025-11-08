@@ -215,9 +215,6 @@ export default function Home() {
             <p className="text-sm uppercase tracking-[0.4em] text-cyan-600 dark:text-cyan-200">
               Featured News
             </p>
-            <p className="text-slate-500 dark:text-slate-400">
-              Geek-peek to what&apos;s new in the tech world.
-            </p>
           </div>
         </div>
         {activeSlide && (
@@ -277,7 +274,7 @@ export default function Home() {
           </div>
         )}
         {featuredSlides.length > 0 && (
-          <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 items-center gap-2 text-sm text-slate-400">
+          <div className="absolute bottom-2 left-1/2 flex -translate-x-1/2 items-center gap-2 text-sm text-slate-400">
             {featuredSlides.map((slide, index) => (
               <button
                 key={slide.id}

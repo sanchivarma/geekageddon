@@ -153,8 +153,8 @@ body {
 }
 
 :root[data-theme="light"] .panel-tech {
-  background: #fcfcff;
-  border-color: #d4d7e0;
+  background: #fdfdfd;
+  border-color: #dedede;
   box-shadow:
     0 28px 70px rgba(15, 23, 42, 0.12),
     inset 0 0 0 1px rgba(15, 23, 42, 0.04);
