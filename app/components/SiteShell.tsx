@@ -91,14 +91,11 @@ const podcastWidgets = [
 
 const footerPrimary = [
   { label: "About", href: "#" },
-  { label: "Contact", href: "/contact" },
-  { label: "Careers", href: "#" },
-  { label: "Press", href: "#" },
+  { label: "Contact", href: "/contact" }
 ];
 
 const footerCompliance = [
   { label: "Privacy Policy (EU)", href: "#" },
-  { label: "Cookie Preferences", href: "#" },
   { label: "Data Processing Addendum", href: "#" },
   { label: "Imprint / Impressum", href: "#" },
 ];
