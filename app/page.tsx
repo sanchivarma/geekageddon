@@ -348,7 +348,7 @@ export default function Home() {
                     {showDetails && (
                       <details className="mt-4 text-xs text-slate-600 dark:text-slate-300">
                         <summary className="cursor-pointer text-xs font-semibold uppercase tracking-[0.2em] text-cyan-600 dark:text-cyan-200">
-                          More details
+                          Tags & Context
                         </summary>
                         <div className="mt-3 flex flex-wrap gap-2">
                           {categories.map((category) => (
