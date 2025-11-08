@@ -156,17 +156,14 @@ export function SiteShell({ children }: SiteShellProps) {
       const desktop = window.innerWidth >= 1024;
       setIsDesktop(desktop);
       setDrawerOpen(desktop);
+      if (desktop) {
+        setMobileNavOpen(false);
+      }
     };
     syncLayout();
     window.addEventListener("resize", syncLayout);
     return () => window.removeEventListener("resize", syncLayout);
   }, []);
-
-  useEffect(() => {
-    if (isDesktop) {
-      setMobileNavOpen(false);
-    }
-  }, [isDesktop]);
 
   const sidebarTransform = drawerOpen ? "translate-x-0" : "-translate-x-full";
   const desktopPaddingClass = drawerOpen && isDesktop ? "lg:pl-[20rem]" : "lg:pl-8";
