@@ -90,14 +90,14 @@ const podcastWidgets = [
 ];
 
 const footerPrimary = [
-  { label: "About", href: "#" },
+  { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" }
 ];
 
 const footerCompliance = [
-  { label: "Privacy Policy (EU)", href: "#" },
-  { label: "Data Processing Addendum", href: "#" },
-  { label: "Imprint / Impressum", href: "#" },
+  { label: "Privacy Policy (EU)", href: "/privacy-policy" },
+  { label: "Data Processing Addendum", href: "/data-processing-addendum" },
+  { label: "Imprint / Impressum", href: "/imprint" },
 ];
 
 const extractHost = (url?: string) => {
