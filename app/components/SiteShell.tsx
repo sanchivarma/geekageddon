@@ -247,7 +247,7 @@ export function SiteShell({ children }: SiteShellProps) {
       <button
         type="button"
         onClick={() => setDrawerOpen((prev) => !prev)}
-        className="fixed left-3 top-[88px] z-50 flex h-7 w-7 items-center justify-center rounded-full border border-cyan-500/60 bg-white/90 text-cyan-600 shadow-lg transition hover:scale-105 hover:text-cyan-700 dark:border-cyan-400/60 dark:bg-slate-900/80 dark:text-cyan-100 sm:left-2 sm:top-24 lg:left-1"
+        className="fixed left-3 top-[110px] z-50 flex h-6 w-6 items-center justify-center rounded-full border border-cyan-500/60 bg-white/90 text-cyan-600 shadow-lg transition hover:scale-105 hover:text-cyan-700 dark:border-cyan-400/60 dark:bg-slate-900/80 dark:text-cyan-100 sm:left-2 sm:top-24 lg:left-1"
         aria-label="Toggle control drawer"
       >
         {drawerOpen ? <CloseIcon /> : <SidebarIcon />}
