@@ -209,9 +209,9 @@ export default function Home() {
 
   return (
     <SiteShell>
-      <section className="relative overflow-hidden rounded-[2.5rem] border border-slate-200/80 bg-white/90 px-6 py-10 text-slate-700 shadow-[0_0_50px_rgba(15,23,42,0.12)] dark:border-slate-800/70 dark:bg-slate-950/80 dark:text-slate-200">
+      <section className="relative overflow-hidden rounded-[2.5rem] border border-slate-200/80 bg-white/90 px-4 py-8 text-slate-700 shadow-[0_0_50px_rgba(15,23,42,0.12)] sm:px-6 sm:py-10 dark:border-slate-800/70 dark:bg-slate-950/80 dark:text-slate-200">
         <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
-          <div className="w-full text-center">
+          <div className="w-full space-y-2 text-center">
             <p className="text-sm uppercase tracking-[0.4em] text-cyan-600 dark:text-cyan-200">
               Featured News
             </p>
@@ -221,8 +221,8 @@ export default function Home() {
           </div>
         </div>
         {activeSlide && (
-          <div className="relative px-6">
-            <article className="grid gap-8 lg:grid-cols-2">
+          <div className="relative px-2 sm:px-6">
+            <article className="grid gap-6 lg:grid-cols-2 lg:gap-8">
               <div className="space-y-6">
                 <h2 className="text-3xl font-bold text-slate-900 dark:text-white">
                   {activeSlide.url ? (
@@ -262,14 +262,14 @@ export default function Home() {
 
             <button
               onClick={handlePrev}
-              className="absolute left-[-18px] top-1/2 -translate-y-1/2 rounded-full border border-slate-200 bg-white/90 p-2 text-slate-700 shadow-lg transition hover:border-cyan-400 hover:text-cyan-600 dark:border-slate-800 dark:bg-slate-900/80 dark:text-slate-200 dark:hover:text-white"
+              className="absolute left-[-12px] top-1/2 hidden -translate-y-1/2 rounded-full border border-slate-200 bg-white/90 p-2 text-slate-700 shadow-lg transition hover:border-cyan-400 hover:text-cyan-600 sm:flex dark:border-slate-800 dark:bg-slate-900/80 dark:text-slate-200 dark:hover:text-white"
               aria-label="Previous featured post"
             >
               ‹
             </button>
             <button
               onClick={handleNext}
-              className="absolute right-[-18px] top-1/2 -translate-y-1/2 rounded-full border border-slate-200 bg-white/90 p-2 text-slate-700 shadow-lg transition hover:border-cyan-400 hover:text-cyan-600 dark:border-slate-800 dark:bg-slate-900/80 dark:text-slate-200 dark:hover:text-white"
+              className="absolute right-[-12px] top-1/2 hidden -translate-y-1/2 rounded-full border border-slate-200 bg-white/90 p-2 text-slate-700 shadow-lg transition hover:border-cyan-400 hover:text-cyan-600 sm:flex dark:border-slate-800 dark:bg-slate-900/80 dark:text-slate-200 dark:hover:text-white"
               aria-label="Next featured post"
             >
               ›
@@ -283,7 +283,7 @@ export default function Home() {
                 key={slide.id}
                 type="button"
                 onClick={() => setCurrentSlide(index)}
-                className={`h-2 w-10 rounded-full cursor-pointer transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 ${
+                className={`h-2 w-8 rounded-full cursor-pointer transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 sm:w-10 ${
                   slide.id === activeSlide?.id
                     ? "bg-cyan-500"
                     : "bg-slate-200 dark:bg-slate-700/60"
@@ -296,7 +296,7 @@ export default function Home() {
       </section>
 
       <section className="grid gap-6">
-        <div className="panel-tech space-y-6 rounded-3xl border border-slate-200/80 bg-white/90 p-6 text-slate-700 shadow-[0_15px_40px_rgba(15,23,42,0.1)] dark:border-slate-800/70 dark:bg-slate-950/80 dark:text-slate-200">
+        <div className="panel-tech w-92 sm:w-full space-y-6 rounded-3xl border border-slate-200/80 bg-white/90 p-6 text-slate-700 shadow-[0_15px_40px_rgba(15,23,42,0.1)] dark:border-slate-800/70 dark:bg-slate-950/80 dark:text-slate-200">
           <div className="flex flex-wrap items-center justify-between gap-4 text-sm text-slate-500 dark:text-slate-400">
             <p className="text-base font-semibold tracking-[0.1em] text-cyan-600 dark:text-cyan-200">
               Tech moves fast. Stay ahead, stay curious, stay informed.
@@ -322,7 +322,7 @@ export default function Home() {
                 return (
                   <article
                     key={post.id ?? post.url}
-                    className="card-tech flex h-full flex-col rounded-2xl border border-slate-200/80 bg-white/80 p-6 transition hover:border-cyan-400/70 hover:shadow-lg dark:border-slate-800/80 dark:bg-slate-900/40"
+                    className="card-tech w-82 sm:w-full flex h-full flex-col rounded-2xl border border-slate-200/80 bg-white/80 p-6 transition hover:border-cyan-400/70 hover:shadow-lg dark:border-slate-800/80 dark:bg-slate-900/40"
                   >
                     <a
                       href={post.url ?? "#"}

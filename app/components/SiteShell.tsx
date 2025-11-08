@@ -119,7 +119,9 @@ type SiteShellProps = {
 
 export function SiteShell({ children }: SiteShellProps) {
   const [theme, setTheme] = useState<"light" | "dark">("light");
-  const [drawerOpen, setDrawerOpen] = useState(true);
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
@@ -149,21 +151,39 @@ export function SiteShell({ children }: SiteShellProps) {
     window.localStorage.setItem("geekageddon-theme", theme);
   }, [theme]);
 
+  useEffect(() => {
+    const syncLayout = () => {
+      const desktop = window.innerWidth >= 1024;
+      setIsDesktop(desktop);
+      setDrawerOpen(desktop);
+    };
+    syncLayout();
+    window.addEventListener("resize", syncLayout);
+    return () => window.removeEventListener("resize", syncLayout);
+  }, []);
+
+  useEffect(() => {
+    if (isDesktop) {
+      setMobileNavOpen(false);
+    }
+  }, [isDesktop]);
+
   const sidebarTransform = drawerOpen ? "translate-x-0" : "-translate-x-full";
-  const desktopPaddingClass = drawerOpen ? "md:pl-[20rem]" : "md:pl-8";
+  const desktopPaddingClass = drawerOpen && isDesktop ? "lg:pl-[20rem]" : "lg:pl-8";
+  const shouldShowSidebarOverlay = !isDesktop && drawerOpen;
 
   return (
     <div className="relative min-h-screen bg-white text-slate-900 transition-colors duration-500 dark:bg-slate-950 dark:text-slate-100">
       <div className="noise-layer" aria-hidden />
 
       <nav className="fixed inset-x-0 top-0 z-40 border-b border-slate-200/70 bg-white/90 text-slate-700 shadow-[0_4px_20px_rgba(15,23,42,0.08)] backdrop-blur dark:border-slate-800/70 dark:bg-slate-950/70 dark:text-slate-200">
-        <div className="flex w-full justify-between gap-4 pl-3 pr-4 py-2 md:pl-6 md:pr-6 lg:pl-8 lg:pr-10">
+        <div className="flex w-full flex-wrap items-center justify-between gap-3 px-4 py-2 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3">
             <div className="rounded-2xl font-semibold border border-cyan-500/60 bg-gradient-to-br from-white via-white to-slate-50 px-3 py-2 text-xs uppercase tracking-[0.4em] text-cyan-600 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 dark:text-cyan-200">
               Geekageddon
             </div>
           </div>
-          <div className="flex flex-wrap items-center gap-2 text-sm">
+          <div className="hidden flex-1 items-center justify-center gap-2 text-sm md:flex">
             {navLinks.map((link) => (
               <Link
                 key={link.label}
@@ -190,23 +210,56 @@ export function SiteShell({ children }: SiteShellProps) {
               {theme === "dark" ? <SunIcon /> : <MoonIcon />}
               <span className="sr-only">Toggle color theme</span>
             </button>
+            <button
+              type="button"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-300/80 bg-white/90 text-slate-600 transition hover:scale-105 hover:text-cyan-600 dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-200 md:hidden"
+              aria-label="Toggle navigation menu"
+              onClick={() => setMobileNavOpen((prev) => !prev)}
+            >
+              {mobileNavOpen ? <CloseIcon /> : <MenuIcon />}
+            </button>
           </div>
         </div>
+        {mobileNavOpen && (
+          <div className="md:hidden border-t border-slate-200/80 bg-white/95 px-4 py-3 text-sm shadow-lg dark:border-slate-800/60 dark:bg-slate-950/90">
+            <div className="flex flex-col gap-2">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className="rounded-lg px-3 py-2 text-slate-700 transition hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-900/70"
+                  onClick={() => setMobileNavOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
       </nav>
 
       <button
         type="button"
         onClick={() => setDrawerOpen((prev) => !prev)}
-        className="fixed left-1 top-18 z-50 flex h-6 w-6 items-center justify-center rounded-full border border-cyan-500/60 bg-white/90 text-cyan-600 shadow-lg transition hover:scale-105 hover:text-cyan-700 dark:border-cyan-400/60 dark:bg-slate-900/80 dark:text-cyan-100"
+        className="fixed left-3 top-[88px] z-50 flex h-7 w-7 items-center justify-center rounded-full border border-cyan-500/60 bg-white/90 text-cyan-600 shadow-lg transition hover:scale-105 hover:text-cyan-700 dark:border-cyan-400/60 dark:bg-slate-900/80 dark:text-cyan-100 sm:left-2 sm:top-24 lg:left-1"
         aria-label="Toggle control drawer"
       >
-        {drawerOpen ? "«" : "»"}
+        {drawerOpen ? <CloseIcon /> : <SidebarIcon />}
       </button>
 
+      {shouldShowSidebarOverlay && (
+        <button
+          type="button"
+          className="fixed inset-0 z-20 bg-slate-900/40 backdrop-blur-sm lg:hidden"
+          aria-label="Close sidebar overlay"
+          onClick={() => setDrawerOpen(false)}
+        />
+      )}
+
       <div
-        className={`mx-auto flex w-full max-w-7xl flex-col gap-6 pb-16 pt-20 pl-4 pr-4 md:flex-row md:gap-10 md:pr-6 lg:pr-10 ${desktopPaddingClass}`}>
+        className={`flex w-full gap-6 pb-20 pt-24 px-4 sm:px-6 md:flex-row md:gap-10 lg:pr-10 ${desktopPaddingClass}`}>
         <aside
-        className={`sidebar-tech fixed bottom-22 left-0 top-15 z-30 w-72 overflow-y-auto border border-slate-200/70 bg-white/95 px-6 pb-8 pt-4 text-sm shadow-2xl backdrop-blur transition-transform duration-500 ease-out dark:border-slate-800/70 dark:bg-slate-950/95 ${sidebarTransform}`}
+        className={`sidebar-tech fixed inset-y-20 left-0 z-30 w-72 overflow-y-auto border border-slate-200/70 bg-white/95 px-6 pb-8 pt-4 text-sm shadow-2xl backdrop-blur transition-transform duration-500 ease-out dark:border-slate-800/70 dark:bg-slate-950/95 ${sidebarTransform}`}
         >
           <div className="space-y-8">
             <section>
@@ -302,7 +355,7 @@ export function SiteShell({ children }: SiteShellProps) {
           </div>
         </aside>
 
-        <main className="flex flex-1 flex-col gap-10 text-slate-700 dark:text-slate-200">{children}</main>
+        <main className="flex w-full flex-1 flex-col gap-10 text-slate-700 dark:text-slate-200">{children}</main>
       </div>
 
       <footer className="border-t border-slate-200/80 bg-white/95 px-4 py-4 text-sm text-slate-500 shadow-[0_-4px_20px_rgba(15,23,42,0.05)] dark:border-slate-800/70 dark:bg-slate-950/80 dark:text-slate-400">
@@ -352,6 +405,31 @@ function MoonIcon() {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.5">
       <path d="M21 14.5A8.5 8.5 0 0 1 9.5 3a8.5 8.5 0 1 0 11.5 11.5Z" />
+    </svg>
+  );
+}
+
+function MenuIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <path d="M4 7h16M4 12h16M4 17h16" />
+    </svg>
+  );
+}
+
+function CloseIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <path d="M6 6l12 12M18 6l-12 12" />
+    </svg>
+  );
+}
+
+function SidebarIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <path d="M4 5h16v14H4z" />
+      <path d="M9 5v14" />
     </svg>
   );
 }
