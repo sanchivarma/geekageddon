@@ -239,6 +239,9 @@ export function SiteShell({ children }: SiteShellProps) {
             </div>
           </div>
         )}
+        <div className="border-t border-dashed border-slate-200/80 bg-white/90 px-4 py-1 text-center text-xs font-semibold tracking-[0.2em] text-slate-600 dark:border-slate-800/70 dark:bg-slate-950/70 dark:text-slate-300">
+          Beta mode &middot; We welcome your feedback and feature ideas
+        </div>
       </nav>
 
       <button
