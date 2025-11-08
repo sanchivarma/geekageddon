@@ -246,7 +246,7 @@ type PlacesResultsProps = {
 
 function PlacesResults({ items }: PlacesResultsProps) {
   if (!items.length) {
-    return <p className="text-sm text-slate-500 dark:text-slate-400">Run a search to populate nearby places.</p>;
+    return <p className="text-sm text-slate-500 dark:text-slate-400">Please submit a query.</p>;
   }
 
   return (
@@ -285,7 +285,7 @@ type CompareResultsProps = {
 
 function CompareResults({ payload }: CompareResultsProps) {
   if (!payload) {
-    return <p className="text-sm text-slate-500 dark:text-slate-400">Please submit a prompt query.</p>;
+    return <p className="text-sm text-slate-500 dark:text-slate-400">Please submit a query.</p>;
   }
 
   const pills = payload.items ?? [];
