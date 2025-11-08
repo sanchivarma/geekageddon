@@ -95,7 +95,7 @@ export default function GeekSeekPage() {
   useEffect(() => {
     setActiveTab(typeFromUrl);
   }, [typeFromUrl]);
- 
+
   useEffect(() => {
     setPlaceholderIndex(0);
     setQuery("");
@@ -103,7 +103,7 @@ export default function GeekSeekPage() {
     setPlaces([]);
     setComparison(null);
   }, [activeTab]);
- 
+
   useEffect(() => {
     const source = activeTab === "places" ? placePlaceholders : comparePlaceholders;
     const interval = window.setInterval(() => {
@@ -111,7 +111,7 @@ export default function GeekSeekPage() {
     }, 4000);
     return () => window.clearInterval(interval);
   }, [activeTab]);
- 
+
   const placeholder = useMemo(() => {
     return activeTab === "places" ? placePlaceholders[placeholderIndex % placePlaceholders.length] : comparePlaceholders[placeholderIndex % comparePlaceholders.length];
   }, [activeTab, placeholderIndex]);
@@ -139,7 +139,7 @@ export default function GeekSeekPage() {
         },
         {
           enableHighAccuracy: true,
-          timeout: 15000,
+          timeout: 120000,
         }
       );
     });
