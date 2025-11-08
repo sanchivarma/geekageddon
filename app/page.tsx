@@ -330,7 +330,7 @@ export default function Home() {
                       rel="noopener noreferrer"
                       className="group flex items-start gap-1 break-words text-lg font-semibold text-[#1c1f23] transition hover:text-slate-700 dark:text-white dark:hover:text-cyan-200"
                     >
-                      <span className="flex-1 leading-tight text-cyan-400 group-hover:text-cyan-600">
+                      <span className="flex-1 leading-tight text-cyan-600 sm:text-cyan-500 group-hover:text-cyan-700">
                         🌐 {post.title ?? "Untitled feed"}
                       </span>
                     </a>
