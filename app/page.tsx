@@ -347,7 +347,7 @@ export default function Home() {
                     </p>
                     {showDetails && (
                       <details className="mt-4 text-xs text-slate-600 dark:text-slate-300">
-                        <summary className="cursor-pointer text-xs font-semibold uppercase tracking-[0.2em] text-cyan-600 dark:text-cyan-200">
+                        <summary className="cursor-pointer text-xs font-semibold tracking-[0.2em] text-cyan-600 dark:text-cyan-200">
                           Tags & Context
                         </summary>
                         <div className="mt-3 flex flex-wrap gap-2">
