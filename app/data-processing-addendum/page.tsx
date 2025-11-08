@@ -31,8 +31,8 @@ export default function DataProcessingAddendumPage() {
         <div className="mt-10 rounded-3xl border border-dashed border-slate-200/70 bg-slate-50/60 p-6 text-sm text-slate-600 dark:border-slate-700 dark:bg-slate-900/40 dark:text-slate-300">
           <p>
             Need a countersigned copy or custom clauses? Reach out to{" "}
-            <a href="mailto:legal@geekageddon.com" className="text-cyan-600 underline decoration-dotted dark:text-cyan-300">
-              legal@geekageddon.com
+            <a href="mailto:contact.geekageddon@gmail.com" className="text-cyan-600 underline decoration-dotted dark:text-cyan-300">
+              mailto:contact.geekageddon@gmail.com
             </a>{" "}
             and we&apos;ll coordinate with your counsel.
           </p>

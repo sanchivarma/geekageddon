@@ -18,14 +18,14 @@ export default function ImprintPage() {
             <dt className="text-xs uppercase tracking-[0.3em] text-cyan-600 dark:text-cyan-300">Publisher</dt>
             <dd>Geekageddon Media Lab</dd>
             <dd>Attn: Editorial</dd>
-            <dd>42 Signal Alley, Berlin, Germany</dd>
-            <dd>Email: hello@geekageddon.com</dd>
+            <dd>Berlin, Germany</dd>
+            <dd>Email: mailto:contact.geekageddon@gmail.com</dd>
           </dl>
           <dl className="space-y-2 text-sm text-slate-700 dark:text-slate-200">
             <dt className="text-xs uppercase tracking-[0.3em] text-cyan-600 dark:text-cyan-300">Responsible Editor</dt>
-            <dd>Sanchi Varma</dd>
-            <dd>Editorial Hotline: +49 30 1234 5678</dd>
-            <dd>Legal inquiries: legal@geekageddon.com</dd>
+            <dd>Geekageddon</dd>
+            {/* <dd>Editorial Hotline: +49 30 1234 5678<dd> */}
+            <dd>Legal inquiries: mailto:contact.geekageddon@gmail.comm</dd>
             <dd>VAT ID pending (Beta operations)</dd>
           </dl>
         </div>
@@ -34,8 +34,8 @@ export default function ImprintPage() {
           <p>
             Dispute Resolution: We are not obligated to participate in consumer arbitration boards, but we&apos;re happy to resolve issues directly.
             Email{" "}
-            <a href="mailto:ombuds@geekageddon.com" className="text-cyan-600 underline decoration-dotted dark:text-cyan-300">
-              ombuds@geekageddon.com
+            <a href="mailto:mailto:contact.geekageddon@gmail.com" className="text-cyan-600 underline decoration-dotted dark:text-cyan-300">
+              mailto:contact.geekageddon@gmail.com
             </a>{" "}
             with any concerns.
           </p>
