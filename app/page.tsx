@@ -330,10 +330,9 @@ export default function Home() {
                       rel="noopener noreferrer"
                       className="group flex items-start gap-1 break-words text-lg font-semibold text-[#1c1f23] transition hover:text-slate-700 dark:text-white dark:hover:text-cyan-200"
                     >
-                      <span className="flex-1 leading-tight">
-                        {post.title ?? "Untitled dispatch"}
+                      <span className="flex-1 leading-tight text-cyan-400 group-hover:text-cyan-600">
+                        🌐 {post.title ?? "Untitled feed"}
                       </span>
-                      <GlobeIcon className="h-4 w-4 shrink-0 text-cyan-600 transition group-hover:text-cyan-400 dark:text-cyan-200" />
                     </a>
                     <p className="mt-1 text-xs uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">
                       {formatDate(post.publishedAt)}
