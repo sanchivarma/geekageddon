@@ -258,6 +258,11 @@ function GeekSeekClient() {
             </p>
           </div>
           <div className="mt-4 space-y-6">
+            <div className="space-y-1">
+              <p className=" text-[11px] uppercase tracking-[0.3em] text-slate-400 dark:text-slate-500">
+                Select the right mode for best formatted results
+              </p>
+            </div>
             <div
               className="flex flex-col gap-2 rounded-3xl border border-slate-200/80 bg-white/80 p-2 text-sm shadow-inner dark:border-slate-800/70 dark:bg-slate-900/40 sm:flex-row sm:flex-wrap sm:gap-3"
               role="tablist"
