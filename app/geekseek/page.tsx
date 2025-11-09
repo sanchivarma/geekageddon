@@ -254,7 +254,7 @@ function GeekSeekClient() {
           <div className="flex flex-col gap-2">
             <h1 className="text-3xl font-bold text-slate-900 dark:text-white">Geek Seek 🔍</h1>
             <p className="text-sm text-slate-600 dark:text-slate-300">
-              Explore the multi-mode Geek-seek endpoint. Query places around the world or compare technologies and products without leaving the cockpit.
+              Query places around the world or compare technologies and products side by side. Powered by AI and real-time data.
             </p>
           </div>
           <div className="mt-4 space-y-6">
@@ -316,7 +316,6 @@ function GeekSeekClient() {
         <section className="w-full rounded-[2.5rem] border border-slate-200/70 bg-white/95 p-5 shadow-[0_25px_80px_rgba(15,23,42,0.12)] dark:border-slate-800/70 dark:bg-slate-950/80 sm:p-8">
           <header className="flex flex-col gap-1">
             <p className="text-xs uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Results</p>
-            <h2 className="text-2xl font-semibold text-slate-900 dark:text-white">{activeTab === "places" ? "Places" : "Comparisons"}</h2>
           </header>
           <div className="mt-6" id={`${activeTab}-panel`} role="tabpanel" aria-live="polite">
             {activeTab === "places" ? <PlacesResults items={places} query={query} /> : <CompareResults payload={comparison} query={query} />}
