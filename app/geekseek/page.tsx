@@ -252,10 +252,9 @@ function GeekSeekClient() {
       <div className="mx-auto flex w-full max-w-5xl flex-col gap-8 px-3 pb-12 pt-4 sm:px-4 lg:px-0">
         <section className="w-full rounded-[2.5rem] border border-slate-200/70 bg-white/95 p-5 shadow-[0_25px_80px_rgba(15,23,42,0.12)] dark:border-slate-800/70 dark:bg-slate-950/80 sm:p-8">
           <div className="flex flex-col gap-2">
-            <p className="text-xs uppercase tracking-[0.4em] text-cyan-600 dark:text-cyan-300">Geekageddon API</p>
-            <h1 className="text-3xl font-bold text-slate-900 dark:text-white">Geekseek</h1>
+            <h1 className="text-3xl font-bold text-slate-900 dark:text-white">Geek Seek 🔍</h1>
             <p className="text-sm text-slate-600 dark:text-slate-300">
-              Explore the multi-mode Geekseek endpoint. Query places around the world or compare technologies and products without leaving the cockpit.
+              Explore the multi-mode Geek-seek endpoint. Query places around the world or compare technologies and products without leaving the cockpit.
             </p>
           </div>
           <div className="mt-4 space-y-6">
@@ -628,7 +627,13 @@ function CompareResults({ payload, query }: CompareResultsProps) {
                   </th>
                   {row.values.map((value, cellIndex) => (
                     <td key={`${row.label}-${cellIndex}`} className="px-4 py-2">
-                      {value}
+                      {row.label.toLowerCase() === "link" && value !== "--" ? (
+                        <a href={value} target="_blank" rel="noopener noreferrer" className="text-cyan-600 underline decoration-dotted dark:text-cyan-300">
+                          {value}
+                        </a>
+                      ) : (
+                        value
+                      )}
                     </td>
                   ))}
                 </tr>

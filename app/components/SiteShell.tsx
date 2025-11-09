@@ -383,16 +383,16 @@ export function SiteShell({ children }: SiteShellProps) {
         <main className="flex w-full flex-1 flex-col gap-10 text-slate-700 dark:text-slate-200">{children}</main>
       </div>
 
-      <footer className="border-t border-slate-200/80 bg-white/95 px-4 py-4 text-sm text-slate-500 shadow-[0_-4px_20px_rgba(15,23,42,0.05)] dark:border-slate-800/70 dark:bg-slate-950/80 dark:text-slate-400">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4">
-          <div className="flex flex-wrap gap-4">
+      <footer className="border-t border-slate-200/80 bg-white/95 px-4 py-6 text-sm text-slate-500 shadow-[0_-4px_20px_rgba(15,23,42,0.05)] dark:border-slate-800/70 dark:bg-slate-950/80 dark:text-slate-400">
+        <div className="mx-auto flex max-w-7xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex flex-wrap justify-center gap-4 sm:justify-start">
             {footerPrimary.map((item) => (
               <Link key={item.label} href={item.href} className="text-slate-600 transition hover:text-cyan-600 dark:text-slate-300 dark:hover:text-cyan-200">
                 {item.label}
               </Link>
             ))}
           </div>
-          <div className="flex flex-wrap gap-4 text-xs">
+          <div className="flex flex-wrap justify-center gap-4 text-xs sm:justify-end">
             {footerCompliance.map((item) => (
               <Link key={item.label} href={item.href} className="text-slate-500 transition hover:text-cyan-600 dark:text-slate-400 dark:hover:text-cyan-200">
                 {item.label}
