@@ -1,6 +1,6 @@
 "use client";
 import { useRouter, useSearchParams } from "next/navigation";
-import { FormEvent, useEffect, useMemo, useState } from "react";
+import { FormEvent, Suspense, useEffect, useMemo, useState } from "react";
 import { SiteShell } from "../components/SiteShell";
 type OpeningHours = {
   openNow?: boolean;
@@ -104,7 +104,7 @@ const extractComparisonLabels = (query: string) => {
     .filter(Boolean);
   return parts.slice(0, 2);
 };
-export default function GeekSeekPage() {
+function GeekSeekClient() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const typeFromUrl = searchParams.get("type") === "compare" ? "compare" : "places";
@@ -323,6 +323,13 @@ export default function GeekSeekPage() {
   );
 }
 
+export default function GeekSeekPage() {
+  return (
+    <Suspense fallback={<div className="p-10 text-center text-sm text-slate-500">Loading Geekseek…</div>}>
+      <GeekSeekClient />
+    </Suspense>
+  );
+}
 type PlacesResultsProps = {
   items: GeekSeekPlace[];
   query: string;
