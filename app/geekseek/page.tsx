@@ -39,9 +39,23 @@ type GeekSeekPlace = {
   hasWheelchairAccessibleParking?: boolean;
   reservable?: boolean;
 };
+type GeekSeekTableRow = {
+  label?: string;
+  key?: string;
+  values?: Array<string | number | null | undefined>;
+  A?: string;
+  B?: string;
+  a?: string;
+  b?: string;
+};
 type GeekSeekCompare = {
   items?: string[];
-  table?: { html?: string };
+  table?: {
+    columns?: string[];
+    rows?: GeekSeekTableRow[];
+    html?: string;
+  };
+  rows?: GeekSeekTableRow[];
   description?: string;
   highlights?: Array<{ item?: string; summary?: string }>;
   links?: Array<{ url: string; label?: string }>;
@@ -59,7 +73,7 @@ const comparePlaceholders = [
   "Iphone 15 vs Samsung Galaxy S25+",
   "NextJs vs Svelte",
   "Tesla Model 3 vs BMW i4",
-  "AWS vs Azure vs GCP",
+  "AWS vs AzureP",
   "MacBook Air vs Dell XPS 13"
 ];
 const currencyHints = [
@@ -78,6 +92,17 @@ const detectCurrencySymbol = (query: string) => {
   return Intl.NumberFormat(undefined, { style: "currency", currency: "USD" })
     .formatToParts(0)
     .find((part) => part.type === "currency")?.value ?? "$";
+};
+const EXCLUDED_CATEGORIES = new Set(["food", "restaurant", "establishment", "point_of_interest"]);
+const extractComparisonLabels = (query: string) => {
+  if (!query) return [];
+  const normalized = query.replace(/\s+/g, " ").trim();
+  if (!normalized) return [];
+  const parts = normalized
+    .split(/(?:\s+vs\.?\s+|\s+versus\s+|\s+against\s+|,|\/|&)/i)
+    .map((part) => part.trim())
+    .filter(Boolean);
+  return parts.slice(0, 2);
 };
 export default function GeekSeekPage() {
   const router = useRouter();
@@ -253,10 +278,15 @@ export default function GeekSeekPage() {
                   aria-selected={activeTab === tab}
                   aria-controls={`${tab}-panel`}
                 >
-                  {tab === "places" ? "Places" : "Compare Tech/Product"}
+                  {tab === "places" ? "Places" : "Compare Tech/Product (A vs B)"}
                 </button>
               ))}
             </div>
+            {activeTab === "compare" && (
+                    <p className="text-xs text-slate-500 dark:text-slate-400">
+                      Beta note: Please compare only two options at a time while we expand the compare engine.
+                    </p>
+                  )}
             <form onSubmit={handleSubmit} className="w-full space-y-4">
               <div className="space-y-4">
                 <div className="flex flex-col gap-3">
@@ -285,7 +315,7 @@ export default function GeekSeekPage() {
             <h2 className="text-2xl font-semibold text-slate-900 dark:text-white">{activeTab === "places" ? "Places" : "Comparisons"}</h2>
           </header>
           <div className="mt-6" id={`${activeTab}-panel`} role="tabpanel" aria-live="polite">
-            {activeTab === "places" ? <PlacesResults items={places} query={query} /> : <CompareResults payload={comparison} />}
+            {activeTab === "places" ? <PlacesResults items={places} query={query} /> : <CompareResults payload={comparison} query={query} />}
           </div>
         </section>
       </div>
@@ -332,10 +362,9 @@ function PlacesResults({ items, query }: PlacesResultsProps) {
         } else if (typeof priceRange === "string" && priceRange.trim()) {
           priceDisplay = priceRange.trim();
         }
-        const excludedCategories = new Set(["food", "restaurant", "establishment", "point_of_interest"]);
         const categories = Array.isArray(place.categories)
           ? place.categories.filter(
-              (category) => category && !excludedCategories.has(category.toLowerCase().trim())
+              (category) => category && !EXCLUDED_CATEGORIES.has(category.toLowerCase().trim())
             )
           : [];
         const cuisines = Array.isArray(place.cuisines)
@@ -453,9 +482,94 @@ function PlacesResults({ items, query }: PlacesResultsProps) {
 
 type CompareResultsProps = {
   payload: GeekSeekCompare | null;
+  query: string;
 };
 
-function CompareResults({ payload }: CompareResultsProps) {
+type NormalizedTableRow = { label: string; values: string[] };
+
+const sanitizeCell = (value: unknown, fallback = "--") => {
+  if (value == null) return fallback;
+  const text = String(value).trim();
+  return text.length ? text : fallback;
+};
+
+const normalizeComparisonTable = (payload: GeekSeekCompare | null, query: string): { columns: string[]; rows: NormalizedTableRow[] } => {
+  if (!payload) return { columns: [], rows: [] };
+  const normalizedItems = (payload.items ?? []).map((item) => sanitizeCell(item)).filter((item) => item !== "--");
+  const queryLabels = extractComparisonLabels(query).map((label) => sanitizeCell(label));
+  const fallbackOptions = normalizedItems.length ? normalizedItems : queryLabels;
+  const finalFallbackOptions = fallbackOptions.length ? fallbackOptions : ["Item 1", "Item 2"];
+  const rawColumns =
+    Array.isArray(payload.table?.columns) && payload.table?.columns.length
+      ? payload.table.columns.map((column) => sanitizeCell(column, "--"))
+      : ["Factor", ...finalFallbackOptions.slice(0, 2)];
+
+  const displayColumns = rawColumns.map((column, index) => {
+    if (index === 0) return column === "--" ? "Factor" : column;
+    const replacement = finalFallbackOptions[index - 1];
+    if (!replacement) return column === "--" ? `Choice ${index}` : column;
+    if (/^(?:option|choice)?\s*(?:a|b|1|2)$/i.test(column)) {
+      return replacement;
+    }
+    return column === "--" ? replacement : column;
+  });
+
+  const expectedValueCount = Math.max(1, displayColumns.length - 1);
+  const sourceRows = (payload.table?.rows ?? payload.rows ?? []) as GeekSeekTableRow[];
+  const intermediate: Array<NormalizedTableRow & { labelMeta: string }> = sourceRows
+    .map((row) => {
+      const originalLabel = row?.label ?? row?.key ?? "";
+      let label = sanitizeCell(originalLabel);
+      let forcedColumnIndex: number | null = null;
+      if (/^when to cho(?:ose|se)\b/i.test(label || originalLabel)) {
+        label = "When to Choose";
+        if (/(?:\b|_)(?:b|second|2)\b/i.test(originalLabel ?? "")) {
+          forcedColumnIndex = 1;
+        } else if (/(?:\b|_)(?:a|first|1)\b/i.test(originalLabel ?? "")) {
+          forcedColumnIndex = 0;
+        }
+      }
+      const rawValues = Array.isArray(row?.values) && row.values.length > 0 ? row.values : [row?.A ?? row?.a, row?.B ?? row?.b];
+      const values = rawValues.map((value) => sanitizeCell(value));
+      while (values.length < expectedValueCount) values.push("--");
+      if (values.length > expectedValueCount) values.length = expectedValueCount;
+      if (forcedColumnIndex !== null) {
+        const nonEmpty = values.filter((value) => value !== "--");
+        if (nonEmpty.length === 1) {
+          const adjusted = Array(expectedValueCount).fill("--");
+          adjusted[forcedColumnIndex] = nonEmpty[0];
+          return { label, values: adjusted, labelMeta: originalLabel };
+        }
+      }
+      return { label, values, labelMeta: originalLabel };
+    })
+    .filter((row) => row.label !== "--" || row.values.some((value) => value !== "--"));
+
+  const mergedRows: NormalizedTableRow[] = [];
+  const whenAccumulator = Array(expectedValueCount).fill("--");
+  let hasWhenRow = false;
+
+  for (const row of intermediate) {
+    if (row.label === "When to Choose") {
+      row.values.forEach((value, index) => {
+        if (value !== "--") {
+          whenAccumulator[index] = value;
+          hasWhenRow = true;
+        }
+      });
+    } else {
+      mergedRows.push({ label: row.label, values: row.values });
+    }
+  }
+
+  if (hasWhenRow) {
+    mergedRows.push({ label: "When to Choose", values: whenAccumulator });
+  }
+
+  return { columns: displayColumns, rows: mergedRows };
+};
+
+function CompareResults({ payload, query }: CompareResultsProps) {
   if (!payload) {
     return <p className="text-sm text-slate-500 dark:text-slate-400">Please submit a query.</p>;
   }
@@ -463,6 +577,8 @@ function CompareResults({ payload }: CompareResultsProps) {
   const pills = payload.items ?? [];
   const highlights = payload.highlights ?? [];
   const links = payload.links ?? [];
+  const { columns, rows } = normalizeComparisonTable(payload, query);
+  const hasStructuredTable = rows.length > 0;
   
   return (
     <article className="space-y-4 rounded-3xl border border-slate-200/70 bg-white/80 p-6 text-sm dark:border-slate-700 dark:bg-slate-900/70">
@@ -475,8 +591,44 @@ function CompareResults({ payload }: CompareResultsProps) {
           ))}
         </div>
       )}
-      {payload.table?.html ? (
-        <div className="overflow-auto rounded-2xl border border-slate-200/70 bg-slate-50 p-4 dark:border-slate-700 dark:bg-slate-900/40" dangerouslySetInnerHTML={{ __html: payload.table.html }} />
+      {hasStructuredTable ? (
+        <div className="overflow-auto rounded-2xl border border-slate-200/70 bg-slate-50 dark:border-slate-700 dark:bg-slate-900/40">
+          <table className="min-w-full table-auto text-left text-xs text-slate-700 dark:text-slate-200 sm:text-sm">
+            <thead>
+              <tr>
+                {columns.map((column) => (
+                  <th
+                    key={column}
+                    className="px-4 py-2 font-semibold uppercase tracking-wide text-cyan-700 dark:from-slate-900/30 dark:to-slate-900/10 dark:text-cyan-700"
+                  >
+                    {column}  
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((row, rowIndex) => (
+                <tr
+                  key={`${row.label}-${rowIndex}`}
+                  className={
+                    rowIndex % 2 === 0
+                      ? "bg-white/95 dark:bg-slate-900/30"
+                      : "bg-slate-200/60 dark:bg-slate-900/60"
+                  }
+                >
+                  <th scope="row" className="px-4 py-2 text-slate-900 dark:text-slate-100">
+                    {row.label}
+                  </th>
+                  {row.values.map((value, cellIndex) => (
+                    <td key={`${row.label}-${cellIndex}`} className="px-4 py-2">
+                      {value}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       ) : payload.description ? (
         <p className="text-slate-600 dark:text-slate-200">{payload.description}</p>
       ) : (
