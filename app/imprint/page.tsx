@@ -19,13 +19,13 @@ export default function ImprintPage() {
             <dd>Geekageddon Media Lab</dd>
             <dd>Attn: Editorial</dd>
             <dd>Berlin, Germany</dd>
-            <dd>Email: mailto:contact.geekageddon@gmail.com</dd>
+            {/* <dd>Email: mailto:contact.geekageddon@gmail.com</dd> */}
           </dl>
           <dl className="space-y-2 text-sm text-slate-700 dark:text-slate-200">
             <dt className="text-xs uppercase tracking-[0.3em] text-cyan-600 dark:text-cyan-300">Responsible Editor</dt>
             <dd>Geekageddon</dd>
             {/* <dd>Editorial Hotline: +49 30 1234 5678<dd> */}
-            <dd>Legal inquiries: mailto:contact.geekageddon@gmail.comm</dd>
+            {/* <dd>Legal inquiries: mailto:contact.geekageddon@gmail.comm</dd> */}
             <dd>VAT ID pending (Beta operations)</dd>
           </dl>
         </div>
@@ -33,11 +33,11 @@ export default function ImprintPage() {
         <div className="mt-10 rounded-3xl border border-dashed border-slate-200/70 bg-slate-50/60 p-6 text-sm text-slate-600 dark:border-slate-700 dark:bg-slate-900/40 dark:text-slate-300">
           <p>
             Dispute Resolution: We are not obligated to participate in consumer arbitration boards, but we&apos;re happy to resolve issues directly.
-            Email{" "}
-            <a href="mailto:mailto:contact.geekageddon@gmail.com" className="text-cyan-600 underline decoration-dotted dark:text-cyan-300">
-              mailto:contact.geekageddon@gmail.com
+            <br/>Please reach out to us at {" "}
+            <a href="/geekreach" className="text-cyan-600 underline decoration-dotted dark:text-cyan-300">
+              Geek-Reach
             </a>{" "}
-            with any concerns.
+            for any concerns.
           </p>
         </div>
       </section>

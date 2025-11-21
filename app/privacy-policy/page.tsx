@@ -39,9 +39,9 @@ export default function PrivacyPolicyPage() {
 
         <div className="mt-10 rounded-3xl border border-dashed border-slate-200/70 bg-slate-50/60 p-6 text-sm text-slate-600 dark:border-slate-700 dark:bg-slate-900/40 dark:text-slate-300">
           <p>
-            For full legal wording, partner data processors, or urgent issues please email{" "}
-            <a href="mailto:mailto:contact.geekageddon@gmail.com" className="text-cyan-600 underline decoration-dotted dark:text-cyan-300">
-              mailto:contact.geekageddon@gmail.com
+            For full legal wording, partner data processors, or urgent issues please reach out to us @ {" "}
+            <a href="/geekreach" className="text-cyan-600 underline decoration-dotted dark:text-cyan-300">
+              Geek-Reach
             </a>{" "}
             and we&apos;ll follow up within two business days.
           </p>
