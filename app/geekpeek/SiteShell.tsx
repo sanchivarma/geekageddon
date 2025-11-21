@@ -1,6 +1,7 @@
 'use client';
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ReactNode, useEffect, useLayoutEffect, useState } from "react";
 import { podcastWidgets, sidebarSpotlight, sidebarWidgets } from "./sidebarData";
 
@@ -53,6 +54,7 @@ type SiteShellProps = {
 };
 
 export function SiteShell({ children }: SiteShellProps) {
+  const pathname = usePathname();
   const [theme, setTheme] = useState<ThemeMode>(() =>
     typeof window === "undefined" ? "light" : getStoredTheme() ?? getPreferredTheme()
   );
@@ -63,15 +65,17 @@ export function SiteShell({ children }: SiteShellProps) {
 
   useLayoutEffect(() => {
     const preferred = getStoredTheme() ?? getPreferredTheme();
-    if (preferred !== theme) {
-      setTheme(preferred);
-    }
+    const nextTheme = preferred ?? theme;
     const root = document.documentElement;
-    root.dataset.theme = preferred;
-    root.classList.toggle("dark", preferred === "dark");
-    document.body.dataset.theme = preferred;
-    document.body.classList.toggle("dark", preferred === "dark");
+    root.dataset.theme = nextTheme;
+    root.classList.toggle("dark", nextTheme === "dark");
+    document.body.dataset.theme = nextTheme;
+    document.body.classList.toggle("dark", nextTheme === "dark");
+    if (nextTheme !== theme) {
+      setTheme(nextTheme);
+    }
     setMounted(true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -143,7 +147,14 @@ export function SiteShell({ children }: SiteShellProps) {
               <Link
                 key={link.label}
                 href={link.href}
-                className="rounded-full border border-transparent px-3 py-1 text-slate-700 transition hover:border-cyan-400 hover:text-cyan-600 dark:text-slate-200 dark:hover:text-white"
+                className={`rounded-full px-3 py-1 transition ${
+                  (link.href === "/" ? pathname === "/" : pathname.startsWith(link.href))
+                    ? "border border-cyan-600 bg-cyan-100 text-cyan-800 shadow-sm dark:border-cyan-400/60 dark:bg-cyan-900/30 dark:text-cyan-100"
+                    : "border border-transparent text-slate-700 hover:border-cyan-400 hover:text-cyan-600 dark:text-slate-200 dark:hover:text-white"
+                }`}
+                aria-current={
+                  (link.href === "/" ? pathname === "/" : pathname.startsWith(link.href)) ? "page" : undefined
+                }
               >
                 {link.label}
               </Link>
@@ -188,7 +199,14 @@ export function SiteShell({ children }: SiteShellProps) {
                 <Link
                   key={link.label}
                   href={link.href}
-                  className="rounded-lg px-3 py-2 text-slate-700 transition hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-900/70"
+                  className={`rounded-lg px-3 py-2 transition ${
+                    (link.href === "/" ? pathname === "/" : pathname.startsWith(link.href))
+                      ? "bg-cyan-100 text-cyan-800 shadow-sm dark:bg-cyan-900/20 dark:text-cyan-100"
+                      : "text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-900/70"
+                  }`}
+                  aria-current={
+                    (link.href === "/" ? pathname === "/" : pathname.startsWith(link.href)) ? "page" : undefined
+                  }
                   onClick={() => setMobileNavOpen(false)}
                 >
                   {link.label}
