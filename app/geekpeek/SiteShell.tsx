@@ -1,7 +1,7 @@
 'use client';
 
 import Link from "next/link";
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode, useEffect, useLayoutEffect, useState } from "react";
 
 const navLinks = [
   { label: "Geek-Peek", href: "/" },
@@ -130,15 +130,25 @@ type SiteShellProps = {
 };
 
 export function SiteShell({ children }: SiteShellProps) {
-  const [theme, setTheme] = useState<ThemeMode>("light");
+  const [theme, setTheme] = useState<ThemeMode>(() =>
+    typeof window === "undefined" ? "light" : getStoredTheme() ?? getPreferredTheme()
+  );
   const [mounted, setMounted] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
+    const preferred = getStoredTheme() ?? getPreferredTheme();
+    if (preferred !== theme) {
+      setTheme(preferred);
+    }
+    const root = document.documentElement;
+    root.dataset.theme = preferred;
+    root.classList.toggle("dark", preferred === "dark");
+    document.body.dataset.theme = preferred;
+    document.body.classList.toggle("dark", preferred === "dark");
     setMounted(true);
-    setTheme(getPreferredTheme());
   }, []);
 
   useEffect(() => {

@@ -1,7 +1,7 @@
 "use client";
 import { useRouter, useSearchParams } from "next/navigation";
 import { FormEvent, Suspense, useEffect, useMemo, useState } from "react";
-import { SiteShell } from "../components/SiteShell";
+import { SiteShell } from "../geekpeek/SiteShell";
 type OpeningHours = {
   openNow?: boolean;
   weekdayDescriptions?: string[];

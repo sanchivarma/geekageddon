@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
-import { SiteShell } from "./components/SiteShell";
-import { NewsScroller } from "./components/NewsScroller";
+import { SiteShell } from "./geekpeek/SiteShell";
+import { NewsScroller } from "./geekpeek/NewsScroller";
 
 type GeekFeedItem = {
   id?: string;

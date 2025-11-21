@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent, useMemo, useState } from "react";
-import { SiteShell } from "../components/SiteShell";
+import { SiteShell } from "../geekpeek/SiteShell";
 
 type FormState = {
   name: string;
