@@ -130,10 +130,16 @@ type SiteShellProps = {
 };
 
 export function SiteShell({ children }: SiteShellProps) {
-  const [theme, setTheme] = useState<ThemeMode>(() => getPreferredTheme());
+  const [theme, setTheme] = useState<ThemeMode>("light");
+  const [mounted, setMounted] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    setTheme(getPreferredTheme());
+  }, []);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -223,7 +229,10 @@ export function SiteShell({ children }: SiteShellProps) {
               onClick={() => setTheme((prev) => (prev === "dark" ? "light" : "dark"))}
               className="flex h-9 w-9 items-center justify-center rounded-full border border-amber-400/60 bg-white/90 text-amber-500 transition hover:scale-105 hover:text-amber-400 dark:border-amber-300/40 dark:bg-slate-950/60 dark:text-amber-200"
             >
-              {theme === "dark" ? <SunIcon /> : <MoonIcon />}
+              <span aria-hidden="true" suppressHydrationWarning>
+                {mounted && (theme === "dark" ? <SunIcon /> : <MoonIcon />)}
+                {!mounted && <span className="inline-block h-5 w-5" />}
+              </span>
               <span className="sr-only">Toggle color theme</span>
             </button>
             <button

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 import { SiteShell } from "./components/SiteShell";
+import { NewsScroller } from "./components/NewsScroller";
 
 type GeekFeedItem = {
   id?: string;
@@ -102,6 +103,7 @@ const subjectFromItem = (item: GeekFeedItem) => {
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
   const [featuredSlides, setFeaturedSlides] = useState<FeaturedSlide[]>([]);
   const [gridPosts, setGridPosts] = useState<GeekFeedItem[]>([]);
   const [feedState, setFeedState] = useState<
@@ -119,7 +121,7 @@ export default function Home() {
         setFeedError(null);
 
         const response = await fetch(
-          "https://geekageddon-api.vercel.app/api/geekfeed?limit=10",
+          "https://geekageddon-api.vercel.app/api/geekfeed?limit=50",
           {
             signal: controller.signal,
             cache: "no-store",
@@ -157,6 +159,7 @@ export default function Home() {
           }))
         );
         setGridPosts(nonFeatured);
+        setCurrentPage(1);
         setFeedState("ready");
       } catch (error) {
         if (controller.signal.aborted) return;
@@ -207,9 +210,75 @@ export default function Home() {
     return () => clearTimeout(timer);
   }, [currentSlide, featuredSlides.length]);
 
+  const PAGE_SIZE = 10;
+  const totalPages = useMemo(
+    () => Math.max(1, Math.ceil(gridPosts.length / PAGE_SIZE)),
+    [gridPosts.length]
+  );
+  const paginatedPosts = useMemo(() => {
+    const start = (currentPage - 1) * PAGE_SIZE;
+    return gridPosts.slice(start, start + PAGE_SIZE);
+  }, [currentPage, gridPosts]);
+
+  const renderPostCard = (post: GeekFeedItem) => {
+    const categories = (post.categories ?? []).filter(Boolean);
+    const tags = (post.tags ?? []).filter(Boolean);
+    const showDetails = categories.length > 0 || tags.length > 0;
+
+    return (
+      <article className="card-tech w-82 sm:w-full flex h-full flex-col rounded-2xl border border-slate-200/80 bg-white/80 p-6 transition hover:border-cyan-400/70 hover:shadow-lg dark:border-slate-800/80 dark:bg-slate-900/40">
+        <a
+          href={post.url ?? "#"}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group flex items-start gap-1 break-words text-lg font-semibold text-[#1c1f23] transition hover:text-slate-700 dark:text-white dark:hover:text-cyan-200"
+        >
+          <span className="flex-1 leading-tight text-cyan-600 sm:text-cyan-500 group-hover:text-cyan-700">
+            {post.title ?? "Untitled feed"}
+          </span>
+        </a>
+        <p className="mt-1 text-xs uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">
+          {formatDate(post.publishedAt)}
+        </p>
+        <p className="text-xs text-slate-500 dark:text-slate-400">
+          Source: {post.source?.name ?? "GeekFeed"}
+        </p>
+        <p className="mt-3 text-sm text-slate-600 break-words hyphens-auto dark:text-slate-300">
+          {limitWords(post.summary ?? post.description ?? "", 50) ||
+            "No description supplied."}
+        </p>
+        {showDetails && (
+          <details className="mt-4 text-xs text-slate-600 dark:text-slate-300">
+            <summary className="cursor-pointer text-xs font-semibold tracking-[0.2em] text-cyan-600 dark:text-cyan-200">
+              Tags & Context
+            </summary>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {categories.map((category) => (
+                <span
+                  key={`${post.id}-cat-${category}`}
+                  className="rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-600 dark:bg-amber-500/20 dark:text-amber-200"
+                >
+                  {category}
+                </span>
+              ))}
+              {tags.map((tag) => (
+                <span
+                  key={`${post.id}-tag-${tag}`}
+                  className="rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-700 dark:bg-emerald-500/20 dark:text-emerald-200"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </details>
+        )}
+      </article>
+    );
+  };
+
   return (
     <SiteShell>
-      <section className="relative overflow-hidden rounded-[2.5rem] border border-slate-200/80 bg-white/90 px-4 py-8 text-slate-700 shadow-[0_0_50px_rgba(15,23,42,0.12)] sm:px-6 sm:py-10 dark:border-slate-800/70 dark:bg-slate-950/80 dark:text-slate-200">
+      <section className="relative overflow-hidden rounded-[2.5rem] border border-slate-200/80 bg-white/80 px-4 py-8 text-slate-700 shadow-[0_15px_40px_rgba(15,23,42,0.1)] sm:px-6 sm:py-10 dark:border-slate-800/70 dark:bg-slate-900/40 dark:text-slate-200">
         <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
           <div className="w-full space-y-2 text-center">
             <p className="text-sm uppercase tracking-[0.4em] text-cyan-600 dark:text-cyan-200">
@@ -311,65 +380,57 @@ export default function Home() {
                 : "No live items yet. Re-run the uplink shortly."}
             </p>
           ) : (
-            <div className="grid gap-6 md:grid-cols-1 xl:grid-cols-2">
-              {gridPosts.map((post) => {
-                const categories = (post.categories ?? []).filter(Boolean);
-                const tags = (post.tags ?? []).filter(Boolean);
-                const showDetails = categories.length > 0 || tags.length > 0;
-                return (
-                  <article
-                    key={post.id ?? post.url}
-                    className="card-tech w-82 sm:w-full flex h-full flex-col rounded-2xl border border-slate-200/80 bg-white/80 p-6 transition hover:border-cyan-400/70 hover:shadow-lg dark:border-slate-800/80 dark:bg-slate-900/40"
+            <>
+              <div className="flex items-center justify-between gap-3 text-xs text-slate-500 dark:text-slate-400">
+                <div>
+                  Page {currentPage} of {totalPages}
+                </div>
+                <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setCurrentPage((prev) => Math.max(1, prev - 1))
+                    }
+                    disabled={currentPage === 1}
+                    className="rounded-full border border-slate-200 px-3 py-1 font-semibold text-slate-600 transition hover:border-cyan-400 hover:text-cyan-700 disabled:cursor-not-allowed disabled:opacity-50 dark:border-slate-800 dark:text-slate-200 dark:hover:text-cyan-200"
                   >
-                    <a
-                      href={post.url ?? "#"}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group flex items-start gap-1 break-words text-lg font-semibold text-[#1c1f23] transition hover:text-slate-700 dark:text-white dark:hover:text-cyan-200"
+                    Prev
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setCurrentPage((prev) => Math.min(totalPages, prev + 1))
+                    }
+                    disabled={currentPage === totalPages}
+                    className="rounded-full border border-slate-200 px-3 py-1 font-semibold text-slate-600 transition hover:border-cyan-400 hover:text-cyan-700 disabled:cursor-not-allowed disabled:opacity-50 dark:border-slate-800 dark:text-slate-200 dark:hover:text-cyan-200"
+                  >
+                    Next
+                  </button>
+                </div>
+              </div>
+              <div className="md:hidden">
+                <NewsScroller>
+                  {paginatedPosts.map((post) => (
+                    <div
+                      key={post.id ?? post.url ?? `post-${post.title}`}
+                      className="snap-start"
                     >
-                      <span className="flex-1 leading-tight text-cyan-600 sm:text-cyan-500 group-hover:text-cyan-700">
-                        🌐 {post.title ?? "Untitled feed"}
-                      </span>
-                    </a>
-                    <p className="mt-1 text-xs uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">
-                      {formatDate(post.publishedAt)}
-                    </p>
-                    <p className="text-xs text-slate-500 dark:text-slate-400">
-                      Source: {post.source?.name ?? "GeekFeed"}
-                    </p>
-                    <p className="mt-3 text-sm text-slate-600 break-words hyphens-auto dark:text-slate-300">
-                      {limitWords(post.summary ?? post.description ?? "", 50) ||
-                        "No description supplied."}
-                    </p>
-                    {showDetails && (
-                      <details className="mt-4 text-xs text-slate-600 dark:text-slate-300">
-                        <summary className="cursor-pointer text-xs font-semibold tracking-[0.2em] text-cyan-600 dark:text-cyan-200">
-                          Tags & Context
-                        </summary>
-                        <div className="mt-3 flex flex-wrap gap-2">
-                          {categories.map((category) => (
-                            <span
-                              key={`${post.id}-cat-${category}`}
-                              className="rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-600 dark:bg-amber-500/20 dark:text-amber-200"
-                            >
-                              {category}
-                            </span>
-                          ))}
-                          {tags.map((tag) => (
-                            <span
-                              key={`${post.id}-tag-${tag}`}
-                              className="rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-700 dark:bg-emerald-500/20 dark:text-emerald-200"
-                            >
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-                      </details>
-                    )}
-                  </article>
-                );
-              })}
-            </div>
+                      {renderPostCard(post)}
+                    </div>
+                  ))}
+                </NewsScroller>
+              </div>
+              <div className="hidden md:grid gap-6 md:grid-cols-1 xl:grid-cols-2">
+                {paginatedPosts.map((post) => (
+                  <div
+                    key={post.id ?? post.url ?? `post-${post.title}`}
+                    className="h-full"
+                  >
+                    {renderPostCard(post)}
+                  </div>
+                ))}
+              </div>
+            </>
           )}
         </div>
       </section>
