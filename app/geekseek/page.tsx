@@ -287,7 +287,11 @@ function GeekSeekClient() {
                       type="checkbox"
                       readOnly
                       checked={activeTab === tab}
-                      className="h-4 w-4 rounded border-slate-300 text-cyan-600 focus:ring-cyan-500 dark:border-slate-600 dark:bg-slate-800"
+                      className={`h-4 w-4 rounded-full border shadow-sm transition focus:outline-none focus:ring-2 ${
+                        activeTab === tab
+                          ? "border-cyan-500 bg-cyan-500 text-white focus:ring-cyan-400/40 dark:border-cyan-300 dark:bg-cyan-300 dark:text-slate-900 dark:focus:ring-cyan-300/40"
+                          : "border-slate-300 bg-slate-50 text-cyan-700 hover:border-cyan-400 focus:ring-cyan-400/30 dark:border-slate-600 dark:bg-slate-800 dark:text-cyan-200 dark:hover:border-cyan-300 dark:focus:ring-cyan-300/30"
+                      }`}
                       aria-hidden="true"
                       tabIndex={-1}
                     />
@@ -296,11 +300,11 @@ function GeekSeekClient() {
                 </button>
               ))}
             </div>
-            {activeTab === "compare" && (
+            {/* {activeTab === "compare" && (
                     <p className="text-xs text-slate-500 dark:text-slate-400">
                       Beta note: Please compare only two options at a time while we expand the compare engine.
                     </p>
-                  )}
+                  )} */}
             <form onSubmit={handleSubmit} className="w-full space-y-4">
               <div className="space-y-4">
                 <div className="flex flex-col gap-3">
