@@ -1,8 +1,8 @@
 'use client';
 
-import Image from "next/image";
 import Link from "next/link";
 import { ReactNode, useEffect, useLayoutEffect, useState } from "react";
+import { podcastWidgets, sidebarSpotlight, sidebarWidgets } from "./sidebarData";
 
 const navLinks = [
   { label: "Geek-Peek", href: "/" },
@@ -10,84 +10,6 @@ const navLinks = [
   { label: "Geek-Leaps", href: "/geekleaps" },
   /* { label: "Geekverse", href: "/geekverse" }, */
   { label: "Geek-Reach", href: "/geekreach" },
-];
-
-const sidebarSpotlight = [
-  { 
-    title: "Wall St reacts to Musk's $1 trillion pay plan approval by Tesla investors", 
-    link: "https://www.reuters.com/sustainability/boards-policy-regulation/wall-st-reacts-musks-1-trillion-pay-plan-approval-by-tesla-investors-2025-11-07/" 
-  },
-  { 
-    title: "IFA 2025: the biggest tech and gadget announcements", 
-    link: "https://www.theverge.com/news/767912/ifa-2025-news-tech-gadgets-products-updates-highlights" 
-  },
-  { 
-    title: "100 things we announced at Google I/O 2025", 
-    link: "https://blog.google/technology/ai/google-io-2025-all-our-announcements/" 
-  },
-  { 
-    title: "Tech Weekly: Cloud providers, tech stocks outperform", 
-    link: "https://investingnews.com/top-tech-news/" 
-  },
-  { 
-    title: "Governor Newsom partners with world’s leading tech companies to prepare Californians for AI future", 
-    link: "https://www.gov.ca.gov/2025/08/07/governor-newsom-partners-with-worlds-leading-tech-companies-to-prepare-californians-for-ai-future/" 
-  }
-];
-const sidebarWidgets = [
-  {
-    title: "TechCrunch",
-    link: "https://techcrunch.com",
-    description: "Startup scoops, venture whispers, and big tech deal flow.",
-  },
-  {
-    title: "The Verge",
-    link: "https://www.theverge.com",
-    description: "Design-forward reporting where gadgets meet culture.",
-  },
-  {
-    title: "Wired",
-    link: "https://www.wired.com",
-    description: "Deep dives on science, security, and frontier tech shifts.",
-  },
-  {
-    title: "Engadget",
-    link: "https://www.engadget.com",
-    description: "Hands-on gadget coverage for gearheads and tinkerers.",
-  },
-  {
-    title: "CNET",
-    link: "https://www.cnet.com",
-    description: "Service journalism to help you choose everyday tech.",
-  },
-];
-
-const podcastWidgets = [
-  {
-    title: "The Vergecast",
-    link: "https://www.theverge.com/the-vergecast",
-    description: "Nilay & crew unpack gadgets, policy, and future tech.",
-  },
-  {
-    title: "Hard Fork",
-    link: "https://www.nytimes.com/column/hard-fork",
-    description: "NYT hosts debate AI, markets, and internet shifts.",
-  },
-  {
-    title: "This Week in Tech (TWiT)",
-    link: "https://twit.tv/shows/this-week-in-tech",
-    description: "Leo Laporte's roundtable on the week's biggest tech news.",
-  },
-  {
-    title: "Accidental Tech Podcast",
-    link: "https://atp.fm",
-    description: "Marco, Casey, and John riff on Apple, software, and dev life.",
-  },
-  {
-    title: "Daily Tech News Show",
-    link: "https://dailytechnewsshow.com",
-    description: "Tom Merritt delivers global tech headlines every weekday.",
-  },
 ];
 
 const footerPrimary = [
@@ -210,17 +132,7 @@ export function SiteShell({ children }: SiteShellProps) {
               href="/"
               className="rounded-2xl font-semibold border border-cyan-500/60 bg-gradient-to-br from-white via-white to-slate-50 px-3 py-2 text-xs uppercase tracking-[0.4em] text-cyan-600 transition hover:border-cyan-400 hover:text-cyan-700 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 dark:text-cyan-200 dark:hover:text-cyan-100"
             >
-              <span className="flex items-center gap-2">
-                <Image
-                  src="/favicon.ico"
-                  alt="Geekageddon favicon"
-                  width={18}
-                  height={18}
-                  className="rounded-sm"
-                  priority
-                />
-                <span>Geekageddon</span>
-              </span>
+              Geekageddon
             </Link>
             <p className="hidden text-[0.65rem] tracking-[0.3em] text-cyan-500 dark:text-cyan-300 sm:block">
               The Armageddon of the Tech World

@@ -290,7 +290,7 @@ export default function Home() {
           <div className="relative px-2 sm:px-6">
             <article className="grid gap-6 lg:grid-cols-2 lg:gap-8">
               <div className="space-y-6">
-                <h2 className="text-3xl font-bold text-slate-900 dark:text-white">
+                <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
                   {activeSlide.url ? (
                     <a
                       href={activeSlide.url}
