@@ -7,7 +7,7 @@ const navLinks = [
   { label: "Geek-Peek", href: "/" },
   { label: "Geek-Seek", href: "/geekseek" },
   { label: "Geek-Leaps", href: "/geekleaps" },
-  { label: "Geekverse", href: "/geekverse" },
+  /* { label: "Geekverse", href: "/geekverse" }, */
   { label: "Geek-Reach", href: "/geekreach" },
 ];
 
