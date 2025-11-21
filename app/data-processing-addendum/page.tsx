@@ -1,6 +1,6 @@
 'use client';
 
-import { SiteShell } from "../components/SiteShell";
+import { SiteShell } from "../geekpeek/SiteShell";
 
 const commitments = [
   "Process personal data solely under your documented instructions unless required by law.",

@@ -1,6 +1,6 @@
 'use client';
 
-import { SiteShell } from "../components/SiteShell";
+import { SiteShell } from "../geekpeek/SiteShell";
 
 export default function ImprintPage() {
   return (
