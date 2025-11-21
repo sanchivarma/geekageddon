@@ -8,7 +8,7 @@ const navLinks = [
   { label: "Geek-Seek", href: "/geekseek" },
   { label: "Geek-Leaps", href: "/geekleaps" },
   { label: "Geekverse", href: "/geekverse" },
-  { label: "Geekreach", href: "/geekreach" },
+  { label: "Geek-Reach", href: "/geekreach" },
 ];
 
 const sidebarSpotlight = [
@@ -91,7 +91,7 @@ const podcastWidgets = [
 
 const footerPrimary = [
   { label: "About", href: "/about" },
-  { label: "Geekreach", href: "/geekreach" }
+  { label: "Geek-Reach", href: "/geekreach" }
 ];
 
 const footerCompliance = [
