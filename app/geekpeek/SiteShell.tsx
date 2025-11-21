@@ -1,5 +1,6 @@
 'use client';
 
+import Image from "next/image";
 import Link from "next/link";
 import { ReactNode, useEffect, useLayoutEffect, useState } from "react";
 
@@ -209,7 +210,17 @@ export function SiteShell({ children }: SiteShellProps) {
               href="/"
               className="rounded-2xl font-semibold border border-cyan-500/60 bg-gradient-to-br from-white via-white to-slate-50 px-3 py-2 text-xs uppercase tracking-[0.4em] text-cyan-600 transition hover:border-cyan-400 hover:text-cyan-700 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 dark:text-cyan-200 dark:hover:text-cyan-100"
             >
-              Geekageddon
+              <span className="flex items-center gap-2">
+                <Image
+                  src="/favicon.ico"
+                  alt="Geekageddon favicon"
+                  width={18}
+                  height={18}
+                  className="rounded-sm"
+                  priority
+                />
+                <span>Geekageddon</span>
+              </span>
             </Link>
             <p className="hidden text-[0.65rem] tracking-[0.3em] text-cyan-500 dark:text-cyan-300 sm:block">
               The Armageddon of the Tech World
