@@ -110,6 +110,7 @@ export default function Home() {
     "idle" | "loading" | "ready" | "error"
   >("idle");
   const [feedError, setFeedError] = useState<string | null>(null);
+  const [touchStartX, setTouchStartX] = useState<number | null>(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -278,7 +279,7 @@ export default function Home() {
 
   return (
     <SiteShell>
-      <section className="relative overflow-hidden rounded-[2.5rem] border border-slate-200/80 bg-white/80 px-4 py-8 text-slate-700 shadow-[0_15px_40px_rgba(15,23,42,0.1)] sm:px-6 sm:py-10 dark:border-slate-800/70 dark:bg-slate-900/40 dark:text-slate-200">
+      <section className="relative overflow-hidden rounded-[2.5rem] border border-slate-200/80 bg-white/80 px-4 py-8 text-slate-700 shadow-[0_20px_60px_rgba(0,160,220,0.12)] sm:px-6 sm:py-10 dark:border-slate-800/70 dark:bg-slate-900/40 dark:text-slate-200">
         <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
           <div className="w-full space-y-2 text-center">
             <p className="text-sm uppercase tracking-[0.4em] text-cyan-600 dark:text-cyan-200">
@@ -287,7 +288,20 @@ export default function Home() {
           </div>
         </div>
         {activeSlide && (
-          <div className="relative px-2 sm:px-6">
+          <div
+            className="relative px-2 sm:px-6"
+            onTouchStart={(e) => setTouchStartX(e.changedTouches[0].clientX)}
+            onTouchEnd={(e) => {
+              if (touchStartX == null) return;
+              const delta = e.changedTouches[0].clientX - touchStartX;
+              if (delta > 50) {
+                handlePrev();
+              } else if (delta < -50) {
+                handleNext();
+              }
+              setTouchStartX(null);
+            }}
+          >
             <article className="grid gap-6 lg:grid-cols-2 lg:gap-8">
               <div className="space-y-6">
                 <h2 className="text-2xl font-bold text-slate-900 dark:text-white">

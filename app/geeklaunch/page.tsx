@@ -51,6 +51,7 @@ export default function GeekLaunchPage() {
   const [sortKey, setSortKey] = useState<SortKey>("year_founded");
   const [sortAsc, setSortAsc] = useState(false);
   const [featuredIndex, setFeaturedIndex] = useState(0);
+  const [touchStartX, setTouchStartX] = useState<number | null>(null);
   const collator = useMemo(
     () => new Intl.Collator(undefined, { numeric: true, sensitivity: "base" }),
     []
@@ -151,7 +152,20 @@ export default function GeekLaunchPage() {
             </div>
           </div>
           {featured.length > 0 && (
-            <div className="relative px-2 sm:px-6">
+            <div
+              className="relative px-2 sm:px-6"
+              onTouchStart={(e) => setTouchStartX(e.changedTouches[0].clientX)}
+              onTouchEnd={(e) => {
+                if (touchStartX == null) return;
+                const delta = e.changedTouches[0].clientX - touchStartX;
+                if (delta > 50) {
+                  setFeaturedIndex((prev) => (prev - 1 + featured.length) % featured.length);
+                } else if (delta < -50) {
+                  setFeaturedIndex((prev) => (prev + 1) % featured.length);
+                }
+                setTouchStartX(null);
+              }}
+            >
               {(() => {
                 const current = featured[featuredIndex % featured.length];
                 const categories = (current.category ?? "")
