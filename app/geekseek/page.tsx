@@ -138,7 +138,9 @@ function GeekSeekClient() {
   }, [activeTab]);
 
   const placeholder = useMemo(() => {
-    return activeTab === "places" ? placePlaceholders[placeholderIndex % placePlaceholders.length] : comparePlaceholders[placeholderIndex % comparePlaceholders.length];
+    return activeTab === "places"
+      ? placePlaceholders[placeholderIndex % placePlaceholders.length]
+      : comparePlaceholders[placeholderIndex % comparePlaceholders.length];
   }, [activeTab, placeholderIndex]);
   
   const handleTabChange = (tab: typeof TAB_KEYS[number]) => {
