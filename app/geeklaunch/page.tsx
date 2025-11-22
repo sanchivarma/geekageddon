@@ -1,8 +1,10 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import Image from "next/image";
+import { useEffect, useMemo, useState } from "react";
 import { SiteShell } from "../geekpeek/SiteShell";
 import ventures from "./data/geekventures.json";
+import featuredNews from "./data/featured-news.json";
 
 type Venture = {
   name: string;
@@ -29,11 +31,23 @@ type SortKey = keyof Pick<
   "name" | "year_founded" | "category" | "location"
 >;
 
+type FeaturedItem = {
+  name: string;
+  website?: string;
+  tagline?: string;
+  oneline_brief?: string;
+  category?: string;
+  tags?: string[];
+  imageUrl?: string;
+  year_founded?: number;
+};
+
 export default function GeekLaunchPage() {
   const [yearFilter, setYearFilter] = useState<string>("all");
   const [categoryFilter, setCategoryFilter] = useState<string>("all");
   const [sortKey, setSortKey] = useState<SortKey>("year_founded");
   const [sortAsc, setSortAsc] = useState(false);
+  const [featuredIndex, setFeaturedIndex] = useState(0);
   const collator = useMemo(
     () => new Intl.Collator(undefined, { numeric: true, sensitivity: "base" }),
     []
@@ -54,6 +68,20 @@ export default function GeekLaunchPage() {
     });
     return Array.from(unique).sort((a, b) => a.localeCompare(b));
   }, []);
+
+  const featured = useMemo(() => {
+    return [...(featuredNews as FeaturedItem[])]
+      .filter((item) => item.name)
+      .sort((a, b) => (b.year_founded ?? 0) - (a.year_founded ?? 0));
+  }, []);
+
+  useEffect(() => {
+    if (!featured.length) return;
+    const id = setInterval(() => {
+      setFeaturedIndex((prev) => (prev + 1) % featured.length);
+    }, 7000);
+    return () => clearInterval(id);
+  }, [featured.length]);
 
   const filtered = useMemo(() => {
     return ventures.filter((v) => {
@@ -110,6 +138,122 @@ export default function GeekLaunchPage() {
             Explore latest curated ventures. Filter by year or category and sort any column.
           </p>
         </header>
+
+        <section className="relative overflow-hidden rounded-[2.5rem] border border-slate-200/80 bg-white/80 px-4 py-8 text-slate-700 shadow-[0_15px_40px_rgba(15,23,42,0.1)] sm:px-6 sm:py-10 dark:border-slate-800/70 dark:bg-slate-900/40 dark:text-slate-200">
+          <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
+            <div className="w-full space-y-2 text-center">
+              <p className="text-sm uppercase tracking-[0.4em] text-cyan-600 dark:text-cyan-200">
+                Featured Launches
+              </p>
+            </div>
+          </div>
+          {featured.length > 0 && (
+            <div className="relative px-2 sm:px-6">
+              {(() => {
+                const current = featured[featuredIndex % featured.length];
+                const categories = (current.category ?? "")
+                  .split(",")
+                  .map((c) => c.trim())
+                  .filter(Boolean);
+                const detailParts = [
+                  current.year_founded ? `Founded ${current.year_founded}` : null,
+                  current.location || null,
+                  current.funding_round || null,
+                ].filter(Boolean);
+                const statLine =
+                  detailParts.join(" • ") || (categories[0] ? categories[0] : "Launch");
+                return (
+                  <article className="grid gap-6 lg:grid-cols-2 lg:gap-8">
+                    <div className="space-y-6">
+                      <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
+                        {current.website ? (
+                          <a
+                            href={current.website}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="transition hover:text-cyan-600 dark:hover:text-cyan-200"
+                          >
+                            {current.name}
+                          </a>
+                        ) : (
+                          current.name
+                        )}
+                      </h2>
+                      <p className="text-base text-slate-600 dark:text-slate-300">
+                        {current.tagline || current.oneline_brief || "No tagline provided."}
+                      </p>
+                      {current.description && (
+                        <p className="text-sm text-slate-600 dark:text-slate-300">
+                          {current.description}
+                        </p>
+                      )}
+                      <p className="font-mono text-xs text-slate-500 dark:text-slate-400">
+                        {statLine}
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {categories.map((cat) => (
+                          <span
+                            key={`${current.name}-cat-${cat}`}
+                            className="rounded-full border border-cyan-500/70 bg-cyan-50 px-3 py-1 text-xs font-semibold text-cyan-700 dark:border-cyan-300/70 dark:bg-cyan-900/30 dark:text-cyan-100"
+                          >
+                            {cat}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="relative flex items-center justify-center">
+                      <div className="feature-frame relative h-64 w-full overflow-hidden rounded-3xl border border-slate-200/70 bg-slate-100 dark:border-slate-800/70 dark:bg-slate-900/40">
+                        <Image
+                          src={current.imageUrl || "/geekageddon.png"}
+                          alt={current.name}
+                          fill
+                          sizes="(max-width: 1024px) 100vw, 50vw"
+                          className="feature-art rounded-[26px] object-cover"
+                          unoptimized
+                          priority
+                        />
+                      </div>
+                    </div>
+                  </article>
+                );
+              })()}
+
+              <button
+                onClick={() =>
+                  setFeaturedIndex((prev) => (prev - 1 + featured.length) % featured.length)
+                }
+                className="absolute left-[-12px] top-1/2 hidden -translate-y-1/2 rounded-full border border-slate-200 bg-white/90 p-2 text-slate-700 shadow-lg transition hover:border-cyan-400 hover:text-cyan-600 sm:flex dark:border-slate-800 dark:bg-slate-900/80 dark:text-slate-200 dark:hover:text-white"
+                aria-label="Previous featured launch"
+              >
+                ‹
+              </button>
+              <button
+                onClick={() => setFeaturedIndex((prev) => (prev + 1) % featured.length)}
+                className="absolute right-[-12px] top-1/2 hidden -translate-y-1/2 rounded-full border border-slate-200 bg-white/90 p-2 text-slate-700 shadow-lg transition hover:border-cyan-400 hover:text-cyan-600 sm:flex dark:border-slate-800 dark:bg-slate-900/80 dark:text-slate-200 dark:hover:text-white"
+                aria-label="Next featured launch"
+              >
+                ›
+              </button>
+            </div>
+          )}
+          {featured.length > 0 && (
+            <div className="absolute bottom-2 left-1/2 flex -translate-x-1/2 items-center gap-2 text-sm text-slate-400">
+              {featured.map((item, idx) => (
+                <button
+                  key={item.name}
+                  type="button"
+                  onClick={() => setFeaturedIndex(idx)}
+                  className={`h-2 w-8 rounded-full cursor-pointer transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 sm:w-10 ${
+                    idx === featuredIndex
+                      ? "bg-cyan-500"
+                      : "bg-slate-200 dark:bg-slate-700/60"
+                  }`}
+                  aria-label={`Go to featured launch ${item.name}`}
+                />
+              ))}
+            </div>
+          )}
+        </section>
 
         <section className="rounded-3xl border border-slate-200/80 bg-white/90 p-4 shadow-sm dark:border-slate-800/80 dark:bg-slate-950/80 sm:p-6">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">

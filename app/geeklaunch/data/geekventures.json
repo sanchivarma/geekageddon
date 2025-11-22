@@ -1,5 +1,29 @@
 [
   {
+    "name": "Thinking Machines Lab",
+    "website": "https://thinkingmachines.ai/",
+    "tagline": "Making AI systems more widely understood, customizable, and generally capable",
+    "oneline_brief": "Public benefit corporation building frontier AI models with transparency and accessibility.",
+    "description": "Founded by former OpenAI CTO Mira Murati, Thinking Machines Lab develops multimodal AI models with a focus on transparency and customization. Their first product, Tinker, enables users to fine-tune large language models.",
+    "year_founded": 2025,
+    "category": "AI, Research",
+    "tags": ["AI", "Foundation Models", "Multimodal AI", "Open Source"],
+    "funding_round": "Seed",
+    "funding_amount": 2000000000,
+    "valuation": 50000000000,
+    "investors": ["Andreessen Horowitz", "Conviction Partners", "Albania Government"],
+    "team_size": 30,
+    "location": "San Francisco, CA",
+    "hiring_status": "hiring",
+    "rating": null,
+    "reviews": [],
+    "urls": {
+      "linkedin": "https://www.linkedin.com/company/thinking-machines-lab/",
+      "twitter": "",
+      "crunchbase": "https://www.crunchbase.com/organization/thinking-machines-lab"
+    }
+  },
+  {
     "name": "webAI",
     "website": "https://www.webai.com/",
     "tagline": "Enterprise-grade on-device AI platform",

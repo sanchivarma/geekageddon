@@ -1,0 +1,198 @@
+[
+  {
+    "name": "Thinking Machines Lab",
+    "website": "https://thinkingmachines.ai/",
+    "tagline": "Making AI systems more widely understood, customizable, and generally capable",
+    "imageUrl": "/geeklaunch/data/anthropicai.jpg",
+    "oneline_brief": "Public benefit corporation building frontier AI models with transparency and accessibility.",
+    "description": "Founded by former OpenAI CTO Mira Murati, Thinking Machines Lab develops multimodal AI models with a focus on transparency and customization. Their first product, Tinker, enables users to fine-tune large language models. The company brings together top researchers from OpenAI, Meta, and Mistral to advance human-AI collaboration.",
+    "year_founded": 2025,
+    "category": "AI, Research",
+    "tags": [
+      "AI",
+      "Foundation Models",
+      "Multimodal AI",
+      "Open Source",
+      "Fine-tuning"
+    ],
+    "funding_round": "Seed",
+    "funding_amount": 2000000000,
+    "valuation": 50000000000,
+    "investors": [
+      "Andreessen Horowitz",
+      "Conviction Partners",
+      "Albania Government",
+      "NVIDIA",
+      "AMD",
+      "Cisco",
+      "Jane Street"
+    ],
+    "team_size": 30,
+    "location": "San Francisco, CA",
+    "hiring_status": "hiring",
+    "rating": 4.9,
+    "reviews": [],
+    "urls": {
+      "linkedin": "https://www.linkedin.com/company/thinking-machines-lab/",
+      "twitter": "https://twitter.com/miramurati",
+      "crunchbase": "https://www.crunchbase.com/organization/thinking-machines-lab"
+    }
+  },
+  {
+    "name": "Perplexity AI",
+    "website": "https://www.perplexity.ai/",
+    "tagline": "Where knowledge begins",
+    "imageUrl": "/geeklaunch/data/elevenlabs.jpg",
+    "oneline_brief": "AI-powered answer engine that provides accurate, trusted, and real-time answers to any question.",
+    "description": "Perplexity combines search with large language models to provide direct, cited answers to user questions. The platform uses advanced AI to search and synthesize information from across the web, offering a conversational search experience. In 2025, Perplexity launched Comet, its first web browser, positioning itself as a major challenger to Google Search.",
+    "year_founded": 2022,
+    "category": "AI, Search",
+    "tags": [
+      "AI",
+      "Search",
+      "Information",
+      "Answer Engine",
+      "Real-time"
+    ],
+    "funding_round": "Series E",
+    "funding_amount": 1220000000,
+    "valuation": 20000000000,
+    "investors": [
+      "IVP",
+      "Wayra",
+      "NEA",
+      "Elad Gil",
+      "Nat Friedman",
+      "Jeff Bezos",
+      "NVIDIA",
+      "Databricks",
+      "Bessemer Venture Partners"
+    ],
+    "team_size": 200,
+    "location": "San Francisco, CA",
+    "hiring_status": "hiring",
+    "rating": 4.8,
+    "reviews": [],
+    "urls": {
+      "linkedin": "https://www.linkedin.com/company/perplexity-ai/",
+      "twitter": "https://twitter.com/perplexity_ai",
+      "crunchbase": "https://www.crunchbase.com/organization/perplexity-ai"
+    }
+  },
+  {
+    "name": "Anthropic",
+    "website": "https://www.anthropic.com/",
+    "tagline": "AI safety and research company",
+    "imageUrl": "/geeklaunch/data/thinkingmachines.jpg",
+    "oneline_brief": "Building reliable, interpretable, and steerable AI systems focused on safety.",
+    "description": "Anthropic develops Claude, an advanced AI assistant focused on safety, harmlessness, and honesty. Founded by former OpenAI researchers, the company emphasizes AI alignment and responsible development. In 2025, Anthropic raised $13 billion at a $183 billion valuation, making it one of the most valuable AI startups. Claude Code has generated over $500 million in run-rate revenue since its May 2025 launch.",
+    "year_founded": 2021,
+    "category": "AI, Research, Safety",
+    "tags": [
+      "AI",
+      "Safety",
+      "Foundation Models",
+      "Claude",
+      "AI Alignment"
+    ],
+    "funding_round": "Series F",
+    "funding_amount": 13000000000,
+    "valuation": 183000000000,
+    "investors": [
+      "ICONIQ Capital",
+      "Fidelity Management",
+      "Lightspeed Venture Partners",
+      "Google",
+      "Salesforce Ventures",
+      "Amazon",
+      "Spark Capital",
+      "GIC",
+      "Insight Partners",
+      "Qatar Investment Authority"
+    ],
+    "team_size": 150,
+    "location": "San Francisco, CA",
+    "hiring_status": "hiring",
+    "rating": 4.9,
+    "reviews": [],
+    "urls": {
+      "linkedin": "https://www.linkedin.com/company/anthropic-ai/",
+      "twitter": "https://twitter.com/AnthropicAI",
+      "crunchbase": "https://www.crunchbase.com/organization/anthropic"
+    }
+  },
+  {
+    "name": "Character.AI",
+    "website": "https://beta.character.ai/",
+    "tagline": "Create your own AI companions",
+    "imageUrl": "/geeklaunch/data/characterai.jpg",
+    "oneline_brief": "Build custom AI personalities for entertainment, productivity, and education.",
+    "description": "Character.AI lets users create chatbots and virtual AI friends, learning and adapting to user input for entertainment and knowledge. Founded by former Google AI researchers, the platform has over 20 million monthly active users who spend an average of 75 minutes per day on the platform. The company offers a subscription service (c.ai+) and has begun generating advertising revenue.",
+    "year_founded": 2022,
+    "category": "AI, Chatbots, Consumer",
+    "tags": [
+      "AI",
+      "Chatbots",
+      "Companion",
+      "Entertainment",
+      "Consumer AI"
+    ],
+    "funding_round": "Series A",
+    "funding_amount": 193000000,
+    "valuation": 1000000000,
+    "investors": [
+      "Andreessen Horowitz",
+      "Nat Friedman",
+      "Elad Gil",
+      "SV Angel",
+      "A Capital"
+    ],
+    "team_size": 70,
+    "location": "Menlo Park, CA",
+    "hiring_status": "not hiring",
+    "rating": 4.6,
+    "reviews": [],
+    "urls": {
+      "linkedin": "https://www.linkedin.com/company/character-ai/",
+      "twitter": "https://twitter.com/character_ai",
+      "crunchbase": "https://www.crunchbase.com/organization/character-ai"
+    }
+  },
+  {
+    "name": "ElevenLabs",
+    "website": "https://elevenlabs.io/",
+    "tagline": "Generative voice AI",
+    "imageUrl": "/geeklaunch/data/perplexity.jpg",
+    "oneline_brief": "Realistic text-to-speech and voice cloning technology for creators and enterprises.",
+    "description": "ElevenLabs creates natural-sounding AI voices for content creators, publishers, game developers, and enterprises. The platform offers advanced text-to-speech, voice cloning, and multilingual capabilities. Founded in 2022, ElevenLabs has become the leading voice AI platform, serving thousands of customers worldwide and generating significant revenue through its API and subscription services.",
+    "year_founded": 2022,
+    "category": "AI, Audio, Voice",
+    "tags": [
+      "AI",
+      "Voice",
+      "Text-to-Speech",
+      "Voice Cloning",
+      "Audio Generation"
+    ],
+    "funding_round": "Series B",
+    "funding_amount": 80000000,
+    "valuation": 1100000000,
+    "investors": [
+      "Andreessen Horowitz",
+      "Nat Friedman",
+      "Daniel Gross",
+      "Sequoia Capital",
+      "Smash Capital"
+    ],
+    "team_size": 40,
+    "location": "New York, NY",
+    "hiring_status": "hiring",
+    "rating": 4.7,
+    "reviews": [],
+    "urls": {
+      "linkedin": "https://www.linkedin.com/company/elevenlabs/",
+      "twitter": "https://twitter.com/elevenlabsio",
+      "crunchbase": "https://www.crunchbase.com/organization/elevenlabs"
+    }
+  }
+]
