@@ -309,7 +309,63 @@ export default function GeekLaunchPage() {
             </div>
           </div>
 
-          <div className="mt-4 overflow-x-auto rounded-2xl border border-slate-200/80 dark:border-slate-800/70">
+          <div className="mt-4 space-y-4 md:hidden">
+            {sorted.map((venture, idx) => (
+              <article
+                key={venture.name}
+                className={`rounded-2xl border px-4 py-3 text-sm shadow-[0_6px_16px_rgba(15,23,42,0.08)] ${
+                  idx % 2 === 0
+                    ? "border-slate-200 bg-white"
+                    : "border-slate-200 bg-slate-50"
+                } dark:border-slate-800 dark:bg-slate-900/70`}
+              >
+                <div className="flex items-start justify-between gap-3">
+                  <div className="space-y-1">
+                    <p className="text-xs uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
+                      {venture.category ?? "Launch"}
+                    </p>
+                    <h3 className="text-base font-semibold text-blue-600 dark:text-cyan-200">
+                      {venture.website ? (
+                        <a
+                          href={venture.website}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="hover:text-cyan-800 dark:hover:text-cyan-100"
+                        >
+                          {venture.name}
+                        </a>
+                      ) : (
+                        venture.name
+                      )}
+                    </h3>
+                    <p className="text-xs text-slate-500 dark:text-slate-400">
+                      {venture.location ?? "—"}
+                    </p>
+                  </div>
+                  <span className="rounded-full bg-cyan-100 px-2 py-1 text-[11px] font-semibold text-cyan-800 dark:bg-cyan-900/40 dark:text-cyan-100">
+                    {venture.year_founded ?? "—"}
+                  </span>
+                </div>
+                <p className="mt-2 text-slate-700 dark:text-slate-200">
+                  {venture.tagline || venture.oneline_brief || "—"}
+                </p>
+                {(venture.tags ?? []).length > 0 && (
+                  <div className="mt-2 flex flex-wrap gap-2">
+                    {(venture.tags ?? []).map((tag) => (
+                      <span
+                        key={`${venture.name}-m-${tag}`}
+                        className="rounded-full bg-cyan-100 px-3 py-1 text-[11px] font-semibold text-cyan-800 dark:bg-cyan-900/40 dark:text-cyan-100"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-4 hidden overflow-x-auto rounded-2xl border border-slate-200/80 dark:border-slate-800/70 md:block">
             <table className="min-w-full divide-y divide-slate-200 text-sm dark:divide-slate-800">
               <thead className="bg-slate-50 dark:bg-slate-900/40">
                 <tr>
