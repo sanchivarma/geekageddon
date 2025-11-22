@@ -215,13 +215,18 @@ export function SiteShell({ children }: SiteShellProps) {
             </div>
           </div>
         )}
-        <div className="border-t border-dashed border-slate-200/80 bg-white/90 px-4 py-1 text-center text-xs font-semibold tracking-[0.2em] text-slate-600 dark:border-slate-800/70 dark:bg-slate-950/70 dark:text-slate-300">
-          In Beta &middot; Share feedback on {" "}
+      </nav>
+
+      <div className="fixed inset-x-4 bottom-4 z-40 flex justify-center">
+        <div className="flex items-center gap-2 rounded-full border border-slate-200 bg-white/95 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-600 shadow-[0_8px_20px_rgba(15,23,42,0.12)] backdrop-blur dark:border-slate-800 dark:bg-slate-900/90 dark:text-slate-300">
+          <span className="text-cyan-600 dark:text-cyan-300">In Beta</span>
+          <span>?</span>
+          <span>Share feedback on</span>
           <Link href="/geekreach" className="text-cyan-600 underline hover:text-cyan-700 dark:text-cyan-300">
             Geek-Reach
           </Link>
         </div>
-      </nav>
+      </div>
 
       <button
         type="button"

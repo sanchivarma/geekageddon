@@ -131,19 +131,16 @@ export default function GeekLaunchPage() {
   return (
     <SiteShell>
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-8 px-3 pb-12 pt-4 sm:px-4 lg:px-0">
-        <header className="space-y-2">
-          <p className="text-xs uppercase tracking-[0.4em] text-cyan-600 dark:text-cyan-300">
+        {/* <header className="space-y-2">
+          <h1 className="uppercase tracking-[0.2em] text-cyan-600 dark:text-cyan-300">
             Geek Launch
-          </p>
-          <h1 className="text-3xl font-bold text-slate-900 dark:text-white">
-            New Tech Launches
           </h1>
           <p className="text-sm text-slate-600 dark:text-slate-300">
-            Explore latest curated ventures. Filter by year or category and sort any column.
+            Explore a curated list of latest ventures.
           </p>
-        </header>
+        </header> */}
 
-        <section className="relative overflow-hidden rounded-[2.5rem] border border-slate-200/80 bg-white/80 px-4 py-8 text-slate-700 shadow-[0_20px_60px_rgba(0,160,220,0.12)] sm:px-6 sm:py-10 dark:border-slate-800/70 dark:bg-slate-900/40 dark:text-slate-200">
+        <section className="relative overflow-hidden rounded-[2.5rem] border border-slate-200 bg-white text-slate-800 px-4 py-8 text-slate-700 shadow-[0_12px_32px_rgba(15,23,42,0.08)] sm:px-6 sm:py-10 dark:border-slate-800/70 dark:bg-slate-900/40 dark:text-slate-200">
           <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
             <div className="w-full space-y-2 text-center">
               <p className="text-sm uppercase tracking-[0.4em] text-cyan-600 dark:text-cyan-200">
@@ -180,9 +177,9 @@ export default function GeekLaunchPage() {
                 const statLine =
                   detailParts.join(" • ") || (categories[0] ? categories[0] : "Launch");
                 return (
-                  <article className="grid gap-6 lg:grid-cols-2 lg:gap-8">
+                  <article className="grid gap-6 lg:grid-cols-1 lg:grid-cols-2 lg:gap-8">
                     <div className="space-y-6">
-                      <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
+                      <h2 className="text-2xl font-bold text-cyan-700 dark:text-white">
                         {current.website ? (
                           <a
                             href={current.website}
@@ -272,7 +269,7 @@ export default function GeekLaunchPage() {
           )}
         </section>
 
-        <section className="rounded-3xl border border-slate-200/80 bg-white/90 p-4 shadow-sm dark:border-slate-800/80 dark:bg-slate-950/80 sm:p-6">
+        <section className="rounded-3xl border border-slate-200/80 bg-white/90 p-4 shadow-[0_10px_30px_rgba(15,23,42,0.08)] dark:border-slate-800/80 dark:bg-slate-950/80 sm:p-6">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div className="flex flex-wrap gap-3">
               <label className="flex flex-col text-xs font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
@@ -280,7 +277,7 @@ export default function GeekLaunchPage() {
                 <select
                   value={yearFilter}
                   onChange={(e) => setYearFilter(e.target.value)}
-                  className="mt-1 w-40 rounded-xl border border-slate-300/80 bg-white/80 px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/30 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100"
+                  className="mt-1 w-40 rounded-xl border border-slate-300/80 bg-white/80 px-3 py-2 text-sm text-slate-900 shadow-[0_10px_30px_rgba(15,23,42,0.08)] focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/30 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100"
                 >
                   <option value="all">All</option>
                   {years.map((y) => (
@@ -296,7 +293,7 @@ export default function GeekLaunchPage() {
                 <select
                   value={categoryFilter}
                   onChange={(e) => setCategoryFilter(e.target.value)}
-                  className="mt-1 w-44 rounded-xl border border-slate-300/80 bg-white/80 px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/30 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100"
+                  className="mt-1 w-44 rounded-xl border border-slate-300/80 bg-white/80 px-3 py-2 text-sm text-slate-900 shadow-[0_10px_30px_rgba(15,23,42,0.08)] focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/30 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100"
                 >
                   <option value="all">All</option>
                   {categories.map((c) => (

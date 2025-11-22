@@ -279,7 +279,7 @@ export default function Home() {
 
   return (
     <SiteShell>
-      <section className="relative overflow-hidden rounded-[2.5rem] border border-slate-200/80 bg-white/80 px-4 py-8 text-slate-700 shadow-[0_20px_60px_rgba(0,160,220,0.12)] sm:px-6 sm:py-10 dark:border-slate-800/70 dark:bg-slate-900/40 dark:text-slate-200">
+      <section className="relative overflow-hidden rounded-[2.5rem] border border-slate-200/80 bg-white/80 px-4 py-8 text-slate-700 shadow-[0_12px_32px_rgba(15,23,42,0.08)] sm:px-6 sm:py-10 dark:border-slate-800/70 dark:bg-slate-900/40 dark:text-slate-200">
         <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
           <div className="w-full space-y-2 text-center">
             <p className="text-sm uppercase tracking-[0.4em] text-cyan-600 dark:text-cyan-200">
@@ -304,7 +304,7 @@ export default function Home() {
           >
             <article className="grid gap-6 lg:grid-cols-2 lg:gap-8">
               <div className="space-y-6">
-                <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
+                <h2 className="text-2xl font-bold text-cyan-700 dark:text-white">
                   {activeSlide.url ? (
                     <a
                       href={activeSlide.url}
