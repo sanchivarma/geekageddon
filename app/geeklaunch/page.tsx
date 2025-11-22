@@ -40,6 +40,9 @@ type FeaturedItem = {
   tags?: string[];
   imageUrl?: string;
   year_founded?: number;
+  location?: string;
+  funding_round?: string;
+  description?: string;
 };
 
 export default function GeekLaunchPage() {
@@ -139,7 +142,7 @@ export default function GeekLaunchPage() {
           </p>
         </header>
 
-        <section className="relative overflow-hidden rounded-[2.5rem] border border-slate-200/80 bg-white/80 px-4 py-8 text-slate-700 shadow-[0_15px_40px_rgba(15,23,42,0.1)] sm:px-6 sm:py-10 dark:border-slate-800/70 dark:bg-slate-900/40 dark:text-slate-200">
+        <section className="relative overflow-hidden rounded-[2.5rem] border border-slate-200/80 bg-white/80 px-4 py-8 text-slate-700 shadow-[0_20px_60px_rgba(0,160,220,0.12)] sm:px-6 sm:py-10 dark:border-slate-800/70 dark:bg-slate-900/40 dark:text-slate-200">
           <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
             <div className="w-full space-y-2 text-center">
               <p className="text-sm uppercase tracking-[0.4em] text-cyan-600 dark:text-cyan-200">
@@ -318,7 +321,7 @@ export default function GeekLaunchPage() {
                     </th>
                   ))}
                   <th className="px-4 py-3 text-left font-semibold uppercase tracking-[0.15em] text-slate-600 dark:text-slate-300">
-                    Tagline
+                    About
                   </th>
                   <th className="px-4 py-3 text-left font-semibold uppercase tracking-[0.15em] text-slate-600 dark:text-slate-300">
                     Tags
@@ -326,8 +329,15 @@ export default function GeekLaunchPage() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-200 bg-white/70 dark:divide-slate-800 dark:bg-slate-950/40">
-                {sorted.map((venture) => (
-                  <tr key={venture.name} className="hover:bg-cyan-50/60 align-top dark:hover:bg-cyan-900/20">
+                {sorted.map((venture, idx) => (
+                  <tr
+                    key={venture.name}
+                    className={`align-top ${
+                      idx % 2 === 0
+                        ? "bg-white/80 hover:bg-cyan-50/60 dark:bg-slate-950/50 dark:hover:bg-cyan-900/25"
+                        : "bg-slate-50/70 hover:bg-cyan-50/60 dark:bg-slate-900/30 dark:hover:bg-cyan-900/25"
+                    }`}
+                  >
                     <td className="px-4 py-3 font-semibold text-slate-900 dark:text-white">
                       {venture.website ? (
                         <a
