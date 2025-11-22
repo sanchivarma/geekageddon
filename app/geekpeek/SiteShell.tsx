@@ -8,7 +8,7 @@ import { podcastWidgets, sidebarSpotlight, sidebarWidgets } from "./sidebarData"
 const navLinks = [
   { label: "Geek-Peek", href: "/" },
   { label: "Geek-Seek", href: "/geekseek" },
-  { label: "Geek-Leaps", href: "/geekleaps" },
+  { label: "Geek-Launch", href: "/geeklaunch" },
   /* { label: "Geekverse", href: "/geekverse" }, */
   { label: "Geek-Reach", href: "/geekreach" },
 ];
