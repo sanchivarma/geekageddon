@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ReactNode, useEffect, useLayoutEffect, useState } from "react";
+import { ReactNode, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { podcastWidgets, sidebarSpotlight, sidebarWidgets } from "./sidebarData";
 
 const navLinks = [
@@ -62,6 +62,8 @@ export function SiteShell({ children }: SiteShellProps) {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
+  const [bannerVisible, setBannerVisible] = useState(true);
+  const bannerTimer = useRef<NodeJS.Timeout | null>(null);
 
   useLayoutEffect(() => {
     const preferred = getStoredTheme() ?? getPreferredTheme();
@@ -76,6 +78,29 @@ export function SiteShell({ children }: SiteShellProps) {
     }
     setMounted(true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    const scheduleHide = () => {
+      if (bannerTimer.current) clearTimeout(bannerTimer.current);
+      bannerTimer.current = setTimeout(() => setBannerVisible(false), 3000);
+    };
+    const handleActivity = () => {
+      setBannerVisible(true);
+      scheduleHide();
+    };
+    handleActivity();
+    const events: Array<[keyof WindowEventMap, (e: Event) => void]> = [
+      ["scroll", handleActivity],
+      ["mousemove", handleActivity],
+      ["touchstart", handleActivity],
+      ["keydown", handleActivity],
+    ];
+    events.forEach(([evt, handler]) => window.addEventListener(evt, handler, { passive: true }));
+    return () => {
+      events.forEach(([evt, handler]) => window.removeEventListener(evt, handler));
+      if (bannerTimer.current) clearTimeout(bannerTimer.current);
+    };
   }, []);
 
   useEffect(() => {
@@ -216,17 +241,6 @@ export function SiteShell({ children }: SiteShellProps) {
           </div>
         )}
       </nav>
-
-      <div className="fixed inset-x-2 bottom-0 z-40 flex justify-center pb-0">
-        <div className="flex items-center gap-2 rounded-full border border-slate-200 bg-white/95 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-600 shadow-[0_8px_20px_rgba(15,23,42,0.12)] backdrop-blur dark:border-slate-800 dark:bg-slate-900/90 dark:text-slate-300">
-          <span className="text-cyan-600 dark:text-cyan-300">In Beta</span>
-          <span>?</span>
-          <span>Share feedback on</span>
-          <Link href="/geekreach" className="text-cyan-600 underline hover:text-cyan-700 dark:text-cyan-300">
-            Geek-Reach
-          </Link>
-        </div>
-      </div>
 
       <button
         type="button"
@@ -369,6 +383,25 @@ export function SiteShell({ children }: SiteShellProps) {
           © {new Date().getFullYear()} Geekageddon. Crafted in compliance with EU Digital Services, GDPR, and Cookie directives.
         </p>
       </footer>
+
+      <div
+        className={`fixed inset-x-2 bottom-0 z-40 flex justify-center pb-2 transition-all duration-300 ${
+          bannerVisible
+            ? "opacity-100 translate-y-0 pointer-events-auto"
+            : "pointer-events-none opacity-0 translate-y-full"
+        }`}
+        onMouseEnter={() => setBannerVisible(true)}
+        onClick={() => setBannerVisible(true)}
+      >
+        <div className="flex items-center gap-2 rounded-full border border-slate-200 bg-white/95 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-600 shadow-[0_8px_20px_rgba(15,23,42,0.12)] backdrop-blur dark:border-slate-800 dark:bg-slate-900/90 dark:text-slate-300">
+          <span className="text-cyan-600 dark:text-cyan-300">In Beta</span>
+          <span>·</span>
+          <span>Share feedback on</span>
+          <Link href="/geekreach" className="text-cyan-600 underline hover:text-cyan-700 dark:text-cyan-300">
+            Geek-Reach
+          </Link>
+        </div>
+      </div>
     </div>
   );
 }
