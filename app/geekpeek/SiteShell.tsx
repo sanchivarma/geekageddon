@@ -151,10 +151,10 @@ export function SiteShell({ children }: SiteShellProps) {
   const shouldShowSidebarOverlay = !isDesktop && drawerOpen;
 
   return (
-    <div className="relative min-h-screen bg-white text-slate-900 transition-colors duration-500 dark:bg-slate-950 dark:text-slate-100">
+    <div className="relative min-h-screen bg-white text-slate-900 transition-colors duration-500 dark:bg-[#0b1220] dark:text-slate-100">
       <div className="noise-layer" aria-hidden />
 
-      <nav className="fixed inset-x-0 top-0 z-40 border-b border-slate-200/70 bg-white/90 text-slate-700 shadow-[0_4px_20px_rgba(15,23,42,0.08)] backdrop-blur dark:border-slate-800/70 dark:bg-slate-950/70 dark:text-slate-200">
+      <nav className="fixed inset-x-0 top-0 z-40 border-b border-slate-200/70 bg-white/90 text-slate-700 shadow-[0_4px_20px_rgba(15,23,42,0.08)] backdrop-blur dark:border-slate-800/70 dark:bg-[#0f1a2e]/80 dark:text-slate-200 dark:shadow-[0_0_25px_rgba(56,189,248,0.12)]">
         <div className="flex w-full flex-wrap items-center justify-between gap-3 px-4 py-2 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3">
             <Link
@@ -263,7 +263,7 @@ export function SiteShell({ children }: SiteShellProps) {
       <div
         className={`flex w-full gap-6 pb-20 pt-24 px-4 sm:px-6 md:flex-row md:gap-10 lg:pr-10 ${desktopPaddingClass}`}>
         <aside
-        className={`sidebar-tech fixed inset-y-20 left-0 z-30 w-72 overflow-y-auto border border-slate-200/70 bg-white/95 px-6 pb-8 pt-4 text-sm shadow-2xl backdrop-blur transition-transform duration-500 ease-out dark:border-slate-800/70 dark:bg-slate-950/95 ${sidebarTransform}`}
+        className={`sidebar-tech fixed inset-y-20 left-0 z-30 w-72 overflow-y-auto border border-slate-200/70 bg-white/95 px-6 pb-8 pt-4 text-sm shadow-2xl backdrop-blur transition-transform duration-500 ease-out dark:border-slate-800/70 dark:bg-slate-950/95 dark:shadow-[0_0_25px_rgba(56,189,248,0.12)] ${sidebarTransform}`}
         >
           <div className="space-y-8">
             <section>
@@ -362,7 +362,7 @@ export function SiteShell({ children }: SiteShellProps) {
         <main className="flex w-full flex-1 flex-col gap-10 text-slate-700 dark:text-slate-200">{children}</main>
       </div>
 
-      <footer className="border-t border-slate-200/80 bg-white/95 px-4 py-6 text-sm text-slate-500 shadow-[0_-4px_20px_rgba(15,23,42,0.05)] dark:border-slate-800/70 dark:bg-slate-950/80 dark:text-slate-400">
+      <footer className="border-t border-slate-200/80 bg-white/95 px-4 py-6 text-sm text-slate-500 shadow-[0_-4px_20px_rgba(15,23,42,0.05)] dark:border-slate-800/70 dark:bg-slate-950/80 dark:text-slate-400 dark:shadow-[0_-4px_24px_rgba(56,189,248,0.08)]">
         <div className="mx-auto flex max-w-7xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex flex-wrap justify-center gap-4 sm:justify-start">
             {footerPrimary.map((item) => (

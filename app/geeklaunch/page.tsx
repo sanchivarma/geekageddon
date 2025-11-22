@@ -140,7 +140,7 @@ export default function GeekLaunchPage() {
           </p>
         </header> */}
 
-        <section className="relative overflow-hidden rounded-[2.5rem] border border-slate-200 bg-white text-slate-800 px-4 py-8 text-slate-700 shadow-[0_12px_32px_rgba(15,23,42,0.08)] sm:px-6 sm:py-10 dark:border-slate-800/70 dark:bg-slate-900/40 dark:text-slate-200">
+        <section className="relative overflow-hidden rounded-[2.5rem] border border-slate-200 bg-white text-slate-800 px-4 py-8 text-slate-700 shadow-[0_12px_32px_rgba(15,23,42,0.08)] sm:px-6 sm:py-10 dark:border-slate-800/70 dark:bg-[#0f172a]/60 dark:text-slate-100">
           <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
             <div className="w-full space-y-2 text-center">
               <p className="text-sm uppercase tracking-[0.4em] text-cyan-600 dark:text-cyan-200">
@@ -179,18 +179,18 @@ export default function GeekLaunchPage() {
                 return (
                   <article className="grid gap-6 lg:grid-cols-1 lg:grid-cols-2 lg:gap-8">
                     <div className="space-y-6">
-                      <h2 className="text-2xl font-bold text-cyan-700 dark:text-white">
+                      <h2 className="text-2xl font-bold text-blue-600 dark:text-white">
                         {current.website ? (
-                          <a
-                            href={current.website}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="transition hover:text-cyan-600 dark:hover:text-cyan-200"
-                          >
-                            {current.name}
-                          </a>
+                        <a
+                          href={current.website}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-blue-600 transition hover:text-cyan-800 dark:text-cyan-300 dark:hover:text-cyan-500"
+                        >
+                          {current.name}
+                        </a>
                         ) : (
-                          current.name
+                          <span className="text-blue-600">{current.name}</span>
                         )}
                       </h2>
                       <p className="text-base text-slate-600 dark:text-slate-300">
