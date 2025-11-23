@@ -179,20 +179,20 @@ export default function GeekLaunchPage() {
                 return (
                   <article className="grid gap-6 lg:grid-cols-1 lg:grid-cols-2 lg:gap-8">
                     <div className="space-y-6">
-                      <h2 className="text-2xl font-bold text-blue-600 dark:text-white">
+                      <h2 className="text-2xl font-bold text-cyan-600 dark:text-white">
                         {current.website ? (
                         <a
                           href={current.website}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-blue-600 transition hover:text-cyan-800 dark:text-cyan-300 dark:hover:text-cyan-500"
+                          className="text-cyan-600 transition hover:text-cyan-700 dark:text-cyan-300 dark:hover:text-cyan-500"
                         >
                           {current.name}
                         </a>
                         ) : (
-                          <span className="text-blue-600">{current.name}</span>
+                          <span className="text-cyan-600">{current.name}</span>
                         )}
-                      </h2>
+                     </h2>
                       <p className="text-base text-slate-600 dark:text-slate-300">
                         {current.tagline || current.oneline_brief || "No tagline provided."}
                       </p>

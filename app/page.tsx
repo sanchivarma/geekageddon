@@ -304,18 +304,18 @@ export default function Home() {
           >
             <article className="grid gap-6 lg:grid-cols-2 lg:gap-8">
               <div className="space-y-6">
-                <h2 className="text-2xl font-bold text-blue-600 dark:text-white">
+                <h2 className="text-2xl font-bold text-cyan-600 dark:text-white">
                   {activeSlide.url ? (
                     <a
                       href={activeSlide.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-blue-600 transition hover:text-cyan-800 dark:text-cyan-300 dark:hover:text-cyan-500"
+                      className="text-cyan-600 transition hover:text-cyan-700 dark:text-cyan-300 dark:hover:text-cyan-500"
                     >
                       {activeSlide.title}
                     </a>
                   ) : (
-                    <span className="text-blue-600">{activeSlide.title}</span>
+                    <span className="text-cyan-600">{activeSlide.title}</span>
                   )}
                 </h2>
                 <p className="text-base text-slate-600 dark:text-slate-300">

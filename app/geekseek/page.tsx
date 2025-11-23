@@ -175,6 +175,7 @@ function GeekSeekClient() {
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
+    let compareTimeoutId: number | undefined;
     if (!query.trim()) {
       setError("Enter a query to start.");
       return;
@@ -224,11 +225,19 @@ function GeekSeekClient() {
         params.set("lng", String(lng));
       }
 
+      const controller = new AbortController();
+      compareTimeoutId =
+        activeTab === "compare" ? window.setTimeout(() => controller.abort(), 30000) : undefined;
+
       const response = await fetch(`https://geekageddon-api.vercel.app/api/geekseek?${params.toString()}`, {
         method: "GET",
         headers: { Accept: "application/json" },
         cache: "no-store",
+        signal: controller.signal,
       });
+      if (compareTimeoutId !== undefined) {
+        window.clearTimeout(compareTimeoutId);
+      }
 
       if (!response.ok) {
         throw new Error(`Request failed with status ${response.status}`);
@@ -245,6 +254,9 @@ function GeekSeekClient() {
       const message = fetchError instanceof Error ? fetchError.message : "Unexpected error";
       setError(message);
     } finally {
+      if (compareTimeoutId !== undefined) {
+        window.clearTimeout(compareTimeoutId);
+      }
       setLoading(false);
     }
   };
