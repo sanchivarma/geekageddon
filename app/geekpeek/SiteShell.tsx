@@ -13,10 +13,7 @@ const navLinks = [
   { label: "Geek-Reach", href: "/geekreach" },
 ];
 
-const footerPrimary = [
-  { label: "About", href: "/about" },
-  { label: "Geek-Reach", href: "/geekreach" }
-];
+const footerPrimary = [{ label: "About", href: "/about" }];
 
 const footerCompliance = [
   { label: "Privacy Policy (EU)", href: "/privacy-policy" },
@@ -193,6 +190,15 @@ export function SiteShell({ children }: SiteShellProps) {
             >
               <SearchIcon />
             </button>
+            <a
+              href="https://geekageddon.substack.com/subscribe"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Subscribe to Geekageddon Newsletter and Podcast"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-orange-300/70 bg-white/90 text-orange-500 transition hover:scale-105 hover:text-orange-400 dark:border-orange-200/40 dark:bg-slate-950/60 dark:text-orange-200"
+            >
+              <SubstackIcon />
+            </a>
             <button
               type="button"
               onClick={() => setTheme((prev) => (prev === "dark" ? "light" : "dark"))}
@@ -260,10 +266,9 @@ export function SiteShell({ children }: SiteShellProps) {
         />
       )}
 
-      <div
-        className={`flex w-full gap-6 pb-20 pt-24 px-4 sm:px-6 md:flex-row md:gap-10 lg:pr-10 ${desktopPaddingClass}`}>
+      <div className={`flex w-full gap-6 pb-20 pt-24 px-4 sm:px-6 md:flex-row md:gap-10 lg:pr-10 ${desktopPaddingClass}`}>
         <aside
-        className={`sidebar-tech fixed inset-y-20 left-0 z-30 w-72 overflow-y-auto border border-slate-200/70 bg-white/95 px-6 pb-8 pt-4 text-sm shadow-2xl backdrop-blur transition-transform duration-500 ease-out dark:border-slate-800/70 dark:bg-slate-950/95 dark:shadow-[0_0_25px_rgba(56,189,248,0.12)] ${sidebarTransform}`}
+          className={`sidebar-tech fixed top-12 bottom-30 left-0 z-30 w-72 overflow-y-auto border border-slate-200/70 bg-white/95 px-6 pb-8 pt-4 text-sm shadow-2xl backdrop-blur transition-transform duration-500 ease-out dark:border-slate-800/70 dark:bg-slate-950/95 dark:shadow-[0_0_25px_rgba(56,189,248,0.12)] ${sidebarTransform}`}
         >
           <div className="space-y-8">
             <section>
@@ -278,7 +283,6 @@ export function SiteShell({ children }: SiteShellProps) {
                     key={post.title}
                     className="group flex items-start gap-3 rounded-xl border border-slate-200/80 bg-white/80 px-4 py-3 transition hover:border-cyan-400/70 hover:bg-white dark:border-slate-800/70 dark:bg-slate-900/50 dark:hover:border-cyan-400/70"
                   >
-                    {/* <span className="text-cyan-600/80 dark:text-cyan-300/70">0{index + 1}</span> */}
                     <div className="space-y-1">
                       <a
                         href={post.link}
@@ -366,42 +370,49 @@ export function SiteShell({ children }: SiteShellProps) {
         <div className="mx-auto flex max-w-7xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex flex-wrap justify-center gap-4 sm:justify-start">
             {footerPrimary.map((item) => (
-              <Link key={item.label} href={item.href} className="text-slate-600 transition hover:text-cyan-600 dark:text-slate-300 dark:hover:text-cyan-200">
+              <Link
+                key={item.label}
+                href={item.href}
+                className="text-slate-600 transition hover:text-cyan-600 dark:text-slate-300 dark:hover:text-cyan-200"
+              >
                 {item.label}
               </Link>
             ))}
+            <a
+              href="https://geekageddon.substack.com/subscribe"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Subscribe to Geekageddon Newsletter and Podcast"
+              className="flex items-center gap-1 text-slate-600 transition hover:text-cyan-600 dark:text-slate-300 dark:hover:text-cyan-200"
+            >
+              <SubstackIcon className="h-4 w-4" />
+              <span>Newsletter</span>
+            </a>
           </div>
           <div className="flex flex-wrap justify-center gap-4 text-xs sm:justify-end">
             {footerCompliance.map((item) => (
-              <Link key={item.label} href={item.href} className="text-slate-500 transition hover:text-cyan-600 dark:text-slate-400 dark:hover:text-cyan-200">
+              <Link
+                key={item.label}
+                href={item.href}
+                className="text-slate-500 transition hover:text-cyan-600 dark:text-slate-400 dark:hover:text-cyan-200"
+              >
                 {item.label}
               </Link>
-            ))}
+            ))} 
           </div>
         </div>
-        <p className="mt-3 text-center text-xs text-slate-400 dark:text-slate-500">
-          © {new Date().getFullYear()} Geekageddon. Crafted in compliance with EU Digital Services, GDPR, and Cookie directives.
-        </p>
+        <div className="mt-3 flex flex-col items-center gap-2 text-center text-xs text-slate-400 dark:text-slate-500">
+          <p>
+            In Beta · Share your valuable feedback via{" "}
+            <Link href="/geekreach" className="text-cyan-600 hover:text-cyan-700 dark:text-cyan-300 dark:hover:text-cyan-200">
+              Geek-Reach
+            </Link>
+            .
+          </p>
+          <p>© {new Date().getFullYear()} Geekageddon. Crafted in compliance with EU Digital Services, GDPR, and Cookie directives.</p>
+        </div>
       </footer>
 
-      <div
-        className={`fixed inset-x-2 bottom-0 z-40 flex justify-center pb-2 transition-all duration-300 ${
-          bannerVisible
-            ? "opacity-100 translate-y-0 pointer-events-auto"
-            : "pointer-events-none opacity-0 translate-y-full"
-        }`}
-        onMouseEnter={() => setBannerVisible(true)}
-        onClick={() => setBannerVisible(true)}
-      >
-        <div className="flex items-center gap-2 rounded-full border border-slate-200 bg-white/95 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-600 shadow-[0_8px_20px_rgba(15,23,42,0.12)] backdrop-blur dark:border-slate-800 dark:bg-slate-900/90 dark:text-slate-300">
-          <span className="text-cyan-600 dark:text-cyan-300">In Beta</span>
-          <span>·</span>
-          <span>Share feedback on</span>
-          <Link href="/geekreach" className="text-cyan-600 underline hover:text-cyan-700 dark:text-cyan-300">
-            Geek-Reach
-          </Link>
-        </div>
-      </div>
     </div>
   );
 }
@@ -456,3 +467,17 @@ function SidebarIcon() {
     </svg>
   );
 }
+
+function SubstackIcon({ className = "h-5 w-5" }: { className?: string }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      className={className}
+      fill="currentColor"
+    >
+      <path d="M4 5.5h16v2H4zm0 3.25h16v2H4zm0 3.25h16V18l-8-3-8 3z" />
+    </svg>
+  );
+}
+
