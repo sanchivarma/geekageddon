@@ -403,7 +403,7 @@ export function SiteShell({ children }: SiteShellProps) {
         </div>
         <div className="mt-3 flex flex-col items-center gap-2 text-center text-xs text-slate-400 dark:text-slate-500">
           <p>
-            In Beta · Share your valuable feedback via{" "}
+            In Beta · Please share your valuable feedback via{" "}
             <Link href="/geekreach" className="text-cyan-600 hover:text-cyan-700 dark:text-cyan-300 dark:hover:text-cyan-200">
               Geek-Reach
             </Link>
