@@ -278,41 +278,30 @@ function GeekSeekClient() {
               </p>
             </div>
             <div
-              className="flex flex-col gap-2 rounded-3xl border border-slate-200/80 bg-white/80 p-2 text-sm shadow-inner dark:border-slate-800/70 dark:bg-slate-900/40 sm:flex-row sm:flex-wrap sm:gap-3"
+              className="flex flex-nowrap gap-1 overflow-x-auto rounded-2xl border border-slate-200/70 bg-white/70 p-1 text-xs shadow-inner dark:border-slate-800/70 dark:bg-slate-900/40 sm:flex-wrap"
               role="tablist"
               aria-label="Geekseek modes"
             >
-              {TAB_KEYS.map((tab) => (
-                <button
-                  key={tab}
-                  type="button"
-                  onClick={() => handleTabChange(tab)}
-                  className={`w-full rounded-2xl border px-4 py-3 font-semibold uppercase tracking-[0.2em] transition shadow-sm sm:flex-1 ${
-                    activeTab === tab
-                      ? "bg-gradient-to-r from-cyan-500/20 via-cyan-500/10 to-transparent text-cyan-800 border-cyan-400 dark:from-cyan-400/20 dark:text-cyan-100 dark:border-cyan-300"
-                      : "border-transparent text-slate-500 hover:border-cyan-200 hover:text-cyan-600 dark:text-slate-400"
-                  }`}
-                  role="tab"
-                  aria-selected={activeTab === tab}
-                  aria-controls={`${tab}-panel`}
-                >
-                  <span className="flex items-center gap-3">
-                    <input
-                      type="checkbox"
-                      readOnly
-                      checked={activeTab === tab}
-                      className={`h-4 w-4 rounded-full border shadow-sm transition focus:outline-none focus:ring-2 ${
-                        activeTab === tab
-                          ? "border-cyan-500 bg-cyan-500 text-white focus:ring-cyan-400/40 dark:border-cyan-300 dark:bg-cyan-300 dark:text-slate-900 dark:focus:ring-cyan-300/40"
-                          : "border-slate-300 bg-slate-50 text-cyan-700 hover:border-cyan-400 focus:ring-cyan-400/30 dark:border-slate-600 dark:bg-slate-800 dark:text-cyan-200 dark:hover:border-cyan-300 dark:focus:ring-cyan-300/30"
-                      }`}
-                      aria-hidden="true"
-                      tabIndex={-1}
-                    />
-                    <span>{tab === "places" ? "Places" : "Compare Tech/Product (A vs B)"}</span>
-                  </span>
-                </button>
-              ))}
+              {TAB_KEYS.map((tab) => {
+                const isActive = activeTab === tab;
+                return (
+                  <button
+                    key={tab}
+                    type="button"
+                    onClick={() => handleTabChange(tab)}
+                    className={`inline-flex min-w-[100px] items-center justify-center rounded-t-xl border px-3 py-2 font-semibold uppercase tracking-[0.16em] transition snap-start ${
+                      isActive
+                        ? "border-cyan-500 border-b-white bg-white text-cyan-800 shadow-[0_6px_18px_rgba(14,165,233,0.18)] dark:border-cyan-300 dark:border-b-transparent dark:bg-slate-900 dark:text-cyan-100"
+                        : "border-transparent bg-transparent text-slate-600 hover:border-slate-200 hover:bg-white dark:text-slate-300 dark:hover:border-slate-700 dark:hover:bg-slate-950/60"
+                    }`}
+                    role="tab"
+                    aria-selected={isActive}
+                    aria-controls={`${tab}-panel`}
+                  >
+                    {tab === "places" ? "Suggest a Place" : "Compare Tech/Product (A vs B)"}
+                  </button>
+                );
+              })}
             </div>
             {/* {activeTab === "compare" && (
                     <p className="text-xs text-slate-500 dark:text-slate-400">
