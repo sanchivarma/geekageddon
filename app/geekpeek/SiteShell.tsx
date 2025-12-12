@@ -78,15 +78,18 @@ export function SiteShell({ children }: SiteShellProps) {
   }, []);
 
   useEffect(() => {
+    
     const scheduleHide = () => {
       if (bannerTimer.current) clearTimeout(bannerTimer.current);
       bannerTimer.current = setTimeout(() => setBannerVisible(false), 3000);
     };
+
     const handleActivity = () => {
       setBannerVisible(true);
       scheduleHide();
     };
     handleActivity();
+
     const events: Array<[keyof WindowEventMap, (e: Event) => void]> = [
       ["scroll", handleActivity],
       ["mousemove", handleActivity],
