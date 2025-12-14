@@ -105,16 +105,20 @@ export function SiteShell({ children }: SiteShellProps) {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
+
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
     const handleMediaChange = (event: MediaQueryListEvent) => {
       if (getStoredTheme()) return;
       setTheme(event.matches ? "dark" : "light");
     };
+
     const handleStorage = (event: StorageEvent) => {
       if (event.key === "geekageddon-theme" && (event.newValue === "light" || event.newValue === "dark")) {
         setTheme(event.newValue);
       }
     };
+
     mediaQuery.addEventListener?.("change", handleMediaChange);
     window.addEventListener("storage", handleStorage);
     return () => {
