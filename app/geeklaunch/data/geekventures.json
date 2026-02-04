@@ -1,11 +1,35 @@
 [
   {
+    "name": "Formulary Financial",
+    "website": "https://www.formulary.co/",
+    "tagline": "AI-native fund administration",
+    "oneline_brief": "Full-service, AI-native fund administrator for private equity, growth equity, and venture capital firms.",
+    "description": "Formulary Financial emerged from stealth with $4.6M in seed funding led by Khosla Ventures in January 2026 to build an AI-native fund administration platform covering accounting, reporting, compliance, audit, capital activity, and investor communications.",
+    "year_founded": 2025,
+    "category": "Fintech, AI",
+    "tags": ["AI", "Fintech", "Fund Administration", "Private Markets", "Back Office"],
+    "funding_round": "Seed",
+    "funding_amount": 4600000,
+    "valuation": null,
+    "investors": ["Khosla Ventures", "Acrew Capital", "Company Ventures", "Human Ventures", "Serena Ventures", "Alumni Ventures"],
+    "team_size": null,
+    "location": "New York, NY, USA",
+    "hiring_status": "hiring",
+    "rating": null,
+    "reviews": [],
+    "urls": {
+      "linkedin": "",
+      "twitter": "",
+      "crunchbase": ""
+    }
+  },
+  {
     "name": "Humans&",
     "website": "https://humansand.ai/",
     "tagline": "Human-centric frontier AI lab",
     "oneline_brief": "Building AI systems that strengthen human collaboration and communication.",
-    "description": "Humans& is developing human-centric AI models and products focused on collaboration (beyond typical chatbots). Reuters reported it raised a $480M seed round at a ~$4.48B valuation in January 2026.",
-    "year_founded": 2026,
+    "description": "Humans& is developing human-centric AI models and products focused on communication and collaboration. It raised a $480M seed round at a $4.48B valuation announced on January 20, 2026, led by SV Angel and co-founder Georges Harik, with participation from NVIDIA, Jeff Bezos, GV, Emerson Collective, and others.",
+    "year_founded": 2025,
     "category": "AI, Research, Collaboration",
     "tags": [
       "AI",
@@ -21,7 +45,15 @@
       "Georges Harik",
       "Nvidia",
       "Jeff Bezos",
-      "GV"
+      "GV",
+      "Emerson Collective",
+      "Forerunner",
+      "S32",
+      "DCVC",
+      "Human Capital",
+      "Liquid 2",
+      "Felicis",
+      "CRV"
     ],
     "team_size": null,
     "location": "San Francisco, CA, USA",
@@ -30,7 +62,7 @@
     "reviews": [],
     "urls": {
       "linkedin": "https://www.linkedin.com/company/humansand/",
-      "twitter": "",
+      "twitter": "https://x.com/humansand",
       "crunchbase": ""
     }
   },
@@ -68,7 +100,7 @@
     "website": "https://www.ricursive.com/",
     "tagline": "AI for chip design & chip design for AI",
     "oneline_brief": "Frontier AI lab building self-improving systems starting with chip design.",
-    "description": "Ricursive Intelligence is building AI systems to automate chip design, verification, and closure, creating a feedback loop where models and silicon co-evolve (per its site and investor pages).",
+    "description": "Ricursive Intelligence is a frontier AI lab founded by AlphaChip co-creators building AI systems to automate chip design, verification, and closure, aiming to close a recursive feedback loop where models and silicon co-evolve.",
     "year_founded": 2025,
     "category": "AI, Semiconductors",
     "tags": [
@@ -77,10 +109,16 @@
       "EDA",
       "Hardware"
     ],
-    "funding_round": "Seed",
-    "funding_amount": 35000000,
-    "valuation": null,
+    "funding_round": "Series A",
+    "funding_amount": 300000000,
+    "valuation": 4000000000,
     "investors": [
+      "Lightspeed Venture Partners",
+      "DST Global",
+      "NVentures",
+      "Felicis Ventures",
+      "49 Palms Ventures",
+      "Radical Ventures",
       "Sequoia Capital"
     ],
     "team_size": null,
