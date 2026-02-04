@@ -273,7 +273,9 @@ function GeekSeekClient() {
           <div className="flex flex-col gap-2">
             <h1 className="text-3xl font-bold text-slate-900 dark:text-white">Geek Seek 🔍</h1>
             <p className="text-sm text-slate-600 dark:text-slate-300">
-              Query places around the world or compare technologies and products side by side. Powered by AI and real-time data.
+              {SHOW_PLACES_TAB
+                ? "Query places around the world or compare technologies and products side by side. Powered by AI and real-time data."
+                : "Compare technologies and products side by side. Powered by AI and real-time data."}
             </p>
           </div>
           <div className="mt-4 space-y-6">
