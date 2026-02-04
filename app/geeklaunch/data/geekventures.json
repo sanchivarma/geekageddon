@@ -1,5 +1,256 @@
 [
   {
+    "name": "Humans&",
+    "website": "https://humansand.ai/",
+    "tagline": "Human-centric frontier AI lab",
+    "oneline_brief": "Building AI systems that strengthen human collaboration and communication.",
+    "description": "Humans& is developing human-centric AI models and products focused on collaboration (beyond typical chatbots). Reuters reported it raised a $480M seed round at a ~$4.48B valuation in January 2026.",
+    "year_founded": 2026,
+    "category": "AI, Research, Collaboration",
+    "tags": [
+      "AI",
+      "Frontier AI",
+      "Collaboration",
+      "Agents"
+    ],
+    "funding_round": "Seed",
+    "funding_amount": 480000000,
+    "valuation": 4480000000,
+    "investors": [
+      "SV Angel",
+      "Georges Harik",
+      "Nvidia",
+      "Jeff Bezos",
+      "GV"
+    ],
+    "team_size": null,
+    "location": "San Francisco, CA, USA",
+    "hiring_status": "hiring",
+    "rating": null,
+    "reviews": [],
+    "urls": {
+      "linkedin": "https://www.linkedin.com/company/humansand/",
+      "twitter": "",
+      "crunchbase": ""
+    }
+  },
+  {
+    "name": "Skild AI",
+    "website": "https://www.skild.ai/",
+    "tagline": "General-purpose robotic brain (omni-bodied)",
+    "oneline_brief": "Building an omni-bodied 'robot brain' to power many robots across tasks.",
+    "description": "Skild AI is building 'physical AI'—a general-purpose, omni-bodied robotic brain meant to work across different robot types and scenarios, as described on its site and company blog.",
+    "year_founded": 2024,
+    "category": "AI, Robotics",
+    "tags": [
+      "AI",
+      "Robotics",
+      "Physical AI",
+      "Autonomy"
+    ],
+    "funding_round": null,
+    "funding_amount": null,
+    "valuation": null,
+    "investors": [],
+    "team_size": null,
+    "location": null,
+    "hiring_status": "hiring",
+    "rating": null,
+    "reviews": [],
+    "urls": {
+      "linkedin": "",
+      "twitter": "",
+      "crunchbase": ""
+    }
+  },
+  {
+    "name": "Ricursive Intelligence",
+    "website": "https://www.ricursive.com/",
+    "tagline": "AI for chip design & chip design for AI",
+    "oneline_brief": "Frontier AI lab building self-improving systems starting with chip design.",
+    "description": "Ricursive Intelligence is building AI systems to automate chip design, verification, and closure, creating a feedback loop where models and silicon co-evolve (per its site and investor pages).",
+    "year_founded": 2025,
+    "category": "AI, Semiconductors",
+    "tags": [
+      "AI",
+      "Chip Design",
+      "EDA",
+      "Hardware"
+    ],
+    "funding_round": "Seed",
+    "funding_amount": 35000000,
+    "valuation": null,
+    "investors": [
+      "Sequoia Capital"
+    ],
+    "team_size": null,
+    "location": null,
+    "hiring_status": "hiring",
+    "rating": null,
+    "reviews": [],
+    "urls": {
+      "linkedin": "https://www.linkedin.com/company/ricursive-intelligence/",
+      "twitter": "",
+      "crunchbase": ""
+    }
+  },
+  {
+    "name": "Quadric",
+    "website": "https://www.quadric.io/",
+    "tagline": "Programmable on-device AI processor IP",
+    "oneline_brief": "Licenses neural processor IP and tooling for on-device AI inference.",
+    "description": "Quadric licenses programmable neural processor IP plus a software stack/toolchain to run models locally; TechCrunch profiled the company’s growth as demand rises for on-device inference.",
+    "year_founded": null,
+    "category": "AI, Hardware, Edge",
+    "tags": [
+      "AI",
+      "Edge AI",
+      "On-device Inference",
+      "Semiconductors"
+    ],
+    "funding_round": null,
+    "funding_amount": null,
+    "valuation": null,
+    "investors": [],
+    "team_size": null,
+    "location": null,
+    "hiring_status": null,
+    "rating": null,
+    "reviews": [],
+    "urls": {
+      "linkedin": "",
+      "twitter": "",
+      "crunchbase": ""
+    }
+  },
+  {
+    "name": "Polaron",
+    "website": "https://www.polaron.ai/",
+    "tagline": "Intelligence layer for materials science",
+    "oneline_brief": "Uses AI + image data to accelerate materials characterization and design.",
+    "description": "Polaron applies machine learning to microstructure image data to connect process, structure and performance for faster material characterization, design and manufacturing; it raised a €6.7M round reported Feb 2026.",
+    "year_founded": null,
+    "category": "AI, Materials Science",
+    "tags": [
+      "AI",
+      "Materials Science",
+      "Computer Vision",
+      "Industrial"
+    ],
+    "funding_round": "Seed",
+    "funding_amount": null,
+    "valuation": null,
+    "investors": [
+      "Racine2",
+      "Speedinvest",
+      "Futurepresent"
+    ],
+    "team_size": null,
+    "location": "London, UK",
+    "hiring_status": null,
+    "rating": null,
+    "reviews": [],
+    "urls": {
+      "linkedin": "",
+      "twitter": "",
+      "crunchbase": ""
+    }
+  },
+  {
+    "name": "Expert Intelligence",
+    "website": "https://www.expertintelligence.ai/",
+    "tagline": "AI decision layer for analytical labs",
+    "oneline_brief": "Automates lab decision-making into validated, explainable reports.",
+    "description": "Expert Intelligence provides scientist-trained AI that turns batch lab data into validated decisions and signed, explainable reports; it announced a $5.8M seed round on Feb 2026.",
+    "year_founded": null,
+    "category": "AI, Lab Automation",
+    "tags": [
+      "AI",
+      "Lab Automation",
+      "Regulated Workflows",
+      "Decision Automation"
+    ],
+    "funding_round": "Seed",
+    "funding_amount": 5800000,
+    "valuation": null,
+    "investors": [],
+    "team_size": null,
+    "location": null,
+    "hiring_status": null,
+    "rating": null,
+    "reviews": [],
+    "urls": {
+      "linkedin": "https://www.linkedin.com/company/expert-intelligence/",
+      "twitter": "",
+      "crunchbase": ""
+    }
+  },
+  {
+    "name": "Fibr AI",
+    "website": "https://fibr.ai/",
+    "tagline": "Adaptive AI web experiences",
+    "oneline_brief": "Turns web pages into intent-aware 'experience agents' that adapt in real time.",
+    "description": "Fibr AI builds an 'agentic web experience' layer: pages sense intent and reshape themselves; it raised a $5.7M seed round led by Accel (reported Feb 2026).",
+    "year_founded": 2024,
+    "category": "AI, MarTech",
+    "tags": [
+      "AI",
+      "MarTech",
+      "Personalization",
+      "Agents"
+    ],
+    "funding_round": "Seed",
+    "funding_amount": 5700000,
+    "valuation": null,
+    "investors": [
+      "Accel"
+    ],
+    "team_size": null,
+    "location": null,
+    "hiring_status": null,
+    "rating": null,
+    "reviews": [],
+    "urls": {
+      "linkedin": "",
+      "twitter": "",
+      "crunchbase": ""
+    }
+  },
+  {
+    "name": "Cerebras Systems",
+    "website": "https://www.cerebras.ai/",
+    "tagline": "Wafer-scale AI compute (training & inference)",
+    "oneline_brief": "Builds wafer-scale chips/systems for large-model training and fast inference.",
+    "description": "Cerebras builds wafer-scale AI processors and systems (WSE) for training and inference. Reuters reported a $1B late-stage round valuing it at $23.1B in Feb 2026.",
+    "year_founded": 2016,
+    "category": "AI, Semiconductors, Infrastructure",
+    "tags": [
+      "AI",
+      "Chips",
+      "Training",
+      "Inference"
+    ],
+    "funding_round": "Late Stage",
+    "funding_amount": 1000000000,
+    "valuation": 23100000000,
+    "investors": [
+      "Tiger Global",
+      "Benchmark",
+      "Coatue",
+      "1789 Capital"
+    ],
+    "team_size": null,
+    "location": "Sunnyvale, CA, USA",
+    "hiring_status": null,
+    "rating": null,
+    "reviews": [],
+    "urls": {
+      "linkedin": "",
+      "twitter": "",
+      "crunchbase": ""
+    }
+  },
+  {
     "name": "Thinking Machines Lab",
     "website": "https://thinkingmachines.ai/",
     "tagline": "Making AI systems more widely understood, customizable, and generally capable",
@@ -7,11 +258,20 @@
     "description": "Founded by former OpenAI CTO Mira Murati, Thinking Machines Lab develops multimodal AI models with a focus on transparency and customization. Their first product, Tinker, enables users to fine-tune large language models.",
     "year_founded": 2025,
     "category": "AI, Research",
-    "tags": ["AI", "Foundation Models", "Multimodal AI", "Open Source"],
+    "tags": [
+      "AI",
+      "Foundation Models",
+      "Multimodal AI",
+      "Open Source"
+    ],
     "funding_round": "Seed",
     "funding_amount": 2000000000,
     "valuation": 50000000000,
-    "investors": ["Andreessen Horowitz", "Conviction Partners", "Albania Government"],
+    "investors": [
+      "Andreessen Horowitz",
+      "Conviction Partners",
+      "Albania Government"
+    ],
     "team_size": 30,
     "location": "San Francisco, CA",
     "hiring_status": "hiring",
@@ -31,11 +291,20 @@
     "description": "Empowers businesses to harness the power of AI on their own devices, reducing cloud dependency while ensuring data security and real-time insights.",
     "year_founded": 2021,
     "category": "AI",
-    "tags": ["AI", "On-device AI", "Enterprise"],
+    "tags": [
+      "AI",
+      "On-device AI",
+      "Enterprise"
+    ],
     "funding_round": "Series A",
     "funding_amount": 43000000,
     "valuation": null,
-    "investors": ["Forerunner Ventures", "Mike Abbott", "David Beirne", "David Shuman"],
+    "investors": [
+      "Forerunner Ventures",
+      "Mike Abbott",
+      "David Beirne",
+      "David Shuman"
+    ],
     "team_size": null,
     "location": "Austin, Texas",
     "hiring_status": null,
@@ -55,11 +324,19 @@
     "description": "Allows creation of custom, royalty-free music with deep learning and music theory integration.",
     "year_founded": 2022,
     "category": "AI",
-    "tags": ["AI", "Music", "Generation"],
+    "tags": [
+      "AI",
+      "Music",
+      "Generation"
+    ],
     "funding_round": "Series B",
     "funding_amount": 125000000,
     "valuation": null,
-    "investors": ["Lightspeed Venture Partners", "Daniel Gross", "Founder Collective"],
+    "investors": [
+      "Lightspeed Venture Partners",
+      "Daniel Gross",
+      "Founder Collective"
+    ],
     "team_size": null,
     "location": "Cambridge, Massachusetts",
     "hiring_status": null,
@@ -79,16 +356,28 @@
     "description": "Blossom builds AI agents for mental healthcare—copilots for psychiatry and clinical use cases.",
     "year_founded": 2024,
     "category": "HealthTech, AI",
-    "tags": ["AI", "Healthcare", "Mental Health"],
+    "tags": [
+      "AI",
+      "Healthcare",
+      "Mental Health"
+    ],
     "funding_round": "Series A",
     "funding_amount": 20000000,
     "valuation": null,
-    "investors": ["Headline", "Village Global", "Operator Partners", "Correlation Ventures", "Founder of General Catalyst"],
+    "investors": [
+      "Headline",
+      "Village Global",
+      "Operator Partners",
+      "Correlation Ventures",
+      "Founder of General Catalyst"
+    ],
     "team_size": null,
     "location": "New York, NY, USA",
     "hiring_status": null,
     "rating": null,
-    "reviews": ["Trustpilot 4.5/5"],
+    "reviews": [
+      "Trustpilot 4.5/5"
+    ],
     "urls": {
       "linkedin": "https://www.linkedin.com/company/join-blossom-health",
       "twitter": "",
@@ -103,11 +392,17 @@
     "description": "AI platform to help brands create engaging ecommerce advertising campaigns with real creators.",
     "year_founded": 2024,
     "category": "AI, Ecommerce, Creator",
-    "tags": ["AI", "Advertising", "Ecommerce"],
+    "tags": [
+      "AI",
+      "Advertising",
+      "Ecommerce"
+    ],
     "funding_round": "Seed",
     "funding_amount": null,
     "valuation": null,
-    "investors": ["Founders Fund"],
+    "investors": [
+      "Founders Fund"
+    ],
     "team_size": null,
     "location": "New York, NY, USA",
     "hiring_status": null,
@@ -127,11 +422,17 @@
     "description": "Avoca builds AI-powered workforces for hospitality, retail, logistics, and service businesses.",
     "year_founded": 2023,
     "category": "AI, SaaS",
-    "tags": ["AI", "Workforce Automation", "Service Business"],
+    "tags": [
+      "AI",
+      "Workforce Automation",
+      "Service Business"
+    ],
     "funding_round": "Seed",
     "funding_amount": null,
     "valuation": null,
-    "investors": ["Y Combinator"],
+    "investors": [
+      "Y Combinator"
+    ],
     "team_size": null,
     "location": "New York, NY, USA",
     "hiring_status": null,
@@ -151,11 +452,18 @@
     "description": "Flyfin is an AI-powered tax prep platform built specifically for freelancers, creators, and gig workers, combining AI and real CPAs for seamless filing.",
     "year_founded": 2025,
     "category": "Fintech",
-    "tags": ["AI", "Tax Tech", "Fintech"],
+    "tags": [
+      "AI",
+      "Tax Tech",
+      "Fintech"
+    ],
     "funding_round": "Series A",
     "funding_amount": 10000000,
     "valuation": null,
-    "investors": ["Accel", "Alpha Wave Global"],
+    "investors": [
+      "Accel",
+      "Alpha Wave Global"
+    ],
     "team_size": 30,
     "location": "San Jose, California",
     "hiring_status": "hiring",
@@ -175,11 +483,17 @@
     "description": "Coppell uses AI to coach SMBs and individuals to better compare, select, and optimize insurance coverage, reducing time and paperwork.",
     "year_founded": 2025,
     "category": "Insurtech",
-    "tags": ["AI", "Insurance", "SMB"],
+    "tags": [
+      "AI",
+      "Insurance",
+      "SMB"
+    ],
     "funding_round": "Seed",
     "funding_amount": 4300000,
     "valuation": null,
-    "investors": ["First Round Capital"],
+    "investors": [
+      "First Round Capital"
+    ],
     "team_size": 18,
     "location": "Los Angeles, CA, USA",
     "hiring_status": "not hiring",
@@ -199,11 +513,17 @@
     "description": "Polymath Robotics provides plug-and-play autonomy kits for tractors, forklifts & mining vehicles.",
     "year_founded": 2025,
     "category": "AI, Robotics",
-    "tags": ["Robotics", "Autonomous Vehicles", "Industrial"],
+    "tags": [
+      "Robotics",
+      "Autonomous Vehicles",
+      "Industrial"
+    ],
     "funding_round": "Series A",
     "funding_amount": 18000000,
     "valuation": null,
-    "investors": ["Y Combinator"],
+    "investors": [
+      "Y Combinator"
+    ],
     "team_size": 26,
     "location": "San Francisco, California",
     "hiring_status": "hiring",
@@ -215,7 +535,7 @@
       "crunchbase": "https://www.crunchbase.com/organization/polymath-robotics"
     }
   },
-    {
+  {
     "name": "FlowGPT",
     "website": "https://flowgpt.com/",
     "tagline": "Prompt sharing and discovery for AI enthusiasts",
@@ -223,11 +543,17 @@
     "description": "FlowGPT lets users create, share, discover, and optimize AI prompts for productivity, creativity, and learning.",
     "year_founded": 2025,
     "category": "AI, Productivity",
-    "tags": ["AI", "ChatGPT", "Prompts"],
+    "tags": [
+      "AI",
+      "ChatGPT",
+      "Prompts"
+    ],
     "funding_round": "Seed",
     "funding_amount": 5000000,
     "valuation": null,
-    "investors": ["General Catalyst"],
+    "investors": [
+      "General Catalyst"
+    ],
     "team_size": 19,
     "location": "San Francisco, CA",
     "hiring_status": "hiring",
@@ -247,11 +573,18 @@
     "description": "Glide turns spreadsheets into beautiful apps, merging data sources, automations, and AI features.",
     "year_founded": 2025,
     "category": "No-code, AI, SaaS",
-    "tags": ["No-code", "AI", "Productivity"],
+    "tags": [
+      "No-code",
+      "AI",
+      "Productivity"
+    ],
     "funding_round": "Series B",
     "funding_amount": 25000000,
     "valuation": null,
-    "investors": ["Benchmark", "First Round Capital"],
+    "investors": [
+      "Benchmark",
+      "First Round Capital"
+    ],
     "team_size": 50,
     "location": "San Francisco, CA",
     "hiring_status": "hiring",
@@ -271,11 +604,18 @@
     "description": "AssemblyAI offers APIs for audio transcription, sentiment analysis, conversation intelligence, and more for media and enterprise.",
     "year_founded": 2025,
     "category": "AI, Speech Recognition",
-    "tags": ["Speech", "Transcription", "AI"],
+    "tags": [
+      "Speech",
+      "Transcription",
+      "AI"
+    ],
     "funding_round": "Series C",
     "funding_amount": 130000000,
     "valuation": null,
-    "investors": ["Accel", "Insight Partners"],
+    "investors": [
+      "Accel",
+      "Insight Partners"
+    ],
     "team_size": 85,
     "location": "San Francisco, CA",
     "hiring_status": "not hiring",
@@ -295,11 +635,18 @@
     "description": "Mistral AI is creating state-of-the-art open-source foundation models, driving innovation and independence for European enterprises.",
     "year_founded": 2025,
     "category": "AI, Open Source",
-    "tags": ["AI", "Open Source", "Foundation Models"],
+    "tags": [
+      "AI",
+      "Open Source",
+      "Foundation Models"
+    ],
     "funding_round": "Series B",
     "funding_amount": 320000000,
     "valuation": 2000000000,
-    "investors": ["Lightspeed Ventures", "General Catalyst"],
+    "investors": [
+      "Lightspeed Ventures",
+      "General Catalyst"
+    ],
     "team_size": 62,
     "location": "Paris, France",
     "hiring_status": "hiring",
@@ -319,11 +666,18 @@
     "description": "Unkey offers API key authentication, management, and observability for fast-growing SaaS platforms.",
     "year_founded": 2025,
     "category": "Developer Tools, SaaS",
-    "tags": ["API", "Key Management", "SaaS"],
+    "tags": [
+      "API",
+      "Key Management",
+      "SaaS"
+    ],
     "funding_round": "Seed",
     "funding_amount": 4000000,
     "valuation": null,
-    "investors": ["Y Combinator", "Founders Fund"],
+    "investors": [
+      "Y Combinator",
+      "Founders Fund"
+    ],
     "team_size": 13,
     "location": "San Francisco, CA",
     "hiring_status": "hiring",
@@ -343,11 +697,19 @@
     "description": "Luma AI lets anyone create 3D models from smartphones for gaming, e-commerce, and mixed reality, with world-class generative AI.",
     "year_founded": 2024,
     "category": "AI, Imaging, AR/VR",
-    "tags": ["AI", "3D", "AR", "VR"],
+    "tags": [
+      "AI",
+      "3D",
+      "AR",
+      "VR"
+    ],
     "funding_round": "Series A",
     "funding_amount": 20000000,
     "valuation": null,
-    "investors": ["NFX", "Andreessen Horowitz"],
+    "investors": [
+      "NFX",
+      "Andreessen Horowitz"
+    ],
     "team_size": 32,
     "location": "San Mateo, CA",
     "hiring_status": "hiring",
@@ -367,11 +729,18 @@
     "description": "Adept AI builds large scale, general-purpose platform agents to automate complex tasks using any software interface.",
     "year_founded": 2024,
     "category": "AI, Productivity",
-    "tags": ["AI", "Agents", "Automation"],
+    "tags": [
+      "AI",
+      "Agents",
+      "Automation"
+    ],
     "funding_round": "Series B",
     "funding_amount": 350000000,
     "valuation": 1000000000,
-    "investors": ["Greylock Partners", "Frontier Ventures"],
+    "investors": [
+      "Greylock Partners",
+      "Frontier Ventures"
+    ],
     "team_size": 40,
     "location": "San Francisco, CA",
     "hiring_status": "not hiring",
@@ -391,11 +760,18 @@
     "description": "Glean uses AI to connect, unify, and find knowledge across all company apps in one search experience.",
     "year_founded": 2024,
     "category": "AI, SaaS, Productivity",
-    "tags": ["AI", "Search", "Knowledge Base"],
+    "tags": [
+      "AI",
+      "Search",
+      "Knowledge Base"
+    ],
     "funding_round": "Series C",
     "funding_amount": 200000000,
     "valuation": 2200000000,
-    "investors": ["Sequoia Capital", "a16z"],
+    "investors": [
+      "Sequoia Capital",
+      "a16z"
+    ],
     "team_size": 120,
     "location": "San Francisco, CA",
     "hiring_status": "hiring",
@@ -415,11 +791,17 @@
     "description": "Character.AI lets users create chatbots and virtual AI friends, learning and adapting to user input for entertainment and knowledge.",
     "year_founded": 2024,
     "category": "AI, Chatbots",
-    "tags": ["AI", "Chatbots", "Companion"],
+    "tags": [
+      "AI",
+      "Chatbots",
+      "Companion"
+    ],
     "funding_round": "Series B",
     "funding_amount": 250000000,
     "valuation": 1500000000,
-    "investors": ["Andreessen Horowitz"],
+    "investors": [
+      "Andreessen Horowitz"
+    ],
     "team_size": 70,
     "location": "Mountain View, CA",
     "hiring_status": "hiring",
@@ -439,11 +821,17 @@
     "description": "Personal and business AI assistant platform founded by ex-DeepMind and LinkedIn engineers.",
     "year_founded": 2024,
     "category": "AI, Agents",
-    "tags": ["AI", "Assistant", "Agents"],
+    "tags": [
+      "AI",
+      "Assistant",
+      "Agents"
+    ],
     "funding_round": "Series B",
     "funding_amount": 150000000,
     "valuation": 1200000000,
-    "investors": ["Greylock Partners"],
+    "investors": [
+      "Greylock Partners"
+    ],
     "team_size": 55,
     "location": "Palo Alto, CA",
     "hiring_status": "not hiring",
@@ -463,11 +851,17 @@
     "description": "Sakana AI builds advanced, efficient generative models for enterprise applications, highly tuned for Asia-Pacific languages and data.",
     "year_founded": 2024,
     "category": "AI, Generative",
-    "tags": ["AI", "Generative", "Asia-Pacific"],
+    "tags": [
+      "AI",
+      "Generative",
+      "Asia-Pacific"
+    ],
     "funding_round": "Seed",
     "funding_amount": 8000000,
     "valuation": null,
-    "investors": ["Sequoia India"],
+    "investors": [
+      "Sequoia India"
+    ],
     "team_size": 20,
     "location": "Tokyo, Japan",
     "hiring_status": "hiring",
@@ -487,11 +881,17 @@
     "description": "Hume builds emotion AI APIs for interpreting and generating nuanced human speech and reactions.",
     "year_founded": 2024,
     "category": "AI, Speech, Sentiment",
-    "tags": ["AI", "Emotion", "Speech"],
+    "tags": [
+      "AI",
+      "Emotion",
+      "Speech"
+    ],
     "funding_round": "Series A",
     "funding_amount": 12500000,
     "valuation": null,
-    "investors": ["Union Square Ventures"],
+    "investors": [
+      "Union Square Ventures"
+    ],
     "team_size": 22,
     "location": "New York, NY",
     "hiring_status": "not hiring",
@@ -511,11 +911,18 @@
     "description": "Runway provides AI tools for filmmakers and creators, including text-to-video, image generation, and advanced editing features.",
     "year_founded": 2023,
     "category": "AI, Media, Creative Tools",
-    "tags": ["AI", "Video", "Creative"],
+    "tags": [
+      "AI",
+      "Video",
+      "Creative"
+    ],
     "funding_round": "Series C",
     "funding_amount": 141000000,
     "valuation": 1500000000,
-    "investors": ["Google Ventures", "Felicis"],
+    "investors": [
+      "Google Ventures",
+      "Felicis"
+    ],
     "team_size": 95,
     "location": "New York, NY",
     "hiring_status": "hiring",
@@ -535,11 +942,19 @@
     "description": "Perplexity AI provides precise answers with citations using advanced language models, redefining how people search for information.",
     "year_founded": 2023,
     "category": "AI, Search",
-    "tags": ["AI", "Search", "Question Answering"],
+    "tags": [
+      "AI",
+      "Search",
+      "Question Answering"
+    ],
     "funding_round": "Series B",
     "funding_amount": 73500000,
     "valuation": 520000000,
-    "investors": ["NEA", "Elad Gil", "Nat Friedman"],
+    "investors": [
+      "NEA",
+      "Elad Gil",
+      "Nat Friedman"
+    ],
     "team_size": 42,
     "location": "San Francisco, CA",
     "hiring_status": "hiring",
@@ -559,11 +974,18 @@
     "description": "Harvey AI assists lawyers with research, drafting, analysis, and workflow automation using domain-specific AI models.",
     "year_founded": 2023,
     "category": "AI, LegalTech",
-    "tags": ["AI", "Legal", "Automation"],
+    "tags": [
+      "AI",
+      "Legal",
+      "Automation"
+    ],
     "funding_round": "Series B",
     "funding_amount": 80000000,
     "valuation": 715000000,
-    "investors": ["Sequoia Capital", "OpenAI Startup Fund"],
+    "investors": [
+      "Sequoia Capital",
+      "OpenAI Startup Fund"
+    ],
     "team_size": 50,
     "location": "San Francisco, CA",
     "hiring_status": "hiring",
@@ -580,14 +1002,22 @@
     "website": "https://elevenlabs.io/",
     "tagline": "AI voice synthesis and cloning",
     "oneline_brief": "Realistic AI-generated voices for content creators.",
-    "description": "ElevenLabs creates high-quality text-to-speech and voice cloning technology for media, gaming, and accessibility.",
+    "description": "ElevenLabs creates high-quality text-to-speech and voice cloning technology for media, gaming, and accessibility. (Updated Feb 2026: reported $500M round at ~$11B valuation.)",
     "year_founded": 2023,
     "category": "AI, Audio",
-    "tags": ["AI", "Voice", "Speech Synthesis"],
-    "funding_round": "Series B",
-    "funding_amount": 80000000,
-    "valuation": 1100000000,
-    "investors": ["Andreessen Horowitz", "Nat Friedman", "Daniel Gross"],
+    "tags": [
+      "AI",
+      "Voice",
+      "Speech Synthesis"
+    ],
+    "funding_round": "Series D",
+    "funding_amount": 500000000,
+    "valuation": 11000000000,
+    "investors": [
+      "Andreessen Horowitz",
+      "Nat Friedman",
+      "Daniel Gross"
+    ],
     "team_size": 38,
     "location": "New York, NY",
     "hiring_status": "hiring",
@@ -607,11 +1037,19 @@
     "description": "Anthropic develops advanced AI systems like Claude, focusing on safety, alignment, and responsible AI deployment.",
     "year_founded": 2023,
     "category": "AI, Research",
-    "tags": ["AI", "Safety", "Foundation Models"],
+    "tags": [
+      "AI",
+      "Safety",
+      "Foundation Models"
+    ],
     "funding_round": "Series C",
     "funding_amount": 450000000,
     "valuation": 4100000000,
-    "investors": ["Google", "Spark Capital", "Salesforce Ventures"],
+    "investors": [
+      "Google",
+      "Spark Capital",
+      "Salesforce Ventures"
+    ],
     "team_size": 150,
     "location": "San Francisco, CA",
     "hiring_status": "hiring",
@@ -631,11 +1069,18 @@
     "description": "Cohere provides natural language processing APIs and models that help enterprises build AI-powered applications.",
     "year_founded": 2023,
     "category": "AI, NLP",
-    "tags": ["AI", "NLP", "Enterprise"],
+    "tags": [
+      "AI",
+      "NLP",
+      "Enterprise"
+    ],
     "funding_round": "Series C",
     "funding_amount": 270000000,
     "valuation": 2200000000,
-    "investors": ["Tiger Global", "Inovia Capital"],
+    "investors": [
+      "Tiger Global",
+      "Inovia Capital"
+    ],
     "team_size": 110,
     "location": "Toronto, Canada",
     "hiring_status": "hiring",
@@ -655,11 +1100,18 @@
     "description": "Replicate makes it easy to deploy and run machine learning models in the cloud with a simple API interface.",
     "year_founded": 2023,
     "category": "AI, Infrastructure",
-    "tags": ["AI", "MLOps", "API"],
+    "tags": [
+      "AI",
+      "MLOps",
+      "API"
+    ],
     "funding_round": "Series A",
     "funding_amount": 40000000,
     "valuation": null,
-    "investors": ["Andreessen Horowitz", "Y Combinator"],
+    "investors": [
+      "Andreessen Horowitz",
+      "Y Combinator"
+    ],
     "team_size": 28,
     "location": "San Francisco, CA",
     "hiring_status": "hiring",
@@ -679,11 +1131,18 @@
     "description": "Hebbia helps financial services and legal professionals search and analyze massive document collections using AI.",
     "year_founded": 2023,
     "category": "AI, Enterprise Software",
-    "tags": ["AI", "Search", "Document Analysis"],
+    "tags": [
+      "AI",
+      "Search",
+      "Document Analysis"
+    ],
     "funding_round": "Series A",
     "funding_amount": 30000000,
     "valuation": null,
-    "investors": ["Index Ventures", "Google Ventures"],
+    "investors": [
+      "Index Ventures",
+      "Google Ventures"
+    ],
     "team_size": 35,
     "location": "New York, NY",
     "hiring_status": "hiring",
@@ -703,11 +1162,18 @@
     "description": "Replit is a collaborative browser-based IDE that enables developers to code, collaborate, and deploy applications with AI help.",
     "year_founded": 2023,
     "category": "Developer Tools, AI",
-    "tags": ["IDE", "AI", "Collaboration"],
+    "tags": [
+      "IDE",
+      "AI",
+      "Collaboration"
+    ],
     "funding_round": "Series B",
     "funding_amount": 97400000,
     "valuation": 1160000000,
-    "investors": ["Andreessen Horowitz", "Coatue"],
+    "investors": [
+      "Andreessen Horowitz",
+      "Coatue"
+    ],
     "team_size": 75,
     "location": "San Francisco, CA",
     "hiring_status": "hiring",
@@ -727,11 +1193,18 @@
     "description": "Descript offers AI-powered transcription, editing, and collaboration tools for podcasters and video creators.",
     "year_founded": 2023,
     "category": "AI, Media, Productivity",
-    "tags": ["AI", "Video Editing", "Audio"],
+    "tags": [
+      "AI",
+      "Video Editing",
+      "Audio"
+    ],
     "funding_round": "Series C",
     "funding_amount": 50000000,
     "valuation": 550000000,
-    "investors": ["OpenAI Startup Fund", "Redpoint Ventures"],
+    "investors": [
+      "OpenAI Startup Fund",
+      "Redpoint Ventures"
+    ],
     "team_size": 82,
     "location": "San Francisco, CA",
     "hiring_status": "not hiring",
@@ -751,11 +1224,19 @@
     "description": "Jasper AI helps marketing teams create high-quality content faster with AI-powered writing and image generation.",
     "year_founded": 2023,
     "category": "AI, Marketing",
-    "tags": ["AI", "Content", "Marketing"],
+    "tags": [
+      "AI",
+      "Content",
+      "Marketing"
+    ],
     "funding_round": "Series A",
     "funding_amount": 125000000,
     "valuation": 1500000000,
-    "investors": ["Insight Partners", "Coatue", "Bessemer"],
+    "investors": [
+      "Insight Partners",
+      "Coatue",
+      "Bessemer"
+    ],
     "team_size": 210,
     "location": "Austin, TX",
     "hiring_status": "hiring",
@@ -775,11 +1256,19 @@
     "description": "Vercel provides hosting and serverless functions optimized for frontend frameworks like Next.js with AI integrations.",
     "year_founded": 2023,
     "category": "Developer Tools, Cloud",
-    "tags": ["Cloud", "Frontend", "Deployment"],
+    "tags": [
+      "Cloud",
+      "Frontend",
+      "Deployment"
+    ],
     "funding_round": "Series D",
     "funding_amount": 150000000,
     "valuation": 2500000000,
-    "investors": ["Accel", "GV", "Bedrock Capital"],
+    "investors": [
+      "Accel",
+      "GV",
+      "Bedrock Capital"
+    ],
     "team_size": 180,
     "location": "San Francisco, CA",
     "hiring_status": "hiring",
@@ -791,7 +1280,7 @@
       "crunchbase": "https://www.crunchbase.com/organization/vercel"
     }
   },
-    {
+  {
     "name": "Scale AI",
     "website": "https://scale.com/",
     "tagline": "Data platform for AI",
@@ -799,11 +1288,19 @@
     "description": "Scale AI provides data labeling and AI training infrastructure for companies building machine learning systems.",
     "year_founded": 2022,
     "category": "AI, Data Infrastructure",
-    "tags": ["AI", "Data Labeling", "ML Infrastructure"],
+    "tags": [
+      "AI",
+      "Data Labeling",
+      "ML Infrastructure"
+    ],
     "funding_round": "Series E",
     "funding_amount": 325000000,
     "valuation": 7300000000,
-    "investors": ["Accel", "Index Ventures", "Founders Fund"],
+    "investors": [
+      "Accel",
+      "Index Ventures",
+      "Founders Fund"
+    ],
     "team_size": 450,
     "location": "San Francisco, CA",
     "hiring_status": "hiring",
@@ -823,11 +1320,18 @@
     "description": "Figma is a cloud-based design tool for teams to create, test, and ship better designs from start to finish.",
     "year_founded": 2022,
     "category": "Design Tools, SaaS",
-    "tags": ["Design", "Collaboration", "Prototyping"],
+    "tags": [
+      "Design",
+      "Collaboration",
+      "Prototyping"
+    ],
     "funding_round": "Series E",
     "funding_amount": 200000000,
     "valuation": 10000000000,
-    "investors": ["Sequoia Capital", "Kleiner Perkins"],
+    "investors": [
+      "Sequoia Capital",
+      "Kleiner Perkins"
+    ],
     "team_size": 800,
     "location": "San Francisco, CA",
     "hiring_status": "hiring",
@@ -847,11 +1351,18 @@
     "description": "Notion combines notes, docs, wikis, and project management into a unified workspace with AI features.",
     "year_founded": 2022,
     "category": "Productivity, SaaS",
-    "tags": ["Productivity", "Collaboration", "Knowledge Management"],
+    "tags": [
+      "Productivity",
+      "Collaboration",
+      "Knowledge Management"
+    ],
     "funding_round": "Series C",
     "funding_amount": 275000000,
     "valuation": 10000000000,
-    "investors": ["Coatue", "Sequoia Capital"],
+    "investors": [
+      "Coatue",
+      "Sequoia Capital"
+    ],
     "team_size": 350,
     "location": "San Francisco, CA",
     "hiring_status": "hiring",
@@ -871,11 +1382,18 @@
     "description": "Anduril builds advanced defense technology including autonomous drones, sensors, and counter-systems using AI.",
     "year_founded": 2022,
     "category": "Defense Tech, AI, Robotics",
-    "tags": ["Defense", "AI", "Autonomous Systems"],
+    "tags": [
+      "Defense",
+      "AI",
+      "Autonomous Systems"
+    ],
     "funding_round": "Series E",
     "funding_amount": 1480000000,
     "valuation": 8500000000,
-    "investors": ["Founders Fund", "Andreessen Horowitz"],
+    "investors": [
+      "Founders Fund",
+      "Andreessen Horowitz"
+    ],
     "team_size": 1200,
     "location": "Costa Mesa, CA",
     "hiring_status": "hiring",
@@ -895,11 +1413,19 @@
     "description": "Ramp provides corporate cards, expense management, and bill payments with AI-powered insights to help businesses control spending.",
     "year_founded": 2022,
     "category": "Fintech, SaaS",
-    "tags": ["Fintech", "Expense Management", "Corporate Cards"],
+    "tags": [
+      "Fintech",
+      "Expense Management",
+      "Corporate Cards"
+    ],
     "funding_round": "Series D",
     "funding_amount": 750000000,
     "valuation": 8100000000,
-    "investors": ["Founders Fund", "Stripe", "Goldman Sachs"],
+    "investors": [
+      "Founders Fund",
+      "Stripe",
+      "Goldman Sachs"
+    ],
     "team_size": 500,
     "location": "New York, NY",
     "hiring_status": "hiring",
@@ -919,11 +1445,18 @@
     "description": "Chime offers mobile-first banking with no hidden fees, automatic savings, and credit-building tools.",
     "year_founded": 2022,
     "category": "Fintech, Banking",
-    "tags": ["Mobile Banking", "Fintech", "Consumer Finance"],
+    "tags": [
+      "Mobile Banking",
+      "Fintech",
+      "Consumer Finance"
+    ],
     "funding_round": "Series G",
     "funding_amount": 750000000,
     "valuation": 25000000000,
-    "investors": ["Sequoia Capital", "Tiger Global"],
+    "investors": [
+      "Sequoia Capital",
+      "Tiger Global"
+    ],
     "team_size": 1500,
     "location": "San Francisco, CA",
     "hiring_status": "hiring",
@@ -943,11 +1476,18 @@
     "description": "Plaid enables fintech apps to connect with users' bank accounts for payments, verification, and financial data.",
     "year_founded": 2022,
     "category": "Fintech, API",
-    "tags": ["Fintech", "Banking API", "Infrastructure"],
+    "tags": [
+      "Fintech",
+      "Banking API",
+      "Infrastructure"
+    ],
     "funding_round": "Series D",
     "funding_amount": 425000000,
     "valuation": 13400000000,
-    "investors": ["Altimeter Capital", "Silver Lake"],
+    "investors": [
+      "Altimeter Capital",
+      "Silver Lake"
+    ],
     "team_size": 650,
     "location": "San Francisco, CA",
     "hiring_status": "hiring",
@@ -967,11 +1507,18 @@
     "description": "Stripe provides payment processing, billing, and financial tools for businesses of all sizes to accept payments online.",
     "year_founded": 2022,
     "category": "Fintech, Payments",
-    "tags": ["Payments", "Fintech", "API"],
+    "tags": [
+      "Payments",
+      "Fintech",
+      "API"
+    ],
     "funding_round": "Series I",
     "funding_amount": 600000000,
     "valuation": 50000000000,
-    "investors": ["Thrive Capital", "Andreessen Horowitz"],
+    "investors": [
+      "Thrive Capital",
+      "Andreessen Horowitz"
+    ],
     "team_size": 8000,
     "location": "San Francisco, CA",
     "hiring_status": "hiring",
@@ -991,11 +1538,18 @@
     "description": "Brex offers corporate cards with high limits, cash management accounts, and expense software for growing companies.",
     "year_founded": 2022,
     "category": "Fintech, SaaS",
-    "tags": ["Corporate Cards", "Fintech", "Expense Management"],
+    "tags": [
+      "Corporate Cards",
+      "Fintech",
+      "Expense Management"
+    ],
     "funding_round": "Series D",
     "funding_amount": 300000000,
     "valuation": 12300000000,
-    "investors": ["Y Combinator", "DST Global"],
+    "investors": [
+      "Y Combinator",
+      "DST Global"
+    ],
     "team_size": 900,
     "location": "San Francisco, CA",
     "hiring_status": "hiring",
@@ -1015,11 +1569,18 @@
     "description": "Navan (formerly TripActions) combines travel booking, expense management, and corporate cards in one platform.",
     "year_founded": 2022,
     "category": "SaaS, Travel Tech",
-    "tags": ["Travel", "Expense Management", "Corporate"],
+    "tags": [
+      "Travel",
+      "Expense Management",
+      "Corporate"
+    ],
     "funding_round": "Series F",
     "funding_amount": 400000000,
     "valuation": 9200000000,
-    "investors": ["Andreessen Horowitz", "Lightspeed"],
+    "investors": [
+      "Andreessen Horowitz",
+      "Lightspeed"
+    ],
     "team_size": 1800,
     "location": "Palo Alto, CA",
     "hiring_status": "hiring",
@@ -1039,11 +1600,18 @@
     "description": "Carta helps private companies, investors, and employees manage equity, valuations, and cap tables digitally.",
     "year_founded": 2022,
     "category": "Fintech, SaaS",
-    "tags": ["Equity Management", "Cap Table", "Fintech"],
+    "tags": [
+      "Equity Management",
+      "Cap Table",
+      "Fintech"
+    ],
     "funding_round": "Series G",
     "funding_amount": 500000000,
     "valuation": 7400000000,
-    "investors": ["Andreessen Horowitz", "Tribe Capital"],
+    "investors": [
+      "Andreessen Horowitz",
+      "Tribe Capital"
+    ],
     "team_size": 1200,
     "location": "San Francisco, CA",
     "hiring_status": "not hiring",
@@ -1063,11 +1631,18 @@
     "description": "Databricks provides a unified platform for data engineering, data science, and machine learning on the cloud.",
     "year_founded": 2022,
     "category": "Data Infrastructure, AI",
-    "tags": ["Data Engineering", "AI", "Analytics"],
+    "tags": [
+      "Data Engineering",
+      "AI",
+      "Analytics"
+    ],
     "funding_round": "Series I",
     "funding_amount": 500000000,
     "valuation": 43000000000,
-    "investors": ["Andreessen Horowitz", "NEA"],
+    "investors": [
+      "Andreessen Horowitz",
+      "NEA"
+    ],
     "team_size": 5000,
     "location": "San Francisco, CA",
     "hiring_status": "hiring",
@@ -1087,11 +1662,18 @@
     "description": "Snowflake provides a cloud-based data warehousing platform for analytics, data engineering, and AI applications.",
     "year_founded": 2022,
     "category": "Data Infrastructure, Cloud",
-    "tags": ["Data Warehouse", "Cloud", "Analytics"],
+    "tags": [
+      "Data Warehouse",
+      "Cloud",
+      "Analytics"
+    ],
     "funding_round": "IPO",
     "funding_amount": 3400000000,
     "valuation": 70000000000,
-    "investors": ["Sequoia Capital", "Altimeter Capital"],
+    "investors": [
+      "Sequoia Capital",
+      "Altimeter Capital"
+    ],
     "team_size": 6500,
     "location": "Bozeman, MT",
     "hiring_status": "hiring",
@@ -1103,7 +1685,7 @@
       "crunchbase": "https://www.crunchbase.com/organization/snowflake-computing"
     }
   },
-    {
+  {
     "name": "Canva",
     "website": "https://www.canva.com/",
     "tagline": "Design platform for everyone",
@@ -1111,11 +1693,18 @@
     "description": "Canva is a drag-and-drop design tool with templates for social media, presentations, posters, and more, now with AI features.",
     "year_founded": 2021,
     "category": "Design Tools, SaaS",
-    "tags": ["Design", "Graphics", "Templates"],
+    "tags": [
+      "Design",
+      "Graphics",
+      "Templates"
+    ],
     "funding_round": "Series D",
     "funding_amount": 200000000,
     "valuation": 40000000000,
-    "investors": ["General Catalyst", "Bessemer Venture Partners"],
+    "investors": [
+      "General Catalyst",
+      "Bessemer Venture Partners"
+    ],
     "team_size": 3500,
     "location": "Sydney, Australia",
     "hiring_status": "hiring",
@@ -1135,11 +1724,18 @@
     "description": "Relativity Space uses autonomous robotics and 3D printing to build rockets faster and cheaper for satellite launches.",
     "year_founded": 2021,
     "category": "Aerospace, Manufacturing",
-    "tags": ["Space", "3D Printing", "Rockets"],
+    "tags": [
+      "Space",
+      "3D Printing",
+      "Rockets"
+    ],
     "funding_round": "Series E",
     "funding_amount": 650000000,
     "valuation": 4200000000,
-    "investors": ["Fidelity", "BlackRock"],
+    "investors": [
+      "Fidelity",
+      "BlackRock"
+    ],
     "team_size": 1000,
     "location": "Long Beach, CA",
     "hiring_status": "hiring",
@@ -1159,11 +1755,18 @@
     "description": "Airtable combines spreadsheet simplicity with database power, enabling teams to build custom apps and workflows.",
     "year_founded": 2021,
     "category": "No-code, SaaS, Productivity",
-    "tags": ["No-code", "Database", "Workflow"],
+    "tags": [
+      "No-code",
+      "Database",
+      "Workflow"
+    ],
     "funding_round": "Series F",
     "funding_amount": 735000000,
     "valuation": 11000000000,
-    "investors": ["Thrive Capital", "Coatue"],
+    "investors": [
+      "Thrive Capital",
+      "Coatue"
+    ],
     "team_size": 850,
     "location": "San Francisco, CA",
     "hiring_status": "hiring",
@@ -1183,11 +1786,18 @@
     "description": "Instacart partners with local stores to deliver groceries to customers' doors, powered by a gig economy workforce.",
     "year_founded": 2021,
     "category": "E-commerce, Delivery",
-    "tags": ["Grocery", "Delivery", "Marketplace"],
+    "tags": [
+      "Grocery",
+      "Delivery",
+      "Marketplace"
+    ],
     "funding_round": "IPO",
     "funding_amount": 600000000,
     "valuation": 10000000000,
-    "investors": ["Sequoia Capital", "D1 Capital"],
+    "investors": [
+      "Sequoia Capital",
+      "D1 Capital"
+    ],
     "team_size": 3000,
     "location": "San Francisco, CA",
     "hiring_status": "hiring",
@@ -1207,11 +1817,18 @@
     "description": "Devoted Health combines insurance with clinical care to improve outcomes and reduce costs for Medicare beneficiaries.",
     "year_founded": 2021,
     "category": "HealthTech, Insurance",
-    "tags": ["Healthcare", "Insurance", "Medicare"],
+    "tags": [
+      "Healthcare",
+      "Insurance",
+      "Medicare"
+    ],
     "funding_round": "Series D",
     "funding_amount": 300000000,
     "valuation": 12700000000,
-    "investors": ["Andreessen Horowitz", "Uprising"],
+    "investors": [
+      "Andreessen Horowitz",
+      "Uprising"
+    ],
     "team_size": 2500,
     "location": "Waltham, MA",
     "hiring_status": "hiring",
@@ -1231,11 +1848,18 @@
     "description": "Tempus collects and analyzes clinical and molecular data to help doctors personalize cancer care and improve outcomes.",
     "year_founded": 2021,
     "category": "HealthTech, AI",
-    "tags": ["Healthcare", "AI", "Genomics"],
+    "tags": [
+      "Healthcare",
+      "AI",
+      "Genomics"
+    ],
     "funding_round": "Series G",
     "funding_amount": 275000000,
     "valuation": 8100000000,
-    "investors": ["Baillie Gifford", "T. Rowe Price"],
+    "investors": [
+      "Baillie Gifford",
+      "T. Rowe Price"
+    ],
     "team_size": 2000,
     "location": "Chicago, IL",
     "hiring_status": "hiring",
@@ -1255,11 +1879,18 @@
     "description": "Olive AI uses artificial intelligence to automate administrative processes in hospitals and health systems.",
     "year_founded": 2021,
     "category": "HealthTech, AI",
-    "tags": ["Healthcare", "AI", "Automation"],
+    "tags": [
+      "Healthcare",
+      "AI",
+      "Automation"
+    ],
     "funding_round": "Series H",
     "funding_amount": 400000000,
     "valuation": 4000000000,
-    "investors": ["Tiger Global", "General Catalyst"],
+    "investors": [
+      "Tiger Global",
+      "General Catalyst"
+    ],
     "team_size": 800,
     "location": "Columbus, OH",
     "hiring_status": "not hiring",
@@ -1279,11 +1910,18 @@
     "description": "Rubrik provides cloud-native data protection, backup, recovery, and ransomware defense for enterprises.",
     "year_founded": 2021,
     "category": "Cybersecurity, Cloud",
-    "tags": ["Security", "Backup", "Cloud"],
+    "tags": [
+      "Security",
+      "Backup",
+      "Cloud"
+    ],
     "funding_round": "Series E",
     "funding_amount": 553000000,
     "valuation": 3300000000,
-    "investors": ["Lightspeed Ventures", "Greylock"],
+    "investors": [
+      "Lightspeed Ventures",
+      "Greylock"
+    ],
     "team_size": 2200,
     "location": "Palo Alto, CA",
     "hiring_status": "hiring",
@@ -1303,11 +1941,18 @@
     "description": "Wiz provides unified cloud security covering vulnerabilities, misconfigurations, secrets, and threats across multi-cloud environments.",
     "year_founded": 2021,
     "category": "Cybersecurity, Cloud",
-    "tags": ["Security", "Cloud", "DevSecOps"],
+    "tags": [
+      "Security",
+      "Cloud",
+      "DevSecOps"
+    ],
     "funding_round": "Series D",
     "funding_amount": 300000000,
     "valuation": 10000000000,
-    "investors": ["Sequoia Capital", "Thrive Capital"],
+    "investors": [
+      "Sequoia Capital",
+      "Thrive Capital"
+    ],
     "team_size": 900,
     "location": "New York, NY",
     "hiring_status": "hiring",
@@ -1327,11 +1972,18 @@
     "description": "Lacework automates cloud security at scale, providing threat detection, compliance, and vulnerability management.",
     "year_founded": 2021,
     "category": "Cybersecurity, Cloud",
-    "tags": ["Security", "Cloud", "Automation"],
+    "tags": [
+      "Security",
+      "Cloud",
+      "Automation"
+    ],
     "funding_round": "Series D",
     "funding_amount": 525000000,
     "valuation": 8300000000,
-    "investors": ["Sutter Hill Ventures", "Tiger Global"],
+    "investors": [
+      "Sutter Hill Ventures",
+      "Tiger Global"
+    ],
     "team_size": 700,
     "location": "San Jose, CA",
     "hiring_status": "hiring",
@@ -1351,11 +2003,18 @@
     "description": "Snyk helps developers find and automatically fix security vulnerabilities in code, dependencies, containers, and infrastructure.",
     "year_founded": 2021,
     "category": "Cybersecurity, DevTools",
-    "tags": ["Security", "DevSecOps", "Code"],
+    "tags": [
+      "Security",
+      "DevSecOps",
+      "Code"
+    ],
     "funding_round": "Series F",
     "funding_amount": 530000000,
     "valuation": 8500000000,
-    "investors": ["Accel", "Coatue"],
+    "investors": [
+      "Accel",
+      "Coatue"
+    ],
     "team_size": 1000,
     "location": "Boston, MA",
     "hiring_status": "hiring",
@@ -1375,11 +2034,18 @@
     "description": "GitLab provides version control, CI/CD, security, and collaboration tools for software development teams.",
     "year_founded": 2021,
     "category": "DevTools, SaaS",
-    "tags": ["DevOps", "CI/CD", "Git"],
+    "tags": [
+      "DevOps",
+      "CI/CD",
+      "Git"
+    ],
     "funding_round": "IPO",
     "funding_amount": 650000000,
     "valuation": 15000000000,
-    "investors": ["ICONIQ Capital", "Khosla Ventures"],
+    "investors": [
+      "ICONIQ Capital",
+      "Khosla Ventures"
+    ],
     "team_size": 2000,
     "location": "San Francisco, CA",
     "hiring_status": "hiring",
@@ -1391,7 +2057,7 @@
       "crunchbase": "https://www.crunchbase.com/organization/gitlab"
     }
   },
-    {
+  {
     "name": "HashiCorp",
     "website": "https://www.hashicorp.com/",
     "tagline": "Infrastructure automation",
@@ -1399,11 +2065,18 @@
     "description": "HashiCorp provides tools like Terraform, Vault, and Consul for provisioning, securing, and managing cloud infrastructure.",
     "year_founded": 2020,
     "category": "DevOps, Cloud Infrastructure",
-    "tags": ["Infrastructure", "Cloud", "DevOps"],
+    "tags": [
+      "Infrastructure",
+      "Cloud",
+      "DevOps"
+    ],
     "funding_round": "IPO",
     "funding_amount": 350000000,
     "valuation": 14000000000,
-    "investors": ["Mayfield Fund", "GGV Capital"],
+    "investors": [
+      "Mayfield Fund",
+      "GGV Capital"
+    ],
     "team_size": 2500,
     "location": "San Francisco, CA",
     "hiring_status": "hiring",
@@ -1423,11 +2096,18 @@
     "description": "Temporal provides an open-source platform for orchestrating complex, long-running workflows and microservices.",
     "year_founded": 2020,
     "category": "DevTools, Infrastructure",
-    "tags": ["Workflows", "Orchestration", "Microservices"],
+    "tags": [
+      "Workflows",
+      "Orchestration",
+      "Microservices"
+    ],
     "funding_round": "Series B",
     "funding_amount": 103000000,
     "valuation": 1500000000,
-    "investors": ["Sequoia Capital", "Amplify Partners"],
+    "investors": [
+      "Sequoia Capital",
+      "Amplify Partners"
+    ],
     "team_size": 120,
     "location": "Seattle, WA",
     "hiring_status": "hiring",
@@ -1447,11 +2127,19 @@
     "description": "Hugging Face hosts the largest repository of open-source AI models and datasets, empowering developers and researchers.",
     "year_founded": 2020,
     "category": "AI, Open Source, MLOps",
-    "tags": ["AI", "Machine Learning", "Open Source"],
+    "tags": [
+      "AI",
+      "Machine Learning",
+      "Open Source"
+    ],
     "funding_round": "Series D",
     "funding_amount": 235000000,
     "valuation": 4500000000,
-    "investors": ["Coatue", "Sequoia Capital", "Google"],
+    "investors": [
+      "Coatue",
+      "Sequoia Capital",
+      "Google"
+    ],
     "team_size": 250,
     "location": "New York, NY",
     "hiring_status": "hiring",
@@ -1471,11 +2159,19 @@
     "description": "Webflow enables designers to build responsive websites visually while generating clean, semantic code automatically.",
     "year_founded": 2020,
     "category": "No-code, Design Tools, SaaS",
-    "tags": ["No-code", "Web Design", "CMS"],
+    "tags": [
+      "No-code",
+      "Web Design",
+      "CMS"
+    ],
     "funding_round": "Series C",
     "funding_amount": 140000000,
     "valuation": 4000000000,
-    "investors": ["Y Combinator", "Accel", "CapitalG"],
+    "investors": [
+      "Y Combinator",
+      "Accel",
+      "CapitalG"
+    ],
     "team_size": 800,
     "location": "San Francisco, CA",
     "hiring_status": "hiring",
@@ -1495,11 +2191,18 @@
     "description": "Miro provides an infinite canvas for teams to brainstorm, plan, and collaborate visually in real-time.",
     "year_founded": 2020,
     "category": "Collaboration, SaaS, Productivity",
-    "tags": ["Collaboration", "Whiteboard", "Remote Work"],
+    "tags": [
+      "Collaboration",
+      "Whiteboard",
+      "Remote Work"
+    ],
     "funding_round": "Series C",
     "funding_amount": 400000000,
     "valuation": 17500000000,
-    "investors": ["ICONIQ Growth", "Accel"],
+    "investors": [
+      "ICONIQ Growth",
+      "Accel"
+    ],
     "team_size": 1500,
     "location": "San Francisco, CA",
     "hiring_status": "hiring",
@@ -1519,11 +2222,18 @@
     "description": "Monday.com provides customizable workflows and project management tools to help teams collaborate and track work.",
     "year_founded": 2020,
     "category": "SaaS, Productivity, Project Management",
-    "tags": ["Project Management", "Workflow", "Collaboration"],
+    "tags": [
+      "Project Management",
+      "Workflow",
+      "Collaboration"
+    ],
     "funding_round": "IPO",
     "funding_amount": 574000000,
     "valuation": 11000000000,
-    "investors": ["Sapphire Ventures", "Insight Partners"],
+    "investors": [
+      "Sapphire Ventures",
+      "Insight Partners"
+    ],
     "team_size": 1700,
     "location": "Tel Aviv, Israel",
     "hiring_status": "hiring",
@@ -1543,11 +2253,18 @@
     "description": "Confluent provides a cloud-native platform for real-time data streaming built on Apache Kafka.",
     "year_founded": 2020,
     "category": "Data Infrastructure, Cloud",
-    "tags": ["Data Streaming", "Kafka", "Real-time"],
+    "tags": [
+      "Data Streaming",
+      "Kafka",
+      "Real-time"
+    ],
     "funding_round": "IPO",
     "funding_amount": 828000000,
     "valuation": 9000000000,
-    "investors": ["Benchmark", "Index Ventures"],
+    "investors": [
+      "Benchmark",
+      "Index Ventures"
+    ],
     "team_size": 2800,
     "location": "Mountain View, CA",
     "hiring_status": "hiring",
@@ -1567,11 +2284,18 @@
     "description": "Kong provides an API gateway and service mesh for managing microservices and APIs in cloud-native environments.",
     "year_founded": 2020,
     "category": "API Management, Infrastructure",
-    "tags": ["API Gateway", "Microservices", "Cloud Native"],
+    "tags": [
+      "API Gateway",
+      "Microservices",
+      "Cloud Native"
+    ],
     "funding_round": "Series D",
     "funding_amount": 100000000,
     "valuation": 2000000000,
-    "investors": ["Tiger Global", "Andreessen Horowitz"],
+    "investors": [
+      "Tiger Global",
+      "Andreessen Horowitz"
+    ],
     "team_size": 450,
     "location": "San Francisco, CA",
     "hiring_status": "hiring",
@@ -1591,11 +2315,18 @@
     "description": "Prefect provides workflow orchestration for data engineering teams to build reliable data pipelines with Python.",
     "year_founded": 2020,
     "category": "Data Engineering, DevOps",
-    "tags": ["Workflow", "Data Pipelines", "Orchestration"],
+    "tags": [
+      "Workflow",
+      "Data Pipelines",
+      "Orchestration"
+    ],
     "funding_round": "Series B",
     "funding_amount": 32000000,
     "valuation": null,
-    "investors": ["Andreessen Horowitz", "Quiet Capital"],
+    "investors": [
+      "Andreessen Horowitz",
+      "Quiet Capital"
+    ],
     "team_size": 85,
     "location": "Washington, D.C.",
     "hiring_status": "hiring",
@@ -1615,11 +2346,18 @@
     "description": "Airbyte provides open-source ELT pipelines for syncing data from applications, APIs, and databases to warehouses.",
     "year_founded": 2020,
     "category": "Data Infrastructure, Open Source",
-    "tags": ["Data Integration", "ETL", "Open Source"],
+    "tags": [
+      "Data Integration",
+      "ETL",
+      "Open Source"
+    ],
     "funding_round": "Series B",
     "funding_amount": 150000000,
     "valuation": 1500000000,
-    "investors": ["Accel", "Benchmark"],
+    "investors": [
+      "Accel",
+      "Benchmark"
+    ],
     "team_size": 180,
     "location": "San Francisco, CA",
     "hiring_status": "hiring",
@@ -1639,11 +2377,18 @@
     "description": "dbt enables data analysts and engineers to transform data in their warehouse more effectively using software engineering practices.",
     "year_founded": 2020,
     "category": "Data Engineering, Analytics",
-    "tags": ["Data Transformation", "Analytics", "SQL"],
+    "tags": [
+      "Data Transformation",
+      "Analytics",
+      "SQL"
+    ],
     "funding_round": "Series D",
     "funding_amount": 222000000,
     "valuation": 4200000000,
-    "investors": ["Altimeter Capital", "Andreessen Horowitz"],
+    "investors": [
+      "Altimeter Capital",
+      "Andreessen Horowitz"
+    ],
     "team_size": 450,
     "location": "Philadelphia, PA",
     "hiring_status": "hiring",
@@ -1663,11 +2408,18 @@
     "description": "Weights & Biases provides tools for experiment tracking, model management, and collaboration for ML teams.",
     "year_founded": 2019,
     "category": "MLOps, AI Infrastructure",
-    "tags": ["Machine Learning", "MLOps", "Experiment Tracking"],
+    "tags": [
+      "Machine Learning",
+      "MLOps",
+      "Experiment Tracking"
+    ],
     "funding_round": "Series C",
     "funding_amount": 200000000,
     "valuation": 1000000000,
-    "investors": ["Insight Partners", "Felicis Ventures"],
+    "investors": [
+      "Insight Partners",
+      "Felicis Ventures"
+    ],
     "team_size": 220,
     "location": "San Francisco, CA",
     "hiring_status": "hiring",
@@ -1687,11 +2439,18 @@
     "description": "Abnormal Security uses behavioral AI to detect and prevent sophisticated email attacks like phishing and account compromise.",
     "year_founded": 2019,
     "category": "Cybersecurity, AI",
-    "tags": ["Email Security", "AI", "Phishing Protection"],
+    "tags": [
+      "Email Security",
+      "AI",
+      "Phishing Protection"
+    ],
     "funding_round": "Series D",
     "funding_amount": 250000000,
     "valuation": 4000000000,
-    "investors": ["Insight Partners", "Menlo Ventures"],
+    "investors": [
+      "Insight Partners",
+      "Menlo Ventures"
+    ],
     "team_size": 550,
     "location": "San Francisco, CA",
     "hiring_status": "hiring",
