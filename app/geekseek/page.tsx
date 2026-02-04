@@ -61,7 +61,10 @@ type GeekSeekCompare = {
   links?: Array<{ url: string; label?: string }>;
   summary?: string;
 };
-const TAB_KEYS = ["compare", "places"] as const;
+const SHOW_PLACES_TAB = false;
+const ALL_TAB_KEYS = ["compare", "places"] as const;
+type TabKey = (typeof ALL_TAB_KEYS)[number];
+const TAB_KEYS = SHOW_PLACES_TAB ? ALL_TAB_KEYS : (["compare"] as const);
 const placePlaceholders = [
   "Restaurants near me",
   "Pharmacies in Alexanderplatz 10178 Berlin",
@@ -107,8 +110,9 @@ const extractComparisonLabels = (query: string) => {
 function GeekSeekClient() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const typeFromUrl = searchParams.get("type") === "places" ? "places" : "compare";
-  const [activeTab, setActiveTab] = useState<typeof TAB_KEYS[number]>(typeFromUrl);
+  const typeFromUrl =
+    searchParams.get("type") === "places" && SHOW_PLACES_TAB ? "places" : "compare";
+  const [activeTab, setActiveTab] = useState<TabKey>(typeFromUrl);
   const [query, setQuery] = useState("");
   const [placeholderIndex, setPlaceholderIndex] = useState(0);
   const [loading, setLoading] = useState(false);
@@ -143,7 +147,8 @@ function GeekSeekClient() {
       : comparePlaceholders[placeholderIndex % comparePlaceholders.length];
   }, [activeTab, placeholderIndex]);
   
-  const handleTabChange = (tab: typeof TAB_KEYS[number]) => {
+  const handleTabChange = (tab: TabKey) => {
+    if (tab === "places" && !SHOW_PLACES_TAB) return;
     setActiveTab(tab);
     router.replace(`/geekseek?type=${tab}`, { scroll: false });
   };
