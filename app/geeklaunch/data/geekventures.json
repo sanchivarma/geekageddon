@@ -84,7 +84,7 @@
       "Sequoia Capital"
     ],
     "team_size": null,
-    "location": null,
+    "location": "Palo Alto, California, United States",
     "hiring_status": "hiring",
     "rating": null,
     "reviews": [],
@@ -95,41 +95,12 @@
     }
   },
   {
-    "name": "Quadric",
-    "website": "https://www.quadric.io/",
-    "tagline": "Programmable on-device AI processor IP",
-    "oneline_brief": "Licenses neural processor IP and tooling for on-device AI inference.",
-    "description": "Quadric licenses programmable neural processor IP plus a software stack/toolchain to run models locally; TechCrunch profiled the company’s growth as demand rises for on-device inference.",
-    "year_founded": null,
-    "category": "AI, Hardware, Edge",
-    "tags": [
-      "AI",
-      "Edge AI",
-      "On-device Inference",
-      "Semiconductors"
-    ],
-    "funding_round": null,
-    "funding_amount": null,
-    "valuation": null,
-    "investors": [],
-    "team_size": null,
-    "location": null,
-    "hiring_status": null,
-    "rating": null,
-    "reviews": [],
-    "urls": {
-      "linkedin": "",
-      "twitter": "",
-      "crunchbase": ""
-    }
-  },
-  {
     "name": "Polaron",
     "website": "https://www.polaron.ai/",
     "tagline": "Intelligence layer for materials science",
     "oneline_brief": "Uses AI + image data to accelerate materials characterization and design.",
     "description": "Polaron applies machine learning to microstructure image data to connect process, structure and performance for faster material characterization, design and manufacturing; it raised a €6.7M round reported Feb 2026.",
-    "year_founded": null,
+    "year_founded": 2023,
     "category": "AI, Materials Science",
     "tags": [
       "AI",
@@ -152,35 +123,6 @@
     "reviews": [],
     "urls": {
       "linkedin": "",
-      "twitter": "",
-      "crunchbase": ""
-    }
-  },
-  {
-    "name": "Expert Intelligence",
-    "website": "https://www.expertintelligence.ai/",
-    "tagline": "AI decision layer for analytical labs",
-    "oneline_brief": "Automates lab decision-making into validated, explainable reports.",
-    "description": "Expert Intelligence provides scientist-trained AI that turns batch lab data into validated decisions and signed, explainable reports; it announced a $5.8M seed round on Feb 2026.",
-    "year_founded": null,
-    "category": "AI, Lab Automation",
-    "tags": [
-      "AI",
-      "Lab Automation",
-      "Regulated Workflows",
-      "Decision Automation"
-    ],
-    "funding_round": "Seed",
-    "funding_amount": 5800000,
-    "valuation": null,
-    "investors": [],
-    "team_size": null,
-    "location": null,
-    "hiring_status": null,
-    "rating": null,
-    "reviews": [],
-    "urls": {
-      "linkedin": "https://www.linkedin.com/company/expert-intelligence/",
       "twitter": "",
       "crunchbase": ""
     }
@@ -212,6 +154,35 @@
     "reviews": [],
     "urls": {
       "linkedin": "",
+      "twitter": "",
+      "crunchbase": ""
+    }
+  },
+  {
+    "name": "Expert Intelligence",
+    "website": "https://www.expertintelligence.ai/",
+    "tagline": "AI decision layer for analytical labs",
+    "oneline_brief": "Automates lab decision-making into validated, explainable reports.",
+    "description": "Expert Intelligence provides scientist-trained AI that turns batch lab data into validated decisions and signed, explainable reports; it announced a $5.8M seed round on Feb 2026.",
+    "year_founded": 2023,
+    "category": "AI, Lab Automation",
+    "tags": [
+      "AI",
+      "Lab Automation",
+      "Regulated Workflows",
+      "Decision Automation"
+    ],
+    "funding_round": "Seed",
+    "funding_amount": 5800000,
+    "valuation": null,
+    "investors": [],
+    "team_size": null,
+    "location": "Santa Clara, California, USA",
+    "hiring_status": null,
+    "rating": null,
+    "reviews": [],
+    "urls": {
+      "linkedin": "https://www.linkedin.com/company/expert-intelligence/",
       "twitter": "",
       "crunchbase": ""
     }
