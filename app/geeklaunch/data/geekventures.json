@@ -85,7 +85,7 @@
     "valuation": null,
     "investors": [],
     "team_size": null,
-    "location": null,
+    "location": "Pittsburgh, Pennsylvania, USA",
     "hiring_status": "hiring",
     "rating": null,
     "reviews": [],
@@ -171,7 +171,7 @@
     "tagline": "Adaptive AI web experiences",
     "oneline_brief": "Turns web pages into intent-aware 'experience agents' that adapt in real time.",
     "description": "Fibr AI builds an 'agentic web experience' layer: pages sense intent and reshape themselves; it raised a $5.7M seed round led by Accel (reported Feb 2026).",
-    "year_founded": 2024,
+    "year_founded": 2022,
     "category": "AI, MarTech",
     "tags": [
       "AI",
@@ -186,7 +186,7 @@
       "Accel"
     ],
     "team_size": null,
-    "location": null,
+    "location": "San Francisco, California, United States",
     "hiring_status": null,
     "rating": null,
     "reviews": [],
