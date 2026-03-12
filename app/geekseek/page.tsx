@@ -61,7 +61,7 @@ type GeekSeekCompare = {
   links?: Array<{ url: string; label?: string }>;
   summary?: string;
 };
-const SHOW_PLACES_TAB = false;
+const SHOW_PLACES_TAB = true;
 const ALL_TAB_KEYS = ["compare", "places"] as const;
 type TabKey = (typeof ALL_TAB_KEYS)[number];
 const TAB_KEYS = SHOW_PLACES_TAB ? ALL_TAB_KEYS : (["compare"] as const);
