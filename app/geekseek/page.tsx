@@ -225,6 +225,11 @@ function GeekSeekClient() {
       }
 
       const params = new URLSearchParams({ type, q: trimmed });
+      if (activeTab === "places") {
+        // Compatibility with backend variants that expect `query` or `textQuery`.
+        params.set("query", trimmed);
+        params.set("textQuery", trimmed);
+      }
       if (lat != null && lng != null) {
         params.set("lat", String(lat));
         params.set("lng", String(lng));
